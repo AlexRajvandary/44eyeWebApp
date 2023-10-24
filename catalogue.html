@@ -61,6 +61,15 @@
       padding: 5px;
     }
 
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.2s;
+      user-select: none;
+      cursor: grab;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
     /* Стили для кнопок в карусели */
     .carousel-button {
       width: auto; /* Задаем фиксированную ширину для кнопок */
@@ -207,6 +216,64 @@
         filterMenu.style.display = "block";
       }
     });
+
+    // Получаем элементы
+const buttonCarousel = document.getElementById("buttonCarousel");
+const buttonsContainer = buttonCarousel.querySelector(".carousel-inner");
+
+// Устанавливаем начальные значения
+let isDragging = false;
+let startPosition = 0;
+let deltaX = 0;
+
+// Обработчики событий для мыши
+buttonsContainer.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  startPosition = e.clientX - deltaX;
+
+  buttonsContainer.style.cursor = "grabbing";
+});
+
+buttonsContainer.addEventListener("mouseup", () => {
+  isDragging = false;
+  buttonsContainer.style.cursor = "grab";
+});
+
+buttonsContainer.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+
+  const x = e.clientX;
+
+  deltaX = x - startPosition;
+  buttonsContainer.style.transform = `translateX(${deltaX}px)`;
+});
+
+buttonsContainer.addEventListener("mouseleave", () => {
+  if (!isDragging) return;
+
+  isDragging = false;
+  buttonsContainer.style.cursor = "grab";
+});
+
+// Обработчики событий для сенсорных устройств (мобильных устройств)
+buttonsContainer.addEventListener("touchstart", (e) => {
+  isDragging = true;
+  startPosition = e.touches[0].clientX - deltaX;
+});
+
+buttonsContainer.addEventListener("touchend", () => {
+  isDragging = false;
+});
+
+buttonsContainer.addEventListener("touchmove", (e) => {
+  if (!isDragging) return;
+
+  const x = e.touches[0].clientX;
+
+  deltaX = x - startPosition;
+  buttonsContainer.style.transform = `translateX(${deltaX}px)`;
+});
+
 
     // Показать все товары при загрузке страницы
     displayProducts();
