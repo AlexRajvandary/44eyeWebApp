@@ -14,9 +14,17 @@
       width: 80%; /* Ширина товара */
     }
 
+    .product-card img {
+      border-radius: 10px; /* Закруглить углы на 10 пикселей (можете выбрать другой радиус) */
+    }
+
+    .card-text {
+      font-size: 13px;
+    }
+
     /* Стили для верхней надписи "Каталог" и панели фильтров */
     .catalog-title {
-      position: fixed;
+
       top: 0;
       left: 10%;
       right: 0;
@@ -45,20 +53,19 @@
     }
 
     .buttons-carousel {
-      position: fixed;
-      top: 48px;
+      top: 40px;
       left: 10%;
       z-index: 100;
       background-color: white;
       text-align: center; /* Центрирование кнопок по горизонтали */
-      padding: 18px;
+      padding: 5px;
     }
 
     /* Стили для кнопок в карусели */
     .carousel-button {
       width: auto; /* Задаем фиксированную ширину для кнопок */
       margin: 5px; /* Небольшой отступ между кнопками */
-      font-size: 14px; /* Уменьшаем размер шрифта кнопок */
+      font-size: 12px; /* Уменьшаем размер шрифта кнопок */
       display: inline-block;
       background-color: white; /* Белый фон */
       color: black; /* Черный текст */
@@ -70,10 +77,10 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="mt-4 catalog-title">Каталог</h1>
+    <h1 class="catalog-title">Каталог</h1>
 
     <!-- Горизонтальная карусель с кнопками -->
-    <div class="row mt-4 buttons-carousel">
+    <div class="row buttons-carousel">
       <div class="col-md-12">
         <div id="buttonCarousel" class="carousel slide" data-ride="false">
           <div class="carousel-inner">
@@ -158,6 +165,11 @@
                 <p class="card-text">Пол: ${product.gender}</p>
                 <p class="card-text">Сезон: ${product.season}</p>
               </div>
+               <div class="card-bottom">
+                    <button class="carousel-button">одежда</button>
+                    <button class="carousel-button">мужское</button>
+                    <button class="carousel-button">зима</button>
+               </div>
             </div>
           `;
           productRow.appendChild(productCard);
