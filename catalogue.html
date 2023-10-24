@@ -72,9 +72,21 @@
 
     /* Стили для кнопок в карусели */
     .carousel-button {
-      width: auto; /* Задаем фиксированную ширину для кнопок */
+      width: auto;
       margin: 5px; /* Небольшой отступ между кнопками */
       font-size: 12px; /* Уменьшаем размер шрифта кнопок */
+      display: inline-block;
+      background-color: white; /* Белый фон */
+      color: black; /* Черный текст */
+      border: 1px solid black; /* Овальная черная граница */
+      border-radius: 20px; /* Закругленные углы для овальной формы */
+      padding: 6px 12px; /* Поля внутри кнопки */
+    }
+
+    .card-category-label {
+      width: auto;
+      margin: 3px; /* Небольшой отступ между кнопками */
+      font-size: 10px; /* Уменьшаем размер шрифта кнопок */
       display: inline-block;
       background-color: white; /* Белый фон */
       color: black; /* Черный текст */
@@ -146,9 +158,21 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
     const products = [
-      { name: "Товар 1", category: "верхняя_одежда", gender: "мужское", season: "зима", image: "product1.jpg" },
-      { name: "Товар 2", category: "обувь", gender: "женское", season: "лето", image: "product2.jpg" },
-      { name: "Товар 3", category: "аксессуары", gender: "женское", season: "весна", image: "product3.jpg" }]
+      { name: "Кроссовки Nike Белые", category: "обувь", gender: "женское", season: "весна", image: "sneakers/1.jpg", price: 7990 },
+      { name: "Кроссовки New Balance Белые", category: "обувь", gender: "женское", season: "весна", image: "sneakers/2.jpg", price: 12490 },
+      { name: "Кроссовки Nike Sony", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/3.jpg", price: 15990 },
+      { name: "Кроссовки Чёрные", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/4.jpg", price: 12390 },
+      { name: "Кроссовки New Balance", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/5.jpg", price: 7490 },
+      { name: "Кроссовки New Balance", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/6.jpg", price: 5490 },
+      { name: "Штаны Чёрные Мужские", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "pants/1.jpg", price: 7990 },
+      { name: "Кроссовки Nike Белые", category: "верхняя_одежда", gender: "женское", season: "весна", image: "tshirt/1.jpg", price: 5490 },
+      { name: "Кроссовки New Balance Белые", category: "верхняя_одежда", gender: "женское", season: "весна", image: "tshirt/2.jpg", price: 7990 },
+      { name: "Кроссовки Nike Sony", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/3.jpg", price: 7990 },
+      { name: "Пуховик зимний", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/4.jpg", price: 5490 },
+      { name: "Футболка Inspire Чёрная", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/5.jpg", price: 5490 },
+      { name: "Футболка Brooklyn Белая", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/6.jpg", price: 12390 },
+      { name: "Футболки хайповые", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/7.jpg", price: 7990 }
+      ]
 
     // Функция для отображения товаров на странице
     function displayProducts(categoryFilter = "", genderFilter = "", seasonFilter = "") {
@@ -170,14 +194,12 @@
               <img src="${product.image}" class="card-img-top" alt="${product.name}">
               <div class="card-body">
                 <h5 class="card-title">${product.name}</h5>
-                <p class="card-text">Категория: ${product.category}</p>
-                <p class="card-text">Пол: ${product.gender}</p>
-                <p class="card-text">Сезон: ${product.season}</p>
+                <p class="card-text">${product.price}₽</p>
               </div>
                <div class="card-bottom">
-                    <button class="carousel-button">одежда</button>
-                    <button class="carousel-button">мужское</button>
-                    <button class="carousel-button">зима</button>
+                    <button class="card-category-label">одежда</button>
+                    <button class="card-category-label">мужское</button>
+                    <button class="card-category-label">зима</button>
                </div>
             </div>
           `;
