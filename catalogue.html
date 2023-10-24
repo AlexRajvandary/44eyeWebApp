@@ -2,16 +2,17 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
   <title>Каталог товаров</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     /* Добавляем стили для вертикального отображения */
     .product-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      display: block;
       text-align: center;
+      margin: 10px auto; /* Центрирование товаров по горизонтали и между рядами */
+      width: 80%; /* Ширина товара */
     }
 
 
@@ -19,7 +20,7 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="mt-4">Каталог товаров</h1>
+    <h1 class="mt-4">Каталог</h1>
 
     <!-- Настройки фильтров -->
     <div class="row mt-4">
@@ -67,37 +68,41 @@
 
 
     // Функция для отображения товаров на странице
-    function displayProducts() {
-      const categoryFilter = document.getElementById("categoryFilter").value;
-      const genderFilter = document.getElementById("genderFilter").value;
-      const seasonFilter = document.getElementById("seasonFilter").value;
+   function displayProducts() {
+  const categoryFilter = document.getElementById("categoryFilter").value;
+  const genderFilter = document.getElementById("genderFilter").value;
+  const seasonFilter = document.getElementById("seasonFilter").value;
 
-      const productList = document.getElementById("productList");
-      productList.innerHTML = "";
+  const productList = document.getElementById("productList");
+  productList.innerHTML = "";
 
-      products.forEach(product => {
-        if (
-          (!categoryFilter || product.category === categoryFilter) &&
-          (!genderFilter || product.gender === genderFilter) &&
-          (!seasonFilter || product.season === seasonFilter)
-        ) {
-          const productCard = document.createElement("div");
-          productCard.className = "col-md-4 product-card";
-          productCard.innerHTML = `
-            <div class="product-card">
-              <img src="${product.image}" class="card-img-top" alt="${product.name}">
-              <div class="card-body">
-                <h5 class="card-title">${product.name}</h5>
-                <p class="card-text">Категория: ${product.category}</p>
-                <p class="card-text">Пол: ${product.gender}</p>
-                <p class="card-text">Сезон: ${product.season}</p>
-              </div>
-            </div>
-          `;
-          productList.appendChild(productCard);
-        }
-      });
+  const productRow = document.createElement("div");
+  productRow.className = "row";
+  products.forEach(product => {
+    if (
+      (!categoryFilter || product.category === categoryFilter) &&
+      (!genderFilter || product.gender === genderFilter) &&
+      (!seasonFilter || product.season === seasonFilter)
+    ) {
+      const productCard = document.createElement("div");
+      productCard.className = "col-md-12 product-card"; // Один товар на ряд
+      productCard.innerHTML = `
+        <div class="product-card">
+          <img src="${product.image}" class="card-img-top" alt="${product.name}">
+          <div class="card-body">
+            <h5 class="card-title">${product.name}</h5>
+            <p class="card-text">Категория: ${product.category}</p>
+            <p class="card-text">Пол: ${product.gender}</p>
+            <p class="card-text">Сезон: ${product.season}</p>
+          </div>
+        </div>
+      `;
+      productRow.appendChild(productCard);
     }
+  });
+
+  productList.appendChild(productRow);
+}
 
     // Обработка изменений фильтров
     document.getElementById("categoryFilter").addEventListener("change", displayProducts);
