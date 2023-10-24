@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Каталог товаров</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Добавляем стили для вертикального отображения */
+    .product-card {
+      background-color: var(--tg-theme-bg-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    body {
+      color: var(--tg-theme-text-color);
+	  background: var(--tg-theme-bg-color);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-4">Каталог товаров</h1>
+
+    <!-- Настройки фильтров -->
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <select class="form-control" id="categoryFilter">
+          <option value="">Категория</option>
+          <option value="верхняя_одежда">Верхняя одежда</option>
+          <option value="обувь">Обувь</option>
+          <option value="аксессуары">Аксессуары</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <select class="form-control" id="genderFilter">
+          <option value="">Пол</option>
+          <option value="мужское">Мужское</option>
+          <option value="женское">Женское</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <select class="form-control" id="seasonFilter">
+          <option value="">Сезон</option>
+          <option value="зима">Зима</option>
+          <option value="осень">Осень</option>
+          <option value="лето">Лето</option>
+          <option value="весна">Весна</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Список товаров (пример) -->
+    <div class="row mt-4" id="productList">
+      <!-- Товары будут добавлены здесь с использованием JavaScript -->
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Пример данных о товарах (замените на свои данные)
+    const products = [
+      { name: "Товар 1", category: "верхняя_одежда", gender: "мужское", season: "зима", image: "product1.jpg" },
+      { name: "Товар 2", category: "обувь", gender: "женское", season: "лето", image: "product2.jpg" },
+      { name: "Товар 3", category: "аксессуары", gender: "женское", season: "весна", image: "product3.jpg" },
+      // Добавьте остальные товары
+    }
+
+    // Функция для отображения товаров на странице
+    function displayProducts() {
+      const categoryFilter = document.getElementById("categoryFilter").value;
+      const genderFilter = document.getElementById("genderFilter").value;
+      const seasonFilter = document.getElementById("seasonFilter").value;
+
+      const productList = document.getElementById("productList");
+      productList.innerHTML = "";
+
+      products.forEach(product => {
+        if (
+          (!categoryFilter || product.category === categoryFilter) &&
+          (!genderFilter || product.gender === genderFilter) &&
+          (!seasonFilter || product.season === seasonFilter)
+        ) {
+          const productCard = document.createElement("div");
+          productCard.className = "col-md-4 product-card";
+          productCard.innerHTML = `
+            <div class="card">
+              <img src="${product.image}" class="card-img-top" alt="${product.name}">
+              <div class="card-body">
+                <h5 class="card-title">${product.name}</h5>
+                <p class="card-text">Категория: ${product.category}</p>
+                <p class="card-text">Пол: ${product.gender}</p>
+                <p class="card-text">Сезон: ${product.season}</p>
+              </div>
+            </div>
+          `;
+          productList.appendChild(productCard);
+        }
+      });
+    }
+
+    // Обработка изменений фильтров
+    document.getElementById("categoryFilter").addEventListener("change", displayProducts);
+    document.getElementById("genderFilter").addEventListener("change", displayProducts);
+    document.getElementById("seasonFilter").addEventListener("change", displayProducts);
+
+    // Показать все товары при загрузке страницы
+    displayProducts();
+  </script>
+</body>
+</html>
