@@ -1,0 +1,142 @@
+/* Добавляем стили для вертикального отображения */
+    .product-card {
+      display: block;
+      text-align: center;
+      margin: 10px auto; /* Центрирование товаров по горизонтали и между рядами */
+      width: 80%; /* Ширина товара */
+    }
+
+    .product-card img {
+      border-radius: 10px; /* Закруглить углы на 10 пикселей (можете выбрать другой радиус) */
+    }
+
+    .card-text {
+      font-size: 13px;
+    }
+
+     .card-labels {
+      font-size: 10px;
+       font-weight: lighter;
+       margin-top: 5px;
+       text-align: start;
+
+    }
+
+    .card-description-text {
+      font-size: 14px;
+      font-weight: lighter;
+      text-align: justify;
+    }
+
+    /* Стили для верхней надписи "Каталог" и панели фильтров */
+    .catalog-title {
+
+      top: 0;
+      left: 10%;
+      right: 0;
+      background-color: white;
+      z-index: 100;
+    }
+
+    .filter-panel {
+      position: fixed;
+      top: 40px; /* Высота верхней надписи "Каталог" */
+      left: 0;
+      right: 0;
+      background-color: white;
+      z-index: 100;
+      padding: 10px;
+    }
+
+    .filter-menu {
+      display: none;
+      padding: 10px;
+    }
+
+    .show-filters {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .buttons-carousel {
+      top: 40px;
+      left: 10%;
+      z-index: 100;
+      background-color: white;
+      text-align: center; /* Центрирование кнопок по горизонтали */
+      padding: 5px;
+    }
+
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.2s;
+      user-select: none;
+      cursor: grab;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    /* Стили для кнопок в карусели */
+    .carousel-button {
+      width: auto;
+      margin: 5px; /* Небольшой отступ между кнопками */
+      font-size: 12px; /* Уменьшаем размер шрифта кнопок */
+      display: inline-block;
+      background-color: white; /* Белый фон */
+      color: black; /* Черный текст */
+      border: 1px solid black; /* Овальная черная граница */
+      border-radius: 20px; /* Закругленные углы для овальной формы */
+      padding: 6px 12px; /* Поля внутри кнопки */
+    }
+
+    .card-category-label {
+      width: auto;
+      margin: 3px; /* Небольшой отступ между кнопками */
+      font-size: 10px; /* Уменьшаем размер шрифта кнопок */
+      display: inline-block;
+      background-color: white; /* Белый фон */
+      color: black; /* Черный текст */
+      border: 1px solid black; /* Овальная черная граница */
+      border-radius: 20px; /* Закругленные углы для овальной формы */
+      padding: 6px 8px; /* Поля внутри кнопки */
+    }
+
+    .add-to-cart-button {
+      width: auto;
+      margin: 3px; /* Небольшой отступ между кнопками */
+      font-size: 16px; /* Уменьшаем размер шрифта кнопок */
+      display: inline-block;
+      background-color: black; /* Белый фон */
+      color: white; /* Черный текст */
+      border: 1px solid black; /* Овальная черная граница */
+      border-radius: 20px; /* Закругленные углы для овальной формы */
+      padding: 6px 12px; /* Поля внутри кнопки */
+    }
+
+    .quantity-controls {
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .quantity-controls button {
+      /* Стили для кнопок + и - */
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      align-items: center;
+      justify-content: center;
+      text-align-all: center;
+      padding-bottom: 33px;
+    }
+
+    .quantity-controls .quantity {
+      /* Стили для элемента с количеством товара */
+      font-size: 20px;
+      padding: 0 10px;
+    }
