@@ -61,7 +61,7 @@ body.dark-theme .add-to-cart-button {
 /* Стили для верхней надписи "Каталог" и панели фильтров */
 .catalog-title {
     top: 0%;
-    left: 15%;
+    left: 40px;
     right: 0;
     z-index: 100;
 }
