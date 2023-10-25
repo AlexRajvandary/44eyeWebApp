@@ -1,8 +1,6 @@
 
 let tg = window.Telegram.WebApp;
 
-tg.expand();
-
 tg.MainButton.textColor = '#FFFFFF';
 tg.MainButton.text = 'Перейти в корзину'
 tg.MainButton.color = '#3953f8';
