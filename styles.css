@@ -3,13 +3,16 @@
       display: block;
       text-align: center;
       margin: 10px auto; /* Центрирование товаров по горизонтали и между рядами */
-      width: 80%; /* Ширина товара */
+      width: 90%; /* Ширина товара */
     }
 
 body {
 
-	color: var(--tg-theme-text-color);
-	background: var(--tg-theme-bg-color);
+	/*color: var(--tg-theme-text-color);
+	background: var(--tg-theme-bg-color);*/
+
+    color: black;
+	background: white;
 }
 
     .product-card img {
@@ -18,14 +21,6 @@ body {
 
     .card-text {
       font-size: 13px;
-    }
-
-     .card-labels {
-      font-size: 10px;
-       font-weight: lighter;
-       margin-top: 5px;
-       text-align: start;
-
     }
 
     .card-description-text {
@@ -90,17 +85,6 @@ body {
       border: 1px solid black; /* Овальная черная граница */
       border-radius: 20px; /* Закругленные углы для овальной формы */
       padding: 6px 12px; /* Поля внутри кнопки */
-    }
-
-    .card-category-label {
-      width: auto;
-      margin: 3px; /* Небольшой отступ между кнопками */
-      font-size: 10px; /* Уменьшаем размер шрифта кнопок */
-      display: inline-block;
-
-      border: 1px solid black; /* Овальная черная граница */
-      border-radius: 20px; /* Закругленные углы для овальной формы */
-      padding: 6px 8px; /* Поля внутри кнопки */
     }
 
     .add-to-cart-button {
