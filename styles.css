@@ -1,4 +1,34 @@
-/* Добавляем стили для вертикального отображения */
+body {
+    color: black; /* Цвет текста по умолчанию */
+    background-color: white; /* Фон по умолчанию */
+}
+
+.card-text,
+.carousel-button,
+.add-to-cart-button {
+    font-size: 12px;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 6px 12px;
+}
+
+body.dark-theme {
+    color: white ; /* Инвертированный цвет текста на темной теме */
+    background-color: black !important; /* Инвертированный цвет фона на темной теме */
+}
+
+body.dark-theme .card-text,
+body.dark-theme .carousel-button,
+body.dark-theme .add-to-cart-button {
+    border-color: white; /* Инвертированный цвет границы кнопок на темной теме */
+    color: white; /* Инвертированный цвет текста на кнопках и тексте на темной теме */
+}
+
+body.dark-theme .add-to-cart-button {
+    background: transparent;
+}
+
 .product-card {
     display: block;
     text-align: center;
@@ -6,11 +36,11 @@
     width: 90%; /* Ширина товара */
 }
 
-body {
+/*body {
 
 	color: var(--tg-theme-text-color);
 	background: var(--tg-theme-bg-color);
-}
+}*/
 
 .buttons-container {
     width: 300px; /* Фиксированная ширина контейнера */
@@ -20,10 +50,6 @@ body {
 
 .product-card img {
     border-radius: 10px; /* Закруглить углы на 10 пикселей (можете выбрать другой радиус) */
-}
-
-.card-text {
-    font-size: 13px;
 }
 
 .card-description-text {
@@ -79,30 +105,6 @@ body {
     white-space: nowrap;
 }
 
-
-.carousel-button {
-    width: auto;
-    margin: 5px; /* Небольшой отступ между кнопками */
-    font-size: 12px; /* Уменьшаем размер шрифта кнопок */
-    display: inline-block;
-
-    border: 1px solid black; /* Овальная черная граница */
-    border-radius: 20px; /* Закругленные углы для овальной формы */
-    padding: 6px 12px; /* Поля внутри кнопки */
-}
-
-.add-to-cart-button {
-    width: auto;
-    margin: 3px; /* Небольшой отступ между кнопками */
-    font-size: 16px; /* Уменьшаем размер шрифта кнопок */
-    display: inline-block;
-    background-color: black; /* Белый фон */
-    color: white; /* Черный текст */
-    border: 1px solid black; /* Овальная черная граница */
-    border-radius: 20px; /* Закругленные углы для овальной формы */
-    padding: 6px 12px; /* Поля внутри кнопки */
-}
-
 .quantity-controls {
     display: none;
     justify-content: center;
@@ -125,4 +127,13 @@ body {
 .quantity-controls .quantity {
     font-size: 20px;
     padding: 0 10px;
+}
+
+.theme-toggle-container{
+    display: flex;
+    justify-content: center; /* Горизонтальное выравнивание по центру */
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }

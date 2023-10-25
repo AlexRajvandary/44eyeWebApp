@@ -7,6 +7,31 @@ tg.MainButton.textColor = '#FFFFFF';
 tg.MainButton.text = 'Перейти в корзину'
 tg.MainButton.color = '#3953f8';
 
+document.addEventListener("DOMContentLoaded", function() {
+  const themeToggle = document.getElementById("theme-toggle");
+  const body = document.body;
+
+  themeToggle.addEventListener("click", function() {
+    body.classList.toggle("dark-theme");
+    toggleTheme();
+  });
+
+  // Функция для сохранения текущей темы в локальном хранилище
+  function toggleTheme() {
+    if (body.classList.contains("dark-theme")) {
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+    }
+  }
+
+  // Проверяем, какая тема была выбрана ранее, и применяем ее
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    body.classList.add("dark-theme");
+  }
+});
+
 const products = [
       { name: "Кроссовки Nike Белые", category: "обувь", gender: "женское", season: "весна", image: "sneakers/1.jpg", price: 7990 },
       { name: "Кроссовки New Balance Белые", category: "обувь", gender: "женское", season: "весна", image: "sneakers/2.jpg", price: 12490 },
