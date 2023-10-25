@@ -33,11 +33,6 @@
           productCard.innerHTML = `
             <div class="product-card">
               <img src="${product.image}" class="card-img-top" alt="${product.name}">
-               <div class="card-labels">
-                    <button class="card-category-label">одежда</button>
-                    <button class="card-category-label">мужское</button>
-                    <button class="card-category-label">зима</button>
-               </div>
               <div class="card-body">
                 <h5 class="card-title">${product.name}</h5>
                 <p class="card-description-text ">Куртка Nike Storm-FIT Windrunner PrimaLoft с супертеплым утеплителем PrimaLoft Thermoplume
