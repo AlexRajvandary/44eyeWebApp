@@ -1,4 +1,13 @@
-  const products = [
+
+let tg = window.Telegram.WebApp;
+
+tg.expand();
+
+tg.MainButton.textColor = '#FFFFFF';
+tg.MainButton.text = 'Перейти в корзину'
+tg.MainButton.color = '#2cab37';
+
+const products = [
       { name: "Кроссовки Nike Белые", category: "обувь", gender: "женское", season: "весна", image: "sneakers/1.jpg", price: 7990 },
       { name: "Кроссовки New Balance Белые", category: "обувь", gender: "женское", season: "весна", image: "sneakers/2.jpg", price: 12490 },
       { name: "Кроссовки Nike Sony", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/3.jpg", price: 15990 },
@@ -144,6 +153,7 @@ buttonsContainer.addEventListener("touchmove", (e) => {
       const quantityControls = button.nextElementSibling;
       quantityControls.style.display = 'flex';
       button.style.display = 'none';
+      tg.MainButton.show();
     }
 
     function hideQuantityControls(button) {
