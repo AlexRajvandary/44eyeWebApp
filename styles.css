@@ -8,11 +8,8 @@
 
 body {
 
-	/*color: var(--tg-theme-text-color);
-	background: var(--tg-theme-bg-color);*/
-
-    color: black;
-	background: white;
+	color: var(--tg-theme-text-color);
+	background: var(--tg-theme-bg-color);
 }
 
 .buttons-container {
