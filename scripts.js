@@ -5,7 +5,7 @@ tg.expand();
 
 tg.MainButton.textColor = '#FFFFFF';
 tg.MainButton.text = 'Перейти в корзину'
-tg.MainButton.color = '#2cab37';
+tg.MainButton.color = '#3953f8';
 
 const products = [
       { name: "Кроссовки Nike Белые", category: "обувь", gender: "женское", season: "весна", image: "sneakers/1.jpg", price: 7990 },
@@ -162,6 +162,7 @@ buttonsContainer.addEventListener("touchmove", (e) => {
       button.style.justifyContent = 'center';
       button.style.alignItems = 'center';
       button.style.display = 'flex';
+      tg.MainButton.hide();
     }
 
     function incrementQuantity(button) {
