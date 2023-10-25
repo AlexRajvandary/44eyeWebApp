@@ -6,6 +6,12 @@
       width: 80%; /* Ширина товара */
     }
 
+body {
+
+	color: var(--tg-theme-text-color);
+	background: var(--tg-theme-bg-color);
+}
+
     .product-card img {
       border-radius: 10px; /* Закруглить углы на 10 пикселей (можете выбрать другой радиус) */
     }
