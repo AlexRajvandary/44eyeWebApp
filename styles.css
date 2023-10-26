@@ -1,9 +1,6 @@
 body {
-    /*color: black; /* Цвет текста по умолчанию */
-    /*background-color: white; /* Фон по умолчанию */
-
-    	color: var(--tg-theme-text-color);
-	    background: var(--tg-theme-bg-color);
+    color: black; /* Цвет текста по умолчанию */
+    background-color: white; /* Фон по умолчанию */
 }
 
 .card-text,
@@ -28,9 +25,26 @@ body.dark-theme .add-to-cart-button {
     color: white; /* Инвертированный цвет текста на кнопках и тексте на темной теме */
 }
 
-body.dark-theme .add-to-cart-button {
+body.native-theme .add-to-cart-button {
     background: transparent;
 }
+
+body.native-theme {
+    color: var(--tg-theme-text-color);
+    background: var(--tg-theme-bg-color) !important;
+}
+
+body.native-theme .card-text,
+body.native-theme .carousel-button,
+body.native-theme .add-to-cart-button {
+    border-color: white; /* Инвертированный цвет границы кнопок на темной теме */
+    color: white; /* Инвертированный цвет текста на кнопках и тексте на темной теме */
+}
+
+body.native-theme .add-to-cart-button {
+    background: transparent;
+}
+
 
 .product-card {
     display: block;
