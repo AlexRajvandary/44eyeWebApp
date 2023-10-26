@@ -1,6 +1,9 @@
 body {
-    color: black; /* Цвет текста по умолчанию */
-    background-color: white; /* Фон по умолчанию */
+    /*color: black; /* Цвет текста по умолчанию */
+    /*background-color: white; /* Фон по умолчанию */
+
+    	color: var(--tg-theme-text-color);
+	    background: var(--tg-theme-bg-color);
 }
 
 .card-text,
