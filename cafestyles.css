@@ -164,7 +164,6 @@ button,
   height: 30px;
   border-radius: 7px;
   box-sizing: border-box;
-  background-color: var(--main-color);
   text-transform: uppercase;
   color: #fff;
   outline: none;
@@ -183,68 +182,6 @@ button,
   animation: var(--animation) both;
   pointer-events: none;
   z-index: 3;
-}
-.cafe-item-incr-button {
-  position: absolute !important;
-  top: 0;
-  right: 0;
-  transition: width var(--animation);
-  width: 80px;
-}
-.selected .cafe-item-incr-button {
-  width: 38px;
-}
-.cafe-item-decr-button {
-  position: relative;
-  width: 38px;
-}
-.cafe-item-decr-button {
-  background-color: #e64d44;
-  pointer-events: none;
-  transform: scale3d(0.9, 0.9, 1);
-  transition: transform var(--animation), visibility var(--animation);
-  visibility: hidden;
-}
-.selected .cafe-item-decr-button {
-  pointer-events: auto;
-  transform: scale3d(1, 1, 1);
-  visibility: visible;
-}
-.cafe-item-incr-button:before,
-.cafe-item-incr-button:after,
-.cafe-item-decr-button:before {
-  display: inline-block;
-  position: absolute;
-  content: '';
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  width: 14px;
-  height: 3px;
-  background-color: #fff;
-  border-radius: 1px;
-  z-index: 1;
-}
-.cafe-item-incr-button:before,
-.cafe-item-incr-button:after {
-  background-color: rgba(255, 255, 255, 0);
-  transition: background-color var(--animation);
-}
-.selected .cafe-item-incr-button:before,
-.selected .cafe-item-incr-button:after {
-  background-color: #fff;
-}
-.cafe-item-incr-button .button-item-label {
-  transition: transform var(--animation);
-}
-.selected .cafe-item-incr-button .button-item-label {
-  transform: scale3d(0.4, 0, 1);
-}
-.cafe-item-incr-button:after {
-  width: 3px;
-  height: 14px;
 }
 
 .cafe-status-wrap {

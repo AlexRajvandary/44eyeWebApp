@@ -5,6 +5,9 @@ tg.MainButton.textColor = '#FFFFFF';
 tg.MainButton.text = 'Перейти в корзину'
 tg.MainButton.color = '#3953f8';
 
+tg.ThemeParams.secondary_bg_color = '#000000';
+
+
 document.addEventListener("DOMContentLoaded", function() {
   const themeToggle = document.getElementById("theme-toggle");
   const body = document.body;
@@ -71,8 +74,8 @@ const products = [
                  имеет классический силуэт и дополнительную изоляцию. Технология Nike Storm-FIT защитит вас от ветра и дождя, поэтому вы сможете наслаждаться высоким комфортом в любую погоду. Просторный крой обеспечивает дополнительное пространство, поэтому в холодные дни вы можете носить больше слоев под ним.</p>
                 <p class="card-text">${product.price}₽</p>
               </div>
-               <button class="add-to-cart-button" onclick="showQuantityControls(this)">Добавить в корзину</button>
-               <div class="quantity-controls">
+               <button class="add-to-cart-button bubbly-button" onclick="showQuantityControls(this)">Добавить в корзину</button>
+               <div class="quantity-controls ">
                     <button onclick="decrementQuantity(this)">-</button>
                     <div class="quantity">1</div>
                     <button onclick="incrementQuantity(this)">+</button>

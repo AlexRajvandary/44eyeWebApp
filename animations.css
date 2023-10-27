@@ -52,9 +52,7 @@ body {
   background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
 }
 .bubbly-button:active {
-  transform: scale(0.9);
-
-  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+  transform: scale(0.7);
 }
 .bubbly-button.animate:before {
   display: block;
