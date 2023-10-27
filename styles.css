@@ -77,10 +77,11 @@ body.native-theme .add-to-cart-button {
 
 /* Стили для верхней надписи "Каталог" и панели фильтров */
 .catalog-title {
-    top: 0%;
+    top: 10px;
     left: 40px;
     right: 0;
     z-index: 100;
+    margin-left: 25px;
 }
 
 .filter-panel {
@@ -153,5 +154,5 @@ body.native-theme .add-to-cart-button {
     position: absolute;
     top: 25px;
     right: 40px;
-    font-size: 22px;
+    font-size: 24px;
 }
