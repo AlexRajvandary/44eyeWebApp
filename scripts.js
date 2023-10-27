@@ -4,7 +4,7 @@ let tg = window.Telegram.WebApp;
 tg.MainButton.textColor = '#FFFFFF';
 tg.MainButton.text = 'Перейти в корзину'
 tg.MainButton.color = '#3953f8';
-tg.ThemeParams.secondary_bg_color = '#000000';
+tg.setHeaderColor('secondary_bg_color');
 
 
 
