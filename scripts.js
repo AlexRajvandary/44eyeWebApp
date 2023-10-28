@@ -1,12 +1,13 @@
+let tg = window.Telegram;
+let webApp = tg.WebApp;
+let mainBtn = webApp.MainButton;
 
-let tg = window.Telegram.WebApp;
-
-tg.MainButton.textColor = '#FFFFFF';
-tg.MainButton.text = 'Перейти в корзину'
-tg.MainButton.color = '#3953f8';
-tg.setHeaderColor('secondary_bg_color');
-
-
+webApp.setHeaderColor('secondary_bg_color');
+  mainBtn.setParams({
+      text_color: '#FFFFFF',
+      text: 'Перейти в корзину',
+      color: '#3953f8'
+    }).onClick(mainBtnClicked);
 
 document.addEventListener("DOMContentLoaded", function() {
   const themeToggle = document.getElementById("theme-toggle");
@@ -205,6 +206,10 @@ buttonsContainer.addEventListener("touchmove", (e) => {
       } else{
         hideQuantityControls(button.parentElement.previousElementSibling)
       }
+    }
+
+    function mainBtnClicked(){
+        $('.cafe-order-overview').show();
     }
 
     // Показать все товары при загрузке страницы
