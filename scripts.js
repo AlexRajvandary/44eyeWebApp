@@ -1,13 +1,11 @@
-let tg = window.Telegram;
-let webApp = tg.WebApp;
-let mainBtn = webApp.MainButton;
+let mainBtn = window.Telegram.WebApp.MainButton;
+let webApp = window.Telegram.WebApp;
 
-webApp.setHeaderColor('secondary_bg_color');
-  mainBtn.setParams({
-      text_color: '#FFFFFF',
-      text: 'Перейти в корзину',
-      color: '#3953f8'
-    }).onClick(mainBtnClicked);
+/*webApp.setHeaderColor('secondary_bg_color');*/
+mainBtn.text_color = '#FFFFFF';
+mainBtn.color = '#3953f8';
+mainBtn.text = 'Перейти в корзину';
+mainBtn.onclick((mainBtnClicked));
 
 document.addEventListener("DOMContentLoaded", function() {
   const themeToggle = document.getElementById("theme-toggle");
