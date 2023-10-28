@@ -5,7 +5,7 @@ let webApp = window.Telegram.WebApp;
 mainBtn.text_color = '#FFFFFF';
 mainBtn.color = '#3953f8';
 mainBtn.text = 'Перейти в корзину';
-/*mainBtn.onclick(mainBtnClicked);*/
+mainBtn.onClick(mainBtnClicked);
 
 document.addEventListener("DOMContentLoaded", function() {
   const themeToggle = document.getElementById("theme-toggle");
