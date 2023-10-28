@@ -1,7 +1,7 @@
 let mainBtn = window.Telegram.WebApp.MainButton;
 let webApp = window.Telegram.WebApp;
 
-webApp.setHeaderColor('#FFFFFF');
+webApp.setHeaderColor('#000000');
 mainBtn.text_color = '#FFFFFF';
 mainBtn.color = '#3953f8';
 mainBtn.text = 'Перейти в корзину';
@@ -207,7 +207,7 @@ buttonsContainer.addEventListener("touchmove", (e) => {
     }
 
     function mainBtnClicked(){
-        $('.cafe-order-overview').show();
+        $('.order_view').show();
         $('.catalogue').hide();
     }
 

@@ -156,3 +156,7 @@ body.native-theme .add-to-cart-button {
     right: 40px;
     font-size: 24px;
 }
+
+.order_view{
+    display: none;
+}
