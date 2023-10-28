@@ -208,6 +208,7 @@ buttonsContainer.addEventListener("touchmove", (e) => {
 
     function mainBtnClicked(){
         $('.cafe-order-overview').show();
+        $('.catalogue').hide();
     }
 
     // Показать все товары при загрузке страницы
