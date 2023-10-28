@@ -178,7 +178,7 @@ buttonsContainer.addEventListener("touchmove", (e) => {
       const quantityControls = button.nextElementSibling;
       quantityControls.style.display = 'flex';
       button.style.display = 'none';
-      tg.MainButton.show();
+      mainBtn.show();
     }
 
     function hideQuantityControls(button) {
@@ -187,7 +187,7 @@ buttonsContainer.addEventListener("touchmove", (e) => {
       button.style.justifyContent = 'center';
       button.style.alignItems = 'center';
       button.style.display = 'flex';
-      tg.MainButton.hide();
+      mainBtn.hide();
     }
 
     function incrementQuantity(button) {
