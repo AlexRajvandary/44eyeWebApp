@@ -1,4 +1,5 @@
 let mainBtn = window.Telegram.WebApp.MainButton;
+let backBtn = window.Telegram.WebApp.BackButton;
 let webApp = window.Telegram.WebApp;
 
 webApp.setHeaderColor('#000000');
@@ -6,6 +7,7 @@ mainBtn.text_color = '#FFFFFF';
 mainBtn.color = '#3953f8';
 mainBtn.text = 'Перейти в корзину';
 mainBtn.onClick(mainBtnClicked);
+backBtn.onClick(backBtnClicked);
 
 document.addEventListener("DOMContentLoaded", function() {
   const themeToggle = document.getElementById("theme-toggle");
@@ -208,7 +210,14 @@ buttonsContainer.addEventListener("touchmove", (e) => {
 
     function mainBtnClicked(){
         $('.order_view').show();
+        webApp.BackButton.show();
         $('.catalogue').hide();
+    }
+
+     function backBtnClicked(){
+        $('.order_view').hide();
+        backBtn.hide();
+        $('.catalogue').show();
     }
 
     // Показать все товары при загрузке страницы
