@@ -50,6 +50,7 @@ const products = [
       { name: "Футболка Brooklyn Белая", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/6.jpg", price: 12390 },
       { name: "Футболки хайповые", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/7.jpg", price: 7990 }
       ]
+var cart = {};
 
     // Функция для отображения товаров на странице
     function displayProducts(categoryFilter = "", genderFilter = "", seasonFilter = "") {
@@ -67,7 +68,10 @@ const products = [
           const productCard = document.createElement("div");
           productCard.className = "col-md-12 product-card"; // Один товар на ряд
           productCard.innerHTML = `
-            <div class="product-card">
+            <div class="product-card" 
+                 data-item-id="${product.id}"
+                 data-item-price="${product.price}"
+                 data-item-id="${product.name}">
               <img src="${product.image}" class="card-img-top" alt="${product.name}">
               <div class="card-body">
                 <h5 class="card-title">${product.name}</h5>
@@ -89,6 +93,30 @@ const products = [
 
       productList.appendChild(productRow);
     }
+
+    function displayCartProducts(cart) {
+    const cartList = document.getElementById("cartList");
+    cartList.innerHTML = "";
+
+    cart.forEach(cartItem => {
+        const productCard = document.createElement("div");
+        productCard.className = "cart-item";
+        productCard.innerHTML = `
+            <img src="${cartItem.product.image}" class="cart-item-img" alt="${cartItem.product.name}">
+            <div class="cart-item-info">
+                <h5 class="cart-item-title">${cartItem.product.name}</h5>
+                <p class="cart-item-description">${cartItem.product.description}</p>
+                <p class="cart-item-price">${cartItem.product.price}₽</p>
+            </div>
+            <div class="quantity-controls">
+                <button onclick="decrementQuantity(this, ${cartItem.product.id})">-</button>
+                <div class="quantity">${cartItem.quantity}</div>
+                <button onclick="incrementQuantity(this, ${cartItem.product.id})">+</button>
+            </div>
+        `;
+        cartList.appendChild(productCard);
+    });
+}
 
     // Обработка изменений фильтров
     document.getElementById("showAll").addEventListener("click", () => {
@@ -120,61 +148,60 @@ const products = [
     });
 
     // Получаем элементы
-const buttonCarousel = document.getElementById("buttonCarousel");
-const buttonsContainer = buttonCarousel.querySelector(".carousel-inner");
+    const buttonCarousel = document.getElementById("buttonCarousel");
+    const buttonsContainer = buttonCarousel.querySelector(".carousel-inner");
 
-// Устанавливаем начальные значения
-let isDragging = false;
-let startPosition = 0;
-let deltaX = 0;
+    // Устанавливаем начальные значения
+    let isDragging = false;
+    let startPosition = 0;
+    let deltaX = 0;
 
-// Обработчики событий для мыши
-buttonsContainer.addEventListener("mousedown", (e) => {
-  isDragging = true;
-  startPosition = e.clientX - deltaX;
+    // Обработчики событий для мыши
+    buttonsContainer.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        ctartPosition = e.clientX - deltaX;
+        buttonsContainer.style.cursor = "grabbing";
+    });
 
-  buttonsContainer.style.cursor = "grabbing";
-});
+    buttonsContainer.addEventListener("mouseup", () => {
+        isDragging = false;
+        buttonsContainer.style.cursor = "grab";
+    });
 
-buttonsContainer.addEventListener("mouseup", () => {
-  isDragging = false;
-  buttonsContainer.style.cursor = "grab";
-});
+    buttonsContainer.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
 
-buttonsContainer.addEventListener("mousemove", (e) => {
-  if (!isDragging) return;
+        const x = e.clientX;
 
-  const x = e.clientX;
+        deltaX = x - startPosition;
+        buttonsContainer.style.transform = `translateX(${deltaX}px)`;
+    });
 
-  deltaX = x - startPosition;
-  buttonsContainer.style.transform = `translateX(${deltaX}px)`;
-});
+    buttonsContainer.addEventListener("mouseleave", () => {
+        if (!isDragging) return;
 
-buttonsContainer.addEventListener("mouseleave", () => {
-  if (!isDragging) return;
+        isDragging = false;
+        buttonsContainer.style.cursor = "grab";
+    });
 
-  isDragging = false;
-  buttonsContainer.style.cursor = "grab";
-});
+    // Обработчики событий для сенсорных устройств (мобильных устройств)
+    buttonsContainer.addEventListener("touchstart", (e) => {
+        isDragging = true;
+        startPosition = e.touches[0].clientX - deltaX;
+    });
 
-// Обработчики событий для сенсорных устройств (мобильных устройств)
-buttonsContainer.addEventListener("touchstart", (e) => {
-  isDragging = true;
-  startPosition = e.touches[0].clientX - deltaX;
-});
+    buttonsContainer.addEventListener("touchend", () => {
+        isDragging = false;
+    });
 
-buttonsContainer.addEventListener("touchend", () => {
-  isDragging = false;
-});
+    buttonsContainer.addEventListener("touchmove", (e) => {
+        if (!isDragging) return;
 
-buttonsContainer.addEventListener("touchmove", (e) => {
-  if (!isDragging) return;
+        const x = e.touches[0].clientX;
 
-  const x = e.touches[0].clientX;
-
-  deltaX = x - startPosition;
-  buttonsContainer.style.transform = `translateX(${deltaX}px)`;
-});
+        deltaX = x - startPosition;
+        buttonsContainer.style.transform = `translateX(${deltaX}px)`;
+    });
 
     function showQuantityControls(button) {
       const quantityControls = button.nextElementSibling;
@@ -196,21 +223,26 @@ buttonsContainer.addEventListener("touchmove", (e) => {
       const quantityElement = button.parentElement.querySelector('.quantity');
       let quantity = parseInt(quantityElement.textContent);
       quantityElement.textContent = quantity + 1;
+      let product = button.closest(".product-card");
+      updateCart(product, 1);
     }
 
     function decrementQuantity(button) {
-      const quantityElement = button.parentElement.querySelector('.quantity');
-      let quantity = parseInt(quantityElement.textContent);
-      if (quantity > 1) {
-        quantityElement.textContent = quantity - 1;
-      } else{
-        hideQuantityControls(button.parentElement.previousElementSibling)
-      }
+        let product = button.closest(".product-card");
+        const quantityElement = button.parentElement.querySelector('.quantity');
+        let quantity = parseInt(quantityElement.textContent);
+        if (quantity > 1) {
+            quantityElement.textContent = quantity - 1;
+            updateCart(product, -1);
+        } else{
+            hideQuantityControls(button.parentElement.previousElementSibling);
+            removeFromCart(product);
+        }
     }
 
     function mainBtnClicked(){
         $('.order_view').show();
-        webApp.BackButton.show();
+        backBtn.show();
         $('.catalogue').hide();
     }
 
@@ -218,6 +250,35 @@ buttonsContainer.addEventListener("touchmove", (e) => {
         $('.order_view').hide();
         backBtn.hide();
         $('.catalogue').show();
+    }
+
+    function updateCart(product, quantity) {
+        if (cart[product.id]) {
+            cart[product.id].quantity += quantity;
+        } else if(quantity > 0) {
+            cart[product.id] = {
+                product: product,
+                quantity: quantity,
+            };
+        }
+    }
+
+    function removeFromCart(productId) {
+        if (cart[productId]) {
+            delete cart[productId];
+        }
+    }
+
+    function getCartContents() {
+        return Object.values(cart);
+    }
+
+    function calculateTotal() {
+        let total = 0;
+        for (const productId in cart) {
+            total += cart[productId].product.price * cart[productId].quantity;
+        }
+        return total;
     }
 
     // Показать все товары при загрузке страницы
