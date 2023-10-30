@@ -99,22 +99,17 @@ let cart = {};
     cartList.innerHTML = "";
 
     cart.forEach(cartItem => {
-        const productCard = document.createElement("div");
-        productCard.className = "cart-item";
-        productCard.innerHTML = `
+        const orderCard = document.createElement("div");
+        orderCard.className = "cart-item";
+        orderCard.innerHTML = `
             <img src="${cartItem.product.image}" class="cart-item-img" alt="${cartItem.product.name}">
             <div class="cart-item-info">
                 <h5 class="cart-item-title">${cartItem.product.name}</h5>
                 <p class="cart-item-description">${cartItem.product.description}</p>
                 <p class="cart-item-price">${cartItem.product.price}₽</p>
             </div>
-            <div class="quantity-controls">
-                <button onclick="decrementQuantity(this, ${cartItem.product.id})">-</button>
-                <div class="quantity">${cartItem.quantity}</div>
-                <button onclick="incrementQuantity(this, ${cartItem.product.id})">+</button>
-            </div>
         `;
-        cartList.appendChild(productCard);
+        cartList.appendChild(orderCard);
     });
 }
 
@@ -170,16 +165,13 @@ let cart = {};
 
     buttonsContainer.addEventListener("mousemove", (e) => {
         if (!isDragging) return;
-
         const x = e.clientX;
-
         deltaX = x - startPosition;
         buttonsContainer.style.transform = `translateX(${deltaX}px)`;
     });
 
     buttonsContainer.addEventListener("mouseleave", () => {
         if (!isDragging) return;
-
         isDragging = false;
         buttonsContainer.style.cursor = "grab";
     });
@@ -196,9 +188,7 @@ let cart = {};
 
     buttonsContainer.addEventListener("touchmove", (e) => {
         if (!isDragging) return;
-
         const x = e.touches[0].clientX;
-
         deltaX = x - startPosition;
         buttonsContainer.style.transform = `translateX(${deltaX}px)`;
     });
