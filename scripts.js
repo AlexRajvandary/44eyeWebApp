@@ -106,7 +106,7 @@ let cart = {};
         orderCard.innerHTML = `
             <div class="row-cart">
                 <picture class="element-cart">
-                    <img src="${cartItem.product.dataset.image}" class="cart-item-img" alt="${cartItem.product.dataset.name}">
+                    <img src="${cartItem.product.dataset.image}" alt="${cartItem.product.dataset.name}">
                     <canvas width="256" height="256"> 
                 </picture>
                 <div class="element-cart"> 
