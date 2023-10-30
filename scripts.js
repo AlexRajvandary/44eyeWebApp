@@ -69,11 +69,11 @@ let cart = {};
           productCard.className = "col-md-12 product-card"; // Один товар на ряд
           productCard.innerHTML = `
             <div class="product-card" 
-                 data-item-id="${product.id}"
-                 data-item-price="${product.price}"
-                 data-item-name="${product.name}"
-                 data-item-image="${product.image}"
-                 data-item-description="${product.description}">
+                 data-id="${product.id}"
+                 data-price="${product.price}"
+                 data-name="${product.name}"
+                 data-image="${product.image}"
+                 data-description="${product.description}">
               <img src="${product.image}" class="card-img-top" alt="${product.name}">
               <div class="card-body">
                 <h5 class="card-title">${product.name}</h5>
@@ -102,8 +102,6 @@ let cart = {};
     t.forEach(cartItem => {
         const orderCard = document.createElement("div");
         orderCard.className = "cart-item";
-        let n = cartItem.dataset.name;
-        let p = cartItem.dataset.name;
         orderCard.innerHTML = `
             <img src="${cartItem.dataset.image}" class="cart-item-img" alt="${cartItem.dataset.name}">
             <div class="cart-item-info">
