@@ -160,3 +160,11 @@ body.native-theme .add-to-cart-button {
 .order_view{
     display: none;
 }
+
+.row {
+    white-space: nowrap;
+}
+
+.element {
+    display: inline-block;
+}

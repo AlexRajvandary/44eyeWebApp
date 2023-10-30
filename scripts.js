@@ -103,14 +103,16 @@ let cart = {};
      t.forEach(cartItem => {
         const orderCard = document.createElement("div");
         orderCard.className = "cart-item";
-        let n = cartItem.product.dataset.image;
-        let p = cartItem.product.dataset.name;
         orderCard.innerHTML = `
-            <img src="${cartItem.product.dataset.image}" class="cart-item-img" alt="${cartItem.product.dataset.name}">
-            <div class="cart-item-info">
-                <h5 class="cart-item-title">${cartItem.product.dataset.name}</h5>
-                <p class="cart-item-description">${cartItem.product.dataset.description}</p>
-                <p class="cart-item-price">${cartItem.product.dataset.price}₽</p>
+            <div class="row">
+                <picture class="element">
+                    <img src="${cartItem.product.dataset.image}" class="cart-item-img" alt="${cartItem.product.dataset.name}"> 
+                </picture>
+                <div class="element"> 
+                    <h5 class="cart-item-title">${cartItem.product.dataset.name}</h5>
+                    <h3>${cartItem.product.dataset.description}</h3>
+                </div>
+                <p class="element">${cartItem.product.dataset.price}₽</p>
             </div>
         `;
         cartList.appendChild(orderCard);
