@@ -103,6 +103,7 @@ let cart = {};
         const orderCard = document.createElement("div");
         orderCard.className = "cart-item";
         let n = cartItem.dataset.image;
+        let p = cartItem.dataset.name;
         orderCard.innerHTML = `
             <img src="${cartItem.dataset.image}" class="cart-item-img" alt="${cartItem.dataset.name}">
             <div class="cart-item-info">
