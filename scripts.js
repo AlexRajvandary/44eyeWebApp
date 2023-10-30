@@ -103,8 +103,8 @@ let cart = {};
      t.forEach(cartItem => {
         const orderCard = document.createElement("div");
         orderCard.className = "cart-item";
-        let n = cartItem.dataset.image;
-        let p = cartItem.dataset.name;
+        let n = cartItem.product.dataset.image;
+        let p = cartItem.product.dataset.name;
         orderCard.innerHTML = `
             <img src="${cartItem.dataset.image}" class="cart-item-img" alt="${cartItem.dataset.name}">
             <div class="cart-item-info">
