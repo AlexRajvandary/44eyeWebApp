@@ -71,7 +71,8 @@ let cart = {};
             <div class="product-card" 
                  data-item-id="${product.id}"
                  data-item-price="${product.price}"
-                 data-item-id="${product.name}">
+                 data-item-name="${product.name}"
+                 data-item-image="${product.image}">
               <img src="${product.image}" class="card-img-top" alt="${product.name}">
               <div class="card-body">
                 <h5 class="card-title">${product.name}</h5>
