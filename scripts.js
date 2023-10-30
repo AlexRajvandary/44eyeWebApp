@@ -243,7 +243,7 @@ let cart = {};
     function mainBtnClicked(){
         $('.order_view').show();
         backBtn.show();
-        displayCartProducts();
+        displayCartProducts(cart);
         $('.catalogue').hide();
     }
 
