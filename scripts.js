@@ -50,7 +50,7 @@ const products = [
       { name: "Футболка Brooklyn Белая", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/6.jpg", price: 12390 },
       { name: "Футболки хайповые", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/7.jpg", price: 7990 }
       ]
-var cart = {};
+let cart = {};
 
     // Функция для отображения товаров на странице
     function displayProducts(categoryFilter = "", genderFilter = "", seasonFilter = "") {
