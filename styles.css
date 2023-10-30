@@ -161,10 +161,10 @@ body.native-theme .add-to-cart-button {
     display: none;
 }
 
-.row {
+.row-cart {
     white-space: nowrap;
 }
 
-.element {
+.element-cart {
     display: inline-block;
 }
