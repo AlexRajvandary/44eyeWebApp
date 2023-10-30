@@ -69,6 +69,7 @@ let cart = {};
           productCard.className = "col-md-12 product-card"; // Один товар на ряд
           productCard.innerHTML = `
             <div class="product-card" 
+                 id="productCard"
                  data-id="${product.id}"
                  data-price="${product.price}"
                  data-name="${product.name}"
@@ -100,18 +101,15 @@ let cart = {};
     cartList.innerHTML = "";
     let t = getCartContents();
     t.forEach(cartItem => {
+        let productCard = cartItem.getElementById("productCard");
         const orderCard = document.createElement("div");
         orderCard.className = "cart-item";
-
-        let a = cartItem.dataset.name;
-        let b = cartItem.dataset.image;
-
         orderCard.innerHTML = `
-            <img src="${cartItem.dataset.image}" class="cart-item-img" alt="${cartItem.dataset.name}">
+            <img src="${productCard.dataset.image}" class="cart-item-img" alt="${productCard.dataset.name}">
             <div class="cart-item-info">
-                <h5 class="cart-item-title">${cartItem.dataset.name}</h5>
-                <p class="cart-item-description">${cartItem.dataset.description}</p>
-                <p class="cart-item-price">${cartItem.dataset.price}₽</p>
+                <h5 class="cart-item-title">${productCard.dataset.name}</h5>
+                <p class="cart-item-description">${productCard.dataset.description}</p>
+                <p class="cart-item-price">${productCard.dataset.price}₽</p>
             </div>
         `;
         cartList.appendChild(orderCard);
