@@ -97,8 +97,8 @@ let cart = {};
     function displayCartProducts(cart) {
     const cartList = document.getElementById("cartList");
     cartList.innerHTML = "";
-
-    getCartContents().forEach(cartItem => {
+    let smt = getCartContents();
+    smt.forEach(cartItem => {
         const orderCard = document.createElement("div");
         orderCard.className = "cart-item";
         orderCard.innerHTML = `
