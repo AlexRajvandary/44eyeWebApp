@@ -35,20 +35,20 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 const desc = "Куртка Nike Storm-FIT Windrunner PrimaLoft с супертеплым утеплителем PrimaLoft Thermoplume\n                 имеет классический силуэт и дополнительную изоляцию. Технология Nike Storm-FIT защитит вас от ветра и дождя, поэтому вы сможете наслаждаться высоким комфортом в любую погоду. Просторный крой обеспечивает дополнительное пространство, поэтому в холодные дни вы можете носить больше слоев под ним.";
 const products = [
-      { name: "Кроссовки Nike Белые", category: "обувь", gender: "женское", season: "весна", image: "sneakers/1.jpg", price: 7990, description: desc },
-      { name: "Кроссовки New Balance Белые", category: "обувь", gender: "женское", season: "весна", image: "sneakers/2.jpg", price: 12490, description: desc },
-      { name: "Кроссовки Nike Sony", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/3.jpg", price: 15990, description: desc },
-      { name: "Кроссовки Чёрные", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/4.jpg", price: 12390, description: desc },
-      { name: "Кроссовки New Balance", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/5.jpg", price: 7490, description: desc },
-      { name: "Кроссовки New Balance", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/6.jpg", price: 5490, description: desc },
-      { name: "Штаны Чёрные Мужские", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "pants/1.jpg", price: 7990, description: desc },
-      { name: "Кроссовки Nike Белые", category: "верхняя_одежда", gender: "женское", season: "весна", image: "tshirt/1.jpg", price: 5490, description: desc },
-      { name: "Кроссовки New Balance Белые", category: "верхняя_одежда", gender: "женское", season: "весна", image: "tshirt/2.jpg", price: 7990, description: desc },
-      { name: "Кроссовки Nike Sony", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/3.jpg", price: 7990, description: desc },
-      { name: "Пуховик зимний", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/4.jpg", price: 5490, description: desc },
-      { name: "Футболка Inspire Чёрная", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/5.jpg", price: 5490, description: desc },
-      { name: "Футболка Brooklyn Белая", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/6.jpg", price: 12390, description: desc },
-      { name: "Футболки хайповые", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/7.jpg", price: 7990, description: desc }
+      { id: 1, name: "Кроссовки Nike Белые", category: "обувь", gender: "женское", season: "весна", image: "sneakers/1.jpg", price: 7990, description: desc },
+      { id: 2, name: "Кроссовки New Balance Белые", category: "обувь", gender: "женское", season: "весна", image: "sneakers/2.jpg", price: 12490, description: desc },
+      { id: 3, name: "Кроссовки Nike Sony", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/3.jpg", price: 15990, description: desc },
+      { id: 4, name: "Кроссовки Чёрные", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/4.jpg", price: 12390, description: desc },
+      { id: 5, name: "Кроссовки New Balance", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/5.jpg", price: 7490, description: desc },
+      { id: 6, name: "Кроссовки New Balance", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/6.jpg", price: 5490, description: desc },
+      { id: 7, name: "Штаны Чёрные Мужские", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "pants/1.jpg", price: 7990, description: desc },
+      { id: 8, name: "Кроссовки Nike Белые", category: "верхняя_одежда", gender: "женское", season: "весна", image: "tshirt/1.jpg", price: 5490, description: desc },
+      { id: 9, name: "Кроссовки New Balance Белые", category: "верхняя_одежда", gender: "женское", season: "весна", image: "tshirt/2.jpg", price: 7990, description: desc },
+      { id: 10, name: "Кроссовки Nike Sony", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/3.jpg", price: 7990, description: desc },
+      { id: 11, name: "Пуховик зимний", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/4.jpg", price: 5490, description: desc },
+      { id: 12, name: "Футболка Inspire Чёрная", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/5.jpg", price: 5490, description: desc },
+      { id: 13, name: "Футболка Brooklyn Белая", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/6.jpg", price: 12390, description: desc },
+      { id: 14, name: "Футболки хайповые", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/7.jpg", price: 7990, description: desc }
       ]
 let cart = {};
 
