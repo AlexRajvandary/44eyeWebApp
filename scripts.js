@@ -33,22 +33,22 @@ document.addEventListener("DOMContentLoaded", function() {
     body.classList.add("dark-theme");
   }
 });
-
+const desc = "Куртка Nike Storm-FIT Windrunner PrimaLoft с супертеплым утеплителем PrimaLoft Thermoplume\n                 имеет классический силуэт и дополнительную изоляцию. Технология Nike Storm-FIT защитит вас от ветра и дождя, поэтому вы сможете наслаждаться высоким комфортом в любую погоду. Просторный крой обеспечивает дополнительное пространство, поэтому в холодные дни вы можете носить больше слоев под ним.";
 const products = [
-      { name: "Кроссовки Nike Белые", category: "обувь", gender: "женское", season: "весна", image: "sneakers/1.jpg", price: 7990 },
-      { name: "Кроссовки New Balance Белые", category: "обувь", gender: "женское", season: "весна", image: "sneakers/2.jpg", price: 12490 },
-      { name: "Кроссовки Nike Sony", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/3.jpg", price: 15990 },
-      { name: "Кроссовки Чёрные", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/4.jpg", price: 12390 },
-      { name: "Кроссовки New Balance", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/5.jpg", price: 7490 },
-      { name: "Кроссовки New Balance", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/6.jpg", price: 5490 },
-      { name: "Штаны Чёрные Мужские", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "pants/1.jpg", price: 7990 },
-      { name: "Кроссовки Nike Белые", category: "верхняя_одежда", gender: "женское", season: "весна", image: "tshirt/1.jpg", price: 5490 },
-      { name: "Кроссовки New Balance Белые", category: "верхняя_одежда", gender: "женское", season: "весна", image: "tshirt/2.jpg", price: 7990 },
-      { name: "Кроссовки Nike Sony", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/3.jpg", price: 7990 },
-      { name: "Пуховик зимний", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/4.jpg", price: 5490 },
-      { name: "Футболка Inspire Чёрная", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/5.jpg", price: 5490 },
-      { name: "Футболка Brooklyn Белая", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/6.jpg", price: 12390 },
-      { name: "Футболки хайповые", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/7.jpg", price: 7990 }
+      { name: "Кроссовки Nike Белые", category: "обувь", gender: "женское", season: "весна", image: "sneakers/1.jpg", price: 7990, description: desc },
+      { name: "Кроссовки New Balance Белые", category: "обувь", gender: "женское", season: "весна", image: "sneakers/2.jpg", price: 12490, description: desc },
+      { name: "Кроссовки Nike Sony", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/3.jpg", price: 15990, description: desc },
+      { name: "Кроссовки Чёрные", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/4.jpg", price: 12390, description: desc },
+      { name: "Кроссовки New Balance", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/5.jpg", price: 7490, description: desc },
+      { name: "Кроссовки New Balance", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/6.jpg", price: 5490, description: desc },
+      { name: "Штаны Чёрные Мужские", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "pants/1.jpg", price: 7990, description: desc },
+      { name: "Кроссовки Nike Белые", category: "верхняя_одежда", gender: "женское", season: "весна", image: "tshirt/1.jpg", price: 5490, description: desc },
+      { name: "Кроссовки New Balance Белые", category: "верхняя_одежда", gender: "женское", season: "весна", image: "tshirt/2.jpg", price: 7990, description: desc },
+      { name: "Кроссовки Nike Sony", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/3.jpg", price: 7990, description: desc },
+      { name: "Пуховик зимний", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/4.jpg", price: 5490, description: desc },
+      { name: "Футболка Inspire Чёрная", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/5.jpg", price: 5490, description: desc },
+      { name: "Футболка Brooklyn Белая", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/6.jpg", price: 12390, description: desc },
+      { name: "Футболки хайповые", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/7.jpg", price: 7990, description: desc }
       ]
 let cart = {};
 
@@ -72,12 +72,12 @@ let cart = {};
                  data-item-id="${product.id}"
                  data-item-price="${product.price}"
                  data-item-name="${product.name}"
-                 data-item-image="${product.image}">
+                 data-item-image="${product.image}"
+                 data-item-description="${product.description}">
               <img src="${product.image}" class="card-img-top" alt="${product.name}">
               <div class="card-body">
                 <h5 class="card-title">${product.name}</h5>
-                <p class="card-description-text ">Куртка Nike Storm-FIT Windrunner PrimaLoft с супертеплым утеплителем PrimaLoft Thermoplume
-                 имеет классический силуэт и дополнительную изоляцию. Технология Nike Storm-FIT защитит вас от ветра и дождя, поэтому вы сможете наслаждаться высоким комфортом в любую погоду. Просторный крой обеспечивает дополнительное пространство, поэтому в холодные дни вы можете носить больше слоев под ним.</p>
+                <p class="card-description-text ">${product.description}</p>
                 <p class="card-text">${product.price}₽</p>
               </div>
                <button class="add-to-cart-button bubbly-button" onclick="showQuantityControls(this)">Добавить в корзину</button>
@@ -98,16 +98,16 @@ let cart = {};
     function displayCartProducts(cart) {
     const cartList = document.getElementById("cartList");
     cartList.innerHTML = "";
-    let smt = getCartContents();
-    smt.forEach(cartItem => {
+
+    getCartContents().forEach(cartItem => {
         const orderCard = document.createElement("div");
         orderCard.className = "cart-item";
         orderCard.innerHTML = `
-            <img src="${cartItem.product.image}" class="cart-item-img" alt="${cartItem.product.name}">
+            <img src="${cartItem.dataset.image}" class="cart-item-img" alt="${cartItem.dataset.name}">
             <div class="cart-item-info">
-                <h5 class="cart-item-title">${cartItem.product.name}</h5>
-                <p class="cart-item-description">${cartItem.product.description}</p>
-                <p class="cart-item-price">${cartItem.product.price}₽</p>
+                <h5 class="cart-item-title">${cartItem.dataset.name}</h5>
+                <p class="cart-item-description">${cartItem.dataset.description}</p>
+                <p class="cart-item-price">${cartItem.dataset.price}₽</p>
             </div>
         `;
         cartList.appendChild(orderCard);
