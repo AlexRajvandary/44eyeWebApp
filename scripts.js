@@ -106,11 +106,11 @@ let cart = {};
         let n = cartItem.product.dataset.image;
         let p = cartItem.product.dataset.name;
         orderCard.innerHTML = `
-            <img src="${cartItem.dataset.image}" class="cart-item-img" alt="${cartItem.dataset.name}">
+            <img src="${cartItem.product.dataset.image}" class="cart-item-img" alt="${cartItem.product.dataset.name}">
             <div class="cart-item-info">
-                <h5 class="cart-item-title">${cartItem.dataset.name}</h5>
-                <p class="cart-item-description">${cartItem.dataset.description}</p>
-                <p class="cart-item-price">${cartItem.dataset.price}₽</p>
+                <h5 class="cart-item-title">${cartItem.product.dataset.name}</h5>
+                <p class="cart-item-description">${cartItem.product.dataset.description}</p>
+                <p class="cart-item-price">${cartItem.product.dataset.price}₽</p>
             </div>
         `;
         cartList.appendChild(orderCard);
