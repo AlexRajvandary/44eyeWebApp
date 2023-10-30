@@ -100,16 +100,17 @@ let cart = {};
     const cartList = document.getElementById("cartList");
     cartList.innerHTML = "";
     let t = getCartContents();
-    t.forEach(cartItem => {
-        let t = cartItem.getAttribute("data-image");
+     t.forEach(cartItem => {
         const orderCard = document.createElement("div");
         orderCard.className = "cart-item";
+        let n = cartItem.dataset.image;
+        let p = cartItem.dataset.name;
         orderCard.innerHTML = `
-            <img src="${productCard.dataset.image}" class="cart-item-img" alt="${productCard.dataset.name}">
+            <img src="${cartItem.dataset.image}" class="cart-item-img" alt="${cartItem.dataset.name}">
             <div class="cart-item-info">
-                <h5 class="cart-item-title">${productCard.dataset.name}</h5>
-                <p class="cart-item-description">${productCard.dataset.description}</p>
-                <p class="cart-item-price">${productCard.dataset.price}₽</p>
+                <h5 class="cart-item-title">${cartItem.dataset.name}</h5>
+                <p class="cart-item-description">${cartItem.dataset.description}</p>
+                <p class="cart-item-price">${cartItem.dataset.price}₽</p>
             </div>
         `;
         cartList.appendChild(orderCard);
