@@ -104,6 +104,7 @@ let cart = {};
         const orderCard = document.createElement("div");
         orderCard.className = "cart-item";
         orderCard.innerHTML = `
+            <div class="cart-block">
             <div class="row-cart">
                 <picture class="element-cart">
                     <img src="${cartItem.product.dataset.image}" alt="${cartItem.product.dataset.name}">
@@ -115,6 +116,8 @@ let cart = {};
                 </div>
                 <p class="element-cart">${cartItem.product.dataset.price}₽</p>
             </div>
+            </div>
+            
         `;
         cartList.appendChild(orderCard);
     });

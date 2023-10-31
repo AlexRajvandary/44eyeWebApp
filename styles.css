@@ -168,3 +168,7 @@ body.native-theme .add-to-cart-button {
 .element-cart {
     display: inline-block;
 }
+
+.cart-block{
+    background-color: var(--block-bg-color);
+}
