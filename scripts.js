@@ -105,22 +105,22 @@ let cart = {};
         orderCard.className = "cart-item";
         orderCard.innerHTML = `
            <div class="cart-block">
-    <div class="row-cart">
-        <div class="element-cart" style="width: 50%;">
-            <picture>
-                <img src="${cartItem.product.dataset.image}" alt="${cartItem.product.dataset.name}" style="max-width: 100%;">
-                <canvas width="256" height="256"></canvas>
-            </picture>
-        </div>
-        <div class="element-cart" style="width: 50%;">
-            <h5 class="cart-item-title">${cartItem.product.dataset.name}</h5>
-            <h3>${cartItem.product.dataset.description}</h3>
-        </div>
-        <p class="element-cart" style="width: 50%;">
-            ${cartItem.product.dataset.price}₽
-        </p>
-    </div>
-</div>
+            <div class="row-cart">
+                <div class="element-cart" style="width: 50%;">
+                <picture>
+                    <img src="${cartItem.product.dataset.image}" alt="${cartItem.product.dataset.name}" style="max-width: 100%;">
+                    <canvas width="256" height="256"></canvas>
+                </picture>
+            </div>
+            <div class="element-cart" style="width: 50%;">
+                <h5 class="cart-item-title">${cartItem.product.dataset.name}</h5>
+                <h6>${cartItem.product.dataset.description}</h6>
+            </div>
+            <p class="element-cart" style="width: 50%;">
+                ${cartItem.product.dataset.price}₽
+            </p>
+            </div>
+            </div>
 
             
         `;
