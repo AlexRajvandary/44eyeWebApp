@@ -115,9 +115,9 @@ let cart = {};
             <div class="element-cart" style="width: 50%;">
                 <h5 class="cart-item-title" style="white-space: normal;">${cartItem.product.dataset.name}</h5>
             </div>
-            <p class="element-cart" style="width: 50%; position: absolute; bottom: 0; right: 0;">
-                ${cartItem.product.dataset.price}₽
-            </p>
+            <div class="element-cart" style="width: 100%; text-align: right;">
+                <p>${cartItem.product.dataset.price}₽</p>
+            </div>
             </div>
             </div>
         `;
