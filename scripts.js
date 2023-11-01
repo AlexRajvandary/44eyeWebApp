@@ -109,7 +109,7 @@ let cart = {};
                 <div class="element-cart" style="width: 50%;">
                     <picture style="border-radius: 10px;">
                         <img src="${cartItem.product.dataset.image}" alt="${cartItem.product.dataset.name}" style="max-width: 100%;">
-                        <canvas width="256" height="256"></canvas>
+                        <canvas width="128" height="128"></canvas>
                     </picture>
                 </div>
             <div class="element-cart" style="width: 50%;">
