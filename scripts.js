@@ -112,7 +112,7 @@ let cart = {};
                     <canvas width="256" height="256"></canvas>
                 </picture>
             </div>
-            <div class="element-cart product-card" style="width: 50%;">
+            <div class="element-cart" style="width: 50%;">
                 <h5 class="cart-item-title">${cartItem.product.dataset.name}</h5>
             </div>
             <p class="element-cart" style="width: 50%;">
