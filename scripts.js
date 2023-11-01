@@ -107,11 +107,11 @@ let cart = {};
            <div class="cart-block">
             <div class="row-cart">
                 <div class="element-cart" style="width: 50%;">
-                <picture>
-                    <img src="${cartItem.product.dataset.image}" alt="${cartItem.product.dataset.name}" style="max-width: 100%;">
-                    <canvas width="256" height="256"></canvas>
-                </picture>
-            </div>
+                    <picture style="border-radius: 10px;">
+                        <img src="${cartItem.product.dataset.image}" alt="${cartItem.product.dataset.name}" style="max-width: 100%;">
+                        <canvas width="256" height="256"></canvas>
+                    </picture>
+                </div>
             <div class="element-cart" style="width: 50%;">
                 <h5 class="cart-item-title">${cartItem.product.dataset.name}</h5>
             </div>
@@ -120,8 +120,6 @@ let cart = {};
             </p>
             </div>
             </div>
-
-            
         `;
         cartList.appendChild(orderCard);
     });
