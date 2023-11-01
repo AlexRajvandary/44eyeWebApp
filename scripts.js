@@ -112,7 +112,7 @@ let cart = {};
                 </picture>
                 <div class="element-cart"> 
                     <h5 class="cart-item-title">${cartItem.product.dataset.name}</h5>
-                    <h3>${cartItem.product.dataset.description}</h3>
+                   
                 </div>
                 <p class="element-cart">${cartItem.product.dataset.price}₽</p>
             </div>
