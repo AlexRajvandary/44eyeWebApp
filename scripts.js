@@ -107,15 +107,15 @@ let cart = {};
            <div class="cart-block">
             <div class="row-cart">
                 <div class="element-cart" style="width: 50%;">
-                    <picture style="border-radius: 10px;">
+                    <picture style="border-radius: 10px; margin-left: 10px;">
                         <img src="${cartItem.product.dataset.image}" alt="${cartItem.product.dataset.name}" style="max-width: 100%;">
                         <canvas width="128" height="128"></canvas>
                     </picture>
                 </div>
             <div class="element-cart" style="width: 50%;">
-                <h5 class="cart-item-title">${cartItem.product.dataset.name}</h5>
+                <h5 class="cart-item-title" style="white-space: normal;">${cartItem.product.dataset.name}</h5>
             </div>
-            <p class="element-cart" style="width: 50%;">
+            <p class="element-cart" style="width: 50%; position: absolute; bottom: 0; right: 0;">
                 ${cartItem.product.dataset.price}₽
             </p>
             </div>
