@@ -226,7 +226,7 @@ let cart = {};
     });
 
     function showQuantityControls(button) {
-        incrementQuantity(button);
+
       const quantityControls = button.nextElementSibling;
       quantityControls.style.display = 'flex';
       button.style.display = 'none';
@@ -234,6 +234,10 @@ let cart = {};
     }
 
     function hideQuantityControls(button) {
+        let productElement = button.closest(".product-card");
+      let product = createProductFromElement(productElement);
+      updateCart(product, 1);
+
       const quantityControls = button.nextElementSibling;
       quantityControls.style.display = 'none';
       button.style.justifyContent = 'center';
