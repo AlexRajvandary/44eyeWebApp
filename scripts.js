@@ -100,6 +100,24 @@ let cart = {};
                 <p class="card-description-text ">${product.description}</p>
                 <p class="card-text">${product.price}₽</p>
               </div>
+              <div class="order-data">
+                <select id="sizes" name="sizes" class="comboBox">
+                    <option value="" disabled selected>Размер</option>
+                    <option value="apple">Яблоко</option>
+                    <option value="banana">Банан</option>
+                    <option value="cherry">Вишня</option>
+                    <option value="orange">Апельсин</option>
+                    <option value="strawberry">Клубника</option>
+                </select>
+                <select id="colors" name="colors" class="comboBox">
+                    <option value="" disabled selected>Цвет</option>
+                    <option value="apple">Яблоко</option>
+                    <option value="banana">Банан</option>
+                    <option value="cherry">Вишня</option>
+                    <option value="orange">Апельсин</option>
+                    <option value="strawberry">Клубника</option>
+                </select>
+              </div>
               <div class="product-action">
                 <button class="add-to-cart-button bubbly-button" onclick="showQuantityControls(this)">Добавить в корзину</button>
                 <div class="quantity-indicator">0</div> <!-- Элемент для отображения количества -->
@@ -238,19 +256,6 @@ let cart = {};
       mainBtn.show();
     }
 
-    function hideQuantityControls(button) {
-        let productElement = button.closest(".product-card");
-      let product = createProductFromElement(productElement);
-      updateCart(product, 1);
-
-      const quantityControls = button.nextElementSibling;
-      quantityControls.style.display = 'none';
-      button.style.justifyContent = 'center';
-      button.style.alignItems = 'center';
-      button.style.display = 'flex';
-      mainBtn.hide();
-    }
-
     function createProductFromElement(productCard){
         const id = productCard.getAttribute('data-id');
         const name = productCard.getAttribute('data-name');
@@ -262,28 +267,6 @@ let cart = {};
         const gender = productCard.getAttribute('data-gender');
 
         return new Product(id, name, category, gender, season, image, price, description);
-    }
-
-    function incrementQuantity(button) {
-      const quantityElement = button.parentElement.querySelector('.quantity');
-      let quantity = parseInt(quantityElement.textContent);
-      quantityElement.textContent = quantity + 1;
-      let productElement = button.closest(".product-card");
-      let product = createProductFromElement(productElement);
-      updateCart(product, 1);
-    }
-
-    function decrementQuantity(button) {
-        let product = button.closest(".product-card");
-        const quantityElement = button.parentElement.querySelector('.quantity');
-        let quantity = parseInt(quantityElement.textContent);
-        if (quantity > 1) {
-            quantityElement.textContent = quantity - 1;
-            updateCart(product, -1);
-        } else{
-            hideQuantityControls(button.parentElement.previousElementSibling);
-            removeFromCart(product);
-        }
     }
 
     function mainBtnClicked(){

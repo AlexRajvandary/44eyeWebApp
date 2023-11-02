@@ -213,3 +213,31 @@ body.native-theme .add-to-cart-button {
     display: flex; /* Устанавливаем отображение дочерних элементов в ряд */
     align-items: center; /* Выравниваем элементы по вертикали по центру */
 }
+
+.order-data {
+  display: flex;
+  align-items: center; /* Выравниваем выпадающий список по центру по вертикали */
+  flex-grow: 1; /* Занимает доступное пространство внутри .product-card */
+}
+
+.comboBox{
+    color: white;
+    display: inline-block;
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 1em;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: 1px solid white;
+        border-radius: 20px;
+        padding: 6px 12px;
+
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.comboBox:focus,
+.comboBox:active {
+    background-color: transparent; /* Новый цвет фона после выбора опции */
+    color: #333; /* Новый цвет текста после выбора опции */
+}
