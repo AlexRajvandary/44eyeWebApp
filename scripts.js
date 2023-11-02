@@ -90,7 +90,8 @@ let cart = {};
                  data-image="${product.image}"
                  data-description="${product.description}"
                  data-season="${product.season}"
-                 data-category="${product.category}">
+                 data-category="${product.category}"
+                 data-category="${product.gender}">
               <img src="${product.image}" class="card-img-top" alt="${product.name}">
               <div class="card-body">
                 <h5 class="card-title">${product.name}</h5>
