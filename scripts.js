@@ -109,11 +109,12 @@ let cart = {};
       productList.appendChild(productRow);
     }
 
-    function displayCartProducts(cart) {
+   function displayCartProducts(cart) {
     const cartList = document.getElementById("cartList");
     cartList.innerHTML = ""; // Очищаем список перед добавлением новых товаров
-    let t = getCartContents(cart);
-    t.forEach(cartItem => {
+
+    for (const productId in cart) {
+        const cartItem = cart[productId];
         const orderCard = document.createElement("div");
         orderCard.className = "cart-item";
         orderCard.innerHTML = `
@@ -130,12 +131,13 @@ let cart = {};
                         <div class="element-cart" style="width: 50%;">
                             <h5 class="cart-item-title" style="white-space: normal; position: relative; top: -20px;">${cartItem.product.dataset.name}</h5>
                             <h7>${cartItem.product.dataset.price}₽</h7>
+                            <h7>Quantity: ${cartItem.quantity}</h7>
                         </div>
                </div>
           </div>
         `;
         cartList.appendChild(orderCard); // Добавляем созданный элемент в список
-    });
+    }
 }
 
     // Обработка изменений фильтров
