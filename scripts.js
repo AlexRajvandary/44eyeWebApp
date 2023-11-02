@@ -226,6 +226,7 @@ let cart = {};
     });
 
     function showQuantityControls(button) {
+        incrementQuantity(button);
       const quantityControls = button.nextElementSibling;
       quantityControls.style.display = 'flex';
       button.style.display = 'none';
@@ -251,7 +252,7 @@ let cart = {};
         const season = productCard.getAttribute('data-season');
         const gender = productCard.getAttribute('data-gender');
 
-        return new Product(id, name, description, category, price, image, season, gender);
+        return new Product(id, name, category, gender, season, image, price, description);
     }
 
     function incrementQuantity(button) {
