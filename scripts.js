@@ -112,7 +112,7 @@ let cart = {};
     function displayCartProducts(cart) {
     const cartList = document.getElementById("cartList");
     cartList.innerHTML = ""; // Очищаем список перед добавлением новых товаров
-    let t = getCartContents();
+    let t = getCartContents(cart);
     t.forEach(cartItem => {
         const orderCard = document.createElement("div");
         orderCard.className = "cart-item";
@@ -287,7 +287,7 @@ let cart = {};
         }
     }
 
-    function getCartContents() {
+    function getCartContents(cart) {
         return Object.values(cart);
     }
 
