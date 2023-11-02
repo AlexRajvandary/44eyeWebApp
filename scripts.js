@@ -99,11 +99,7 @@ let cart = {};
                 <p class="card-text">${product.price}₽</p>
               </div>
                <button class="add-to-cart-button bubbly-button" onclick="showQuantityControls(this)">Добавить в корзину</button>
-               <div class="quantity-controls ">
-                    <button onclick="decrementQuantity(this)">-</button>
-                    <div class="quantity">1</div>
-                    <button onclick="incrementQuantity(this)">+</button>
-               </div>
+              
             </div>
           `;
           productRow.appendChild(productCard);
