@@ -111,9 +111,9 @@ let cart = {};
 
     function displayCartProducts(cart) {
     const cartList = document.getElementById("cartList");
-    cartList.innerHTML = "";
+    cartList.innerHTML = ""; // Очищаем список перед добавлением новых товаров
     let t = getCartContents();
-     t.forEach(cartItem => {
+    t.forEach(cartItem => {
         const orderCard = document.createElement("div");
         orderCard.className = "cart-item";
         orderCard.innerHTML = `
@@ -133,9 +133,8 @@ let cart = {};
                         </div>
                </div>
           </div>
-
         `;
-        cartList.appendChild(orderCard);
+        cartList.appendChild(orderCard); // Добавляем созданный элемент в список
     });
 }
 
