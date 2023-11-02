@@ -98,8 +98,10 @@ let cart = {};
                 <p class="card-description-text ">${product.description}</p>
                 <p class="card-text">${product.price}₽</p>
               </div>
-              <button class="add-to-cart-button bubbly-button" onclick="showQuantityControls(this)">Добавить в корзину</button>
-              <div class="quantity-indicator">0</div>
+              <div class="product-action">
+                <button class="add-to-cart-button bubbly-button" onclick="showQuantityControls(this)">Добавить в корзину</button>
+                <div class="quantity-indicator">0</div> <!-- Элемент для отображения количества -->
+              </div>
             </div>
           `;
           productRow.appendChild(productCard);

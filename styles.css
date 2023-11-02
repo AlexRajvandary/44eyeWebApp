@@ -191,3 +191,19 @@ body.native-theme .add-to-cart-button {
     position: relative;
     top: -10px;
 }
+
+.quantity-indicator {
+  background-color: transparent; /* Цвет круга */
+    border: 1px solid white;
+  color: #fff; /* Цвет текста внутри круга */
+  border-radius: 50%; /* Закругленные углы для создания круглой формы */
+  width: 30px; /* Ширина круга */
+  height: 30px; /* Высота круга */
+  line-height: 30px; /* Выравнивание текста по вертикали */
+  text-align: center; /* Выравнивание текста по горизонтали */
+}
+
+.product-action {
+    display: flex; /* Устанавливаем отображение дочерних элементов в ряд */
+    align-items: center; /* Выравниваем элементы по вертикали по центру */
+}
