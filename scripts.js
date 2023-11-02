@@ -108,12 +108,14 @@ let cart = {};
                <div class="row-cart">
                         <div class="element-cart" style="width: 50%;">
                             <picture>
-                                <img src="${cartItem.product.dataset.image}" alt="${cartItem.product.dataset.name}" style="max-width: 100%; border-radius: 10px;">
+                                <img src="${cartItem.product.dataset.image}" 
+                                     alt="${cartItem.product.dataset.name}" 
+                                     class="cart-item-img">
                                 <canvas width="32" height="32"></canvas>
                             </picture>
                         </div>
                         <div class="element-cart" style="width: 50%;">
-                            <h5 class="cart-item-title" style="white-space: normal; position: relative; top: -40px;">${cartItem.product.dataset.name}</h5>
+                            <h5 class="cart-item-title" style="white-space: normal; position: relative; top: -20px;">${cartItem.product.dataset.name}</h5>
                             <h7>${cartItem.product.dataset.price}₽</h7>
                         </div>
                </div>
