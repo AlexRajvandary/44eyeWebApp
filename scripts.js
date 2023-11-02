@@ -227,7 +227,10 @@ let cart = {};
       updateCart(product, 1);
       const quantityIndicator = button.nextElementSibling;
       quantityIndicator.style.display = 'block';
-      quantityIndicator.textContent += 1;
+
+      let quantity = parseInt(quantityIndicator.textContent); // Преобразуем текст в число
+         quantity += 1;
+         quantityIndicator.textContent = quantity;
       mainBtn.show();
     }
 
