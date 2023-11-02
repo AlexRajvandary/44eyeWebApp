@@ -119,6 +119,7 @@ let cart = {};
 
     for (const productId in cart) {
         const cartItem = cart[productId].product;
+        const quantity = cart[productId].quantity;
         const orderCard = document.createElement("div");
         orderCard.className = "cart-item";
         orderCard.innerHTML = `
@@ -135,7 +136,7 @@ let cart = {};
                         <div class="element-cart" style="width: 50%;">
                             <h5 class="cart-item-title" style="white-space: normal; position: relative; top: -20px;">${cartItem.name}</h5>
                             <h7>${cartItem.price}₽</h7>
-                            <h7>Quantity: ${cartItem.quantity}</h7>
+                            <h7>Quantity: ${quantity}</h7>
                         </div>
                </div>
           </div>
