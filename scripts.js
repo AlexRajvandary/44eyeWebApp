@@ -222,10 +222,9 @@ let cart = {};
     });
 
     function showQuantityControls(button) {
-
-      const quantityControls = button.nextElementSibling;
-      quantityControls.style.display = 'flex';
-      button.style.display = 'none';
+        let productElement = button.closest(".product-card");
+      let product = createProductFromElement(productElement);
+      updateCart(product, 1);
       mainBtn.show();
     }
 
