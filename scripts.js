@@ -251,12 +251,14 @@ let cart = {};
         backBtn.show();
         displayCartProducts(cart);
         $('.catalogue').hide();
+        mainBtn.text = "Оформить заказ";
     }
 
      function backBtnClicked(){
         $('.order_view').hide();
         backBtn.hide();
         $('.catalogue').show();
+        mainBtn.text = "Перейти в корзину";
     }
 
     function updateCart(product, quantity) {
