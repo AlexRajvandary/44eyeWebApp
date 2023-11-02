@@ -6,11 +6,12 @@ class Product {
     constructor(id, name, category, gender, season, image, price, description) {
         this.id = id;
         this.name = name;
-        this.description = description;
-        this.price = price;
-        this.image = image;
-        this.season = season;
+        this.category = category;
         this.gender = gender;
+        this.season = season;
+        this.image = image;
+        this.price = price;
+        this.description = description;
     }
 }
 
