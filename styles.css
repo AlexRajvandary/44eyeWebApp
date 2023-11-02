@@ -11,6 +11,7 @@ body {
     border: 1px solid black;
     border-radius: 20px;
     padding: 6px 12px;
+    flex: 1;
 }
 
 body.dark-theme {
@@ -201,6 +202,11 @@ body.native-theme .add-to-cart-button {
   height: 30px; /* Высота круга */
   line-height: 30px; /* Выравнивание текста по вертикали */
   text-align: center; /* Выравнивание текста по горизонтали */
+    justify-content: center; /* Выравниваем текст по горизонтали по центру */
+    align-items: center; /* Выравниваем текст по вертикали по центру */
+    margin-left: 10px; /* Задайте нужное расстояние между кругом и кнопкой */
+    font-weight: bold; /* Жирный текст для лучшей читаемости */
+    font-size: 14px; /* Задайте нужный размер шрифта */
 }
 
 .product-action {
