@@ -256,11 +256,11 @@ let cart = {};
     }
 
     function mainBtnClicked(){
-        $('.order_view').show();
-        backBtn.show();
-        displayCartProducts(cart);
         $('.catalogue').hide();
         mainBtn.text = "Оформить заказ";
+        displayCartProducts(cart);
+        $('.order_view').show();
+        backBtn.show();
     }
 
      function backBtnClicked(){
