@@ -3,7 +3,7 @@ let backBtn = window.Telegram.WebApp.BackButton;
 let webApp = window.Telegram.WebApp;
 
 class Product {
-    constructor(id, name, description, category, price, image, season, gender) {
+    constructor(id, name, category, gender, season, image, price, description) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -87,7 +87,9 @@ let cart = {};
                  data-price="${product.price}"
                  data-name="${product.name}"
                  data-image="${product.image}"
-                 data-description="${product.description}">
+                 data-description="${product.description}"
+                 data-season="${product.season}"
+                 data-category="${product.category}">
               <img src="${product.image}" class="card-img-top" alt="${product.name}">
               <div class="card-body">
                 <h5 class="card-title">${product.name}</h5>
@@ -236,11 +238,25 @@ let cart = {};
       mainBtn.hide();
     }
 
+    function createProductFromElement(productCard){
+        const id = productCard.getAttribute('data-id');
+        const name = productCard.getAttribute('data-name');
+        const price = productCard.getAttribute('data-price');
+        const image = productCard.getAttribute('data-image');
+        const description = productCard.getAttribute('data-description');
+        const category = productCard.getAttribute('data-category');
+        const season = productCard.getAttribute('data-season');
+        const gender = productCard.getAttribute('data-gender');
+
+        return new Product(id, name, description, category, price, image, season, gender);
+    }
+
     function incrementQuantity(button) {
       const quantityElement = button.parentElement.querySelector('.quantity');
       let quantity = parseInt(quantityElement.textContent);
       quantityElement.textContent = quantity + 1;
-      let product = button.closest(".product-card");
+      let productElement = button.closest(".product-card");
+      let product = createProductFromElement(productElement);
       updateCart(product, 1);
     }
 
