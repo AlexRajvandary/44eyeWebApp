@@ -98,8 +98,8 @@ let cart = {};
                 <p class="card-description-text ">${product.description}</p>
                 <p class="card-text">${product.price}₽</p>
               </div>
-               <button class="add-to-cart-button bubbly-button" onclick="showQuantityControls(this)">Добавить в корзину</button>
-              
+              <button class="add-to-cart-button bubbly-button" onclick="showQuantityControls(this)">Добавить в корзину</button>
+              <div class="quantity-indicator">0</div>
             </div>
           `;
           productRow.appendChild(productCard);
@@ -225,6 +225,9 @@ let cart = {};
         let productElement = button.closest(".product-card");
       let product = createProductFromElement(productElement);
       updateCart(product, 1);
+      const quantityIndicator = button.nextElementSibling;
+      quantityIndicator.style.display = 'block';
+      quantityIndicator.textContent += 1;
       mainBtn.show();
     }
 
