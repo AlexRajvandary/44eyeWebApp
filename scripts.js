@@ -2,6 +2,25 @@ let mainBtn = window.Telegram.WebApp.MainButton;
 let backBtn = window.Telegram.WebApp.BackButton;
 let webApp = window.Telegram.WebApp;
 
+const Product = require('./product.js');
+
+const products = [
+    new Product(1, "Кроссовки Nike Белые", "обувь", "женское", "весна", "sneakers/1.jpg", 7990, "Описание товара 1"),
+    new Product(2, "Кроссовки New Balance Белые", "обувь", "женское", "весна", "sneakers/2.jpg", 12490, "Описание товара 2"),
+    new Product(3, "Кроссовки Nike Sony", "обувь", "мужское", "весна", "sneakers/3.jpg", 15990, "Описание товара 3"),
+    new Product(4, "Кроссовки Чёрные", "обувь", "мужское", "весна", "sneakers/4.jpg", 12390, "Описание товара 4"),
+    new Product(5, "Кроссовки New Balance", "обувь", "мужское", "весна", "sneakers/5.jpg", 7490, "Описание товара 5"),
+    new Product(6, "Кроссовки New Balance", "обувь", "мужское", "весна", "sneakers/6.jpg", 5490, "Описание товара 6"),
+    new Product(7, "Штаны Чёрные Мужские", "верхняя_одежда", "мужское", "весна", "pants/1.jpg", 7990, "Описание товара 7"),
+    new Product(8, "Кроссовки Nike Белые", "верхняя_одежда", "женское", "весна", "tshirt/1.jpg", 5490, "Описание товара 8"),
+    new Product(9, "Кроссовки New Balance Белые", "верхняя_одежда", "женское", "весна", "tshirt/2.jpg", 7990, "Описание товара 9"),
+    new Product(10, "Кроссовки Nike Sony", "верхняя_одежда", "мужское", "весна", "tshirt/3.jpg", 7990, "Описание товара 10"),
+    new Product(11, "Пуховик зимний", "верхняя_одежда", "мужское", "весна", "tshirt/4.jpg", 5490, "Описание товара 11"),
+    new Product(12, "Футболка Inspire Чёрная", "верхняя_одежда", "мужское", "весна", "tshirt/5.jpg", 5490, "Описание товара 12"),
+    new Product(13, "Футболка Brooklyn Белая", "верхняя_одежда", "мужское", "весна", "tshirt/6.jpg", 12390, "Описание товара 13"),
+    new Product(14, "Футболки хайповые", "верхняя_одежда", "мужское", "весна", "tshirt/7.jpg", 7990, "Описание товара 14")
+];
+
 webApp.setHeaderColor('#000000');
 mainBtn.text_color = '#FFFFFF';
 mainBtn.color = '#3953f8';
@@ -33,23 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
     body.classList.add("dark-theme");
   }
 });
-const desc = "Куртка Nike Storm-FIT Windrunner PrimaLoft с супертеплым утеплителем PrimaLoft Thermoplume\n                 имеет классический силуэт и дополнительную изоляцию. Технология Nike Storm-FIT защитит вас от ветра и дождя, поэтому вы сможете наслаждаться высоким комфортом в любую погоду. Просторный крой обеспечивает дополнительное пространство, поэтому в холодные дни вы можете носить больше слоев под ним.";
-const products = [
-      { id: 1, name: "Кроссовки Nike Белые", category: "обувь", gender: "женское", season: "весна", image: "sneakers/1.jpg", price: 7990, description: desc },
-      { id: 2, name: "Кроссовки New Balance Белые", category: "обувь", gender: "женское", season: "весна", image: "sneakers/2.jpg", price: 12490, description: desc },
-      { id: 3, name: "Кроссовки Nike Sony", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/3.jpg", price: 15990, description: desc },
-      { id: 4, name: "Кроссовки Чёрные", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/4.jpg", price: 12390, description: desc },
-      { id: 5, name: "Кроссовки New Balance", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/5.jpg", price: 7490, description: desc },
-      { id: 6, name: "Кроссовки New Balance", category: "обувь", gender: "мужское", season: "весна", image: "sneakers/6.jpg", price: 5490, description: desc },
-      { id: 7, name: "Штаны Чёрные Мужские", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "pants/1.jpg", price: 7990, description: desc },
-      { id: 8, name: "Кроссовки Nike Белые", category: "верхняя_одежда", gender: "женское", season: "весна", image: "tshirt/1.jpg", price: 5490, description: desc },
-      { id: 9, name: "Кроссовки New Balance Белые", category: "верхняя_одежда", gender: "женское", season: "весна", image: "tshirt/2.jpg", price: 7990, description: desc },
-      { id: 10, name: "Кроссовки Nike Sony", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/3.jpg", price: 7990, description: desc },
-      { id: 11, name: "Пуховик зимний", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/4.jpg", price: 5490, description: desc },
-      { id: 12, name: "Футболка Inspire Чёрная", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/5.jpg", price: 5490, description: desc },
-      { id: 13, name: "Футболка Brooklyn Белая", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/6.jpg", price: 12390, description: desc },
-      { id: 14, name: "Футболки хайповые", category: "верхняя_одежда", gender: "мужское", season: "весна", image: "tshirt/7.jpg", price: 7990, description: desc }
-      ]
+
 let cart = {};
 
     // Функция для отображения товаров на странице
@@ -86,7 +89,7 @@ let cart = {};
                     <button onclick="decrementQuantity(this)">-</button>
                     <div class="quantity">1</div>
                     <button onclick="incrementQuantity(this)">+</button>
-                </div>
+               </div>
             </div>
           `;
           productRow.appendChild(productCard);
