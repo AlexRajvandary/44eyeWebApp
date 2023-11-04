@@ -117,7 +117,7 @@ let cart = {};
                 <p class="card-text">${product.price}₽</p>
               </div>
               <div class="order-data">
-                <select id="sizes-${product.id}" name="sizes" class="comboBox">
+                <select id="sizes" name="sizes" class="comboBox">
                     <option value="" disabled selected>Размер</option>
                 </select>
 
@@ -131,7 +131,7 @@ let cart = {};
               </div>
             </div>
           `;
-          updateSizesDropDown(productCard, product.id);
+          updateSizesDropDown(productCard, product);
           productRow.appendChild(productCard);
         }
       });
@@ -139,13 +139,11 @@ let cart = {};
       productList.appendChild(productRow);
     }
 
-    function updateSizesDropDown(productCard, productId) {
-        var dropdown = productCard.getElementById(`sizes-${productId}`);
+    function updateSizesDropDown(productCard, product) {
+        var dropdown = productCard.querySelector("#sizes");
 
-        // Получите доступные размеры для конкретного товара, например, из массива products
-        var availableSizes = products.find(product => product.id === productId).sizes;
+        var availableSizes = product.sizes;
 
-        // Заполните выпадающий список опциями на основе доступных размеров
         for (var i = 0; i < availableSizes.length; i++) {
             var option = document.createElement("option");
             option.value = availableSizes[i];
