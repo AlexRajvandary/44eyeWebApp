@@ -146,9 +146,6 @@ let cart = {};
         // Получите доступные размеры для конкретного товара, например, из массива products
         var availableSizes = products.find(product => product.id === productId).sizes;
 
-        // Очистите существующие опции в выпадающем списке
-        dropdown.innerHTML = "";
-
         // Заполните выпадающий список опциями на основе доступных размеров
         for (var i = 0; i < availableSizes.length; i++) {
             var option = document.createElement("option");
