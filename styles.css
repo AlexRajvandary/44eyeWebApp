@@ -236,12 +236,6 @@ body.native-theme .add-to-cart-button {
     margin-bottom: 20px;
 }
 
-img {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-
 .comboBox:focus,
 .comboBox:active {
     background-color: transparent; /* Новый цвет фона после выбора опции */

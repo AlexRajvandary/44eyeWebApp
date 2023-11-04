@@ -3,7 +3,18 @@ let backBtn = window.Telegram.WebApp.BackButton;
 let webApp = window.Telegram.WebApp;
 
 class Product {
-    constructor(id, name, category, gender, season, image, price, description) {
+    constructor(id,
+                name,
+                category,
+                gender,
+                season,
+                image,
+                price,
+                description,
+                sizes,
+                selectedSize,
+                colors,
+                selectedColor) {
         this.id = id;
         this.name = name;
         this.category = category;
@@ -12,26 +23,31 @@ class Product {
         this.image = image;
         this.price = price;
         this.description = description;
+        this.sizes = sizes;
+        this.selectedSize = selectedSize;
+        this.color = selectedColor;
     }
 }
 
 const text = 'Эти кроссовки от Nike обеспечивают отличную поддержку стопы и амортизацию благодаря современным технологиям, используемым в их производстве. Они идеально подходят для прогулок, бега и занятий спортом, предоставляя комфорт и уверенность в каждом шаге. Белый цвет кроссовок делает их универсальными и легко сочетаемыми с различной одеждой.';
+const sizes = ["S", "M", "L"];
+const colors = ["Белый", "Чёрный"];
 
 const products = [
-    new Product(1, "Кроссовки Nike Белые", "обувь", "женское", "весна", "sneakers/1.jpg", 7990, text),
-    new Product(2, "Кроссовки New Balance Белые", "обувь", "женское", "весна", "sneakers/2.jpg", 12490, text),
-    new Product(3, "Кроссовки Nike Sony", "обувь", "мужское", "весна", "sneakers/3.jpg", 15990, text),
-    new Product(4, "Кроссовки Чёрные", "обувь", "мужское", "весна", "sneakers/4.jpg", 12390, text),
-    new Product(5, "Кроссовки New Balance", "обувь", "мужское", "весна", "sneakers/5.jpg", 7490, "Описание товара 5"),
-    new Product(6, "Кроссовки New Balance", "обувь", "мужское", "весна", "sneakers/6.jpg", 5490, "Описание товара 6"),
-    new Product(7, "Штаны Чёрные Мужские", "верхняя_одежда", "мужское", "весна", "pants/1.jpg", 7990, "Описание товара 7"),
-    new Product(8, "Кроссовки Nike Белые", "верхняя_одежда", "женское", "весна", "tshirt/1.jpg", 5490, "Описание товара 8"),
-    new Product(9, "Кроссовки New Balance Белые", "верхняя_одежда", "женское", "весна", "tshirt/2.jpg", 7990, "Описание товара 9"),
-    new Product(10, "Кроссовки Nike Sony", "верхняя_одежда", "мужское", "весна", "tshirt/3.jpg", 7990, "Описание товара 10"),
-    new Product(11, "Пуховик зимний", "верхняя_одежда", "мужское", "весна", "tshirt/4.jpg", 5490, "Описание товара 11"),
-    new Product(12, "Футболка Inspire Чёрная", "верхняя_одежда", "мужское", "весна", "tshirt/5.jpg", 5490, "Описание товара 12"),
-    new Product(13, "Футболка Brooklyn Белая", "верхняя_одежда", "мужское", "весна", "tshirt/6.jpg", 12390, "Описание товара 13"),
-    new Product(14, "Футболки хайповые", "верхняя_одежда", "мужское", "весна", "tshirt/7.jpg", 7990, "Описание товара 14")
+    new Product(1, "Кроссовки Nike Белые", "обувь", "женское", "весна", "sneakers/1.jpg", 7990, text, sizes, null, colors, null),
+    new Product(2, "Кроссовки New Balance Белые", "обувь", "женское", "весна", "sneakers/2.jpg", 12490, text,  sizes, null, colors, null),
+    new Product(3, "Кроссовки Nike Sony", "обувь", "мужское", "весна", "sneakers/3.jpg", 15990, text,  sizes, null, colors, null),
+    new Product(4, "Кроссовки Чёрные", "обувь", "мужское", "весна", "sneakers/4.jpg", 12390, text,  sizes, null, colors, null),
+    new Product(5, "Кроссовки New Balance", "обувь", "мужское", "весна", "sneakers/5.jpg", 7490, "Описание товара 5", sizes, null, colors, null),
+    new Product(6, "Кроссовки New Balance", "обувь", "мужское", "весна", "sneakers/6.jpg", 5490, "Описание товара 6", sizes, null, colors, null),
+    new Product(7, "Штаны Чёрные Мужские", "верхняя_одежда", "мужское", "весна", "pants/1.jpg", 7990, "Описание товара 7", sizes, null, colors, null),
+    new Product(8, "Кроссовки Nike Белые", "верхняя_одежда", "женское", "весна", "tshirt/1.jpg", 5490, "Описание товара 8", sizes, null, colors, null),
+    new Product(9, "Кроссовки New Balance Белые", "верхняя_одежда", "женское", "весна", "tshirt/2.jpg", 7990, "Описание товара 9", sizes, null, colors, null),
+    new Product(10, "Кроссовки Nike Sony", "верхняя_одежда", "мужское", "весна", "tshirt/3.jpg", 7990, "Описание товара 10", sizes, null, colors, null),
+    new Product(11, "Пуховик зимний", "верхняя_одежда", "мужское", "весна", "tshirt/4.jpg", 5490, "Описание товара 11", sizes, null, colors, null),
+    new Product(12, "Футболка Inspire Чёрная", "верхняя_одежда", "мужское", "весна", "tshirt/5.jpg", 5490, "Описание товара 12", sizes, null, colors, null),
+    new Product(13, "Футболка Brooklyn Белая", "верхняя_одежда", "мужское", "весна", "tshirt/6.jpg", 12390, "Описание товара 13", sizes, null, colors, null),
+    new Product(14, "Футболки хайповые", "верхняя_одежда", "мужское", "весна", "tshirt/7.jpg", 7990, "Описание товара 14", sizes, null, colors, null)
 ];
 
 webApp.setHeaderColor('#000000');
@@ -101,21 +117,12 @@ let cart = {};
                 <p class="card-text">${product.price}₽</p>
               </div>
               <div class="order-data">
-                <select id="sizes" name="sizes" class="comboBox">
+                <select id="sizes-${product.id}" name="sizes" class="comboBox">
                     <option value="" disabled selected>Размер</option>
-                    <option value="apple">Яблоко</option>
-                    <option value="banana">Банан</option>
-                    <option value="cherry">Вишня</option>
-                    <option value="orange">Апельсин</option>
-                    <option value="strawberry">Клубника</option>
                 </select>
+
                 <select id="colors" name="colors" class="comboBox">
-                    <option value="" disabled selected>Цвет</option>
-                    <option value="apple">Яблоко</option>
-                    <option value="banana">Банан</option>
-                    <option value="cherry">Вишня</option>
-                    <option value="orange">Апельсин</option>
-                    <option value="strawberry">Клубника</option>
+                    <option value="" disabled selected>Цвет</option>  
                 </select>
               </div>
               <div class="product-action">
@@ -125,10 +132,30 @@ let cart = {};
             </div>
           `;
           productRow.appendChild(productCard);
+          updateSizesDropDown(product.id);
+
         }
       });
 
       productList.appendChild(productRow);
+    }
+
+    function updateSizesDropDown(productId) {
+        var dropdown = document.getElementById(`sizes-${productId}`);
+
+        // Получите доступные размеры для конкретного товара, например, из массива products
+        var availableSizes = products.find(product => product.id === productId).sizes;
+
+        // Очистите существующие опции в выпадающем списке
+        dropdown.innerHTML = "";
+
+        // Заполните выпадающий список опциями на основе доступных размеров
+        for (var i = 0; i < availableSizes.length; i++) {
+            var option = document.createElement("option");
+            option.value = availableSizes[i];
+            option.text = availableSizes[i];
+            dropdown.appendChild(option);
+        }
     }
 
    function displayCartProducts(cart) {
