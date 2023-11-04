@@ -131,7 +131,7 @@ let cart = {};
               </div>
             </div>
           `;
-          updateSizesDropDown(productCard);
+          updateSizesDropDown(productCard, productId);
           productRow.appendChild(productCard);
 
 
@@ -141,7 +141,7 @@ let cart = {};
       productList.appendChild(productRow);
     }
 
-    function updateSizesDropDown(productCard) {
+    function updateSizesDropDown(productCard, productId) {
         var dropdown = productCard.getElementById(`sizes-${productId}`);
 
         // Получите доступные размеры для конкретного товара, например, из массива products
