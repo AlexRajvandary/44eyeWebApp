@@ -131,10 +131,8 @@ let cart = {};
               </div>
             </div>
           `;
-          updateSizesDropDown(productCard, productId);
+          updateSizesDropDown(productCard, product.id);
           productRow.appendChild(productCard);
-
-
         }
       });
 
