@@ -150,6 +150,11 @@ let cart = {};
             option.text = availableSizes[i];
             dropdown.appendChild(option);
         }
+
+         dropdown.addEventListener("change", function () {
+             var selectedSize = dropdown.value;
+             product.selectedSize = selectedSize;
+         });
     }
 
    function displayCartProducts(cart) {
@@ -174,8 +179,9 @@ let cart = {};
                         </div>
                         <div class="element-cart" style="width: 50%;">
                             <h5 class="cart-item-title" style="white-space: normal; position: relative; top: -20px;">${cartItem.name}</h5>
-                            <h7>${cartItem.price}₽</h7>
-                            <h7>Quantity: ${quantity}</h7>
+                            <h7>$Цена{cartItem.price}₽</h7>
+                            <h7>Количесвто: ${quantity}</h7>
+                            <h7>Размер: ${cartItem.selectedSize}₽</h7>
                         </div>
                </div>
           </div>
