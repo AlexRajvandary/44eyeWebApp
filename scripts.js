@@ -272,8 +272,10 @@ let cart = {};
 
     function showQuantityControls(button) {
         let productElement = button.closest(".product-card");
-      let product = createProductFromElement(productElement);
-      updateCart(product, 1);
+        var productCard = button.closest(".product-card");
+        var selectedSize = productCard.selectedSize;
+      /*let product = createProductFromElement(productElement);*/
+      updateCart(productCard, 1);
       const quantityIndicator = button.nextElementSibling;
       quantityIndicator.style.display = 'block';
 
