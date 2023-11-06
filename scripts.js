@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 </select>
               </div>
               <div class="product-action">
-                <button class="add-to-cart-button bubbly-button" onclick="showQuantityControls(this)">Добавить в корзину</button>
+                <button class="add-to-cart-button bubbly-button" onclick="addOrderItem(this)">Добавить в корзину</button>
                 <div class="quantity-indicator">0</div> <!-- Элемент для отображения количества -->
               </div>
             </div>
@@ -336,7 +336,7 @@ document.addEventListener("DOMContentLoaded", function() {
         buttonsContainer.style.transform = `translateX(${deltaX}px)`;
     });
 
-    function showQuantityControls(button) {
+    function addOrderItem(button) {
         let productCard = button.closest(".product-card");
         let selectedSize = productCard.selectedSize;
         let selectedColor = productCard.selectedColor;
@@ -350,7 +350,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         let orderItemId = createOrderItem(productCard, selectedSize, selectedColor);
-        webApp.HapticFeedback.notificationOccurred(success);
 
         const quantityIndicator = button.nextElementSibling;
         quantityIndicator.style.display = 'block';
