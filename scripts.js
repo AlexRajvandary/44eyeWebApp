@@ -49,8 +49,8 @@ class OrderItem{
 class Cart{
     orderItems = [];
 
-    push(product){
-        const orderItem = new OrderItem(this.orderItems.length, product, null, null)
+    push(orderItemId, product, size, color){
+        const orderItem = new OrderItem(orderItemId, product, size, color)
         this.orderItems.push(orderItem);
     }
 
@@ -70,6 +70,10 @@ class Cart{
 
     remove(orderItem){
         this.orderItems.splice(orderItem.id, 1);
+    }
+
+    getNextOrderId(){
+        return this.orderItems.length;
     }
 
     clean(){
@@ -225,9 +229,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const cartList = document.getElementById("cartList");
     cartList.innerHTML = ""; // Очищаем список перед добавлением новых товаров
 
-    for (const productId in cart) {
-        const cartItem = cart[productId].product;
-        const quantity = cart[productId].quantity;
+    for (const orderItem in cart) {
         const orderCard = document.createElement("div");
         orderCard.className = "cart-item";
         orderCard.innerHTML = `
@@ -235,17 +237,17 @@ document.addEventListener("DOMContentLoaded", function() {
                <div class="row-cart">
                         <div class="element-cart" style="width: 50%;">
                             <picture>
-                                <img src="${cartItem.image}" 
-                                     alt="${cartItem.name}" 
+                                <img src="${orderItem.product.image}" 
+                                     alt="${orderItem.product.name}" 
                                      class="cart-item-img">
                                 <canvas width="32" height="32"></canvas>
                             </picture>
                         </div>
                         <div class="element-cart" style="width: 50%;">
-                            <h5 class="cart-item-title" style="white-space: normal; position: relative; top: -20px;">${cartItem.name}</h5>
-                            <h7>$Цена{cartItem.price}₽</h7>
-                            <h7>Количесвто: ${quantity}</h7>
-                            <h7>Размер: ${cartItem.selectedSize}₽</h7>
+                            <h5 class="cart-item-title" style="white-space: normal; position: relative; top: -20px;">${orderItem.product.name}</h5>
+                            <h7>$Цена{orderItem.product.price}₽</h7>
+                            <h7>Цвет: ${orderItem.selectedColor}₽</h7>
+                            <h7>Размер: ${orderItem.selectedSize}₽</h7>
                         </div>
                </div>
           </div>
@@ -335,31 +337,34 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function showQuantityControls(button) {
-        let productElement = button.closest(".product-card");
-        var productCard = button.closest(".product-card");
-        var selectedSize = productCard.selectedSize;
-      /*let product = createProductFromElement(productElement);*/
-      updateCart(productCard, 1);
-      const quantityIndicator = button.nextElementSibling;
-      quantityIndicator.style.display = 'block';
+        let productCard = button.closest(".product-card");
+        let selectedSize = productCard.selectedSize;
+        let selectedColor = productCard.selectedColor;
 
-      let quantity = parseInt(quantityIndicator.textContent); // Преобразуем текст в число
-         quantity += 1;
-         quantityIndicator.textContent = quantity;
-      mainBtn.show();
+        if(selectedSize === null){
+
+        }else if(selectedColor === null){
+
+        }else if(selectedColor === null && selectedSize === null){
+
+        }
+
+        let orderItemId = createOrderItem(productCard, selectedSize, selectedColor);
+        webApp.HapticFeedback.notificationOccurred(success);
+
+        const quantityIndicator = button.nextElementSibling;
+        quantityIndicator.style.display = 'block';
+
+        let quantity = parseInt(quantityIndicator.textContent);
+        quantity += 1;
+        quantityIndicator.textContent = quantity;
+        mainBtn.show();
     }
 
-    function createProductFromElement(productCard){
-        const id = productCard.getAttribute('data-id');
-        const name = productCard.getAttribute('data-name');
-        const price = productCard.getAttribute('data-price');
-        const image = productCard.getAttribute('data-image');
-        const description = productCard.getAttribute('data-description');
-        const category = productCard.getAttribute('data-category');
-        const season = productCard.getAttribute('data-season');
-        const gender = productCard.getAttribute('data-gender');
-
-        return new Product(id, name, category, gender, season, image, price, description);
+    function createOrderItem(productId, selectedSize, selectedColor){
+        const currentOrderId = cart.getNextOrderId();
+        cart.push(currentOrderId, products.find(product => product.id === productId), selectedSize, selectedColor);
+        return currentOrderId;
     }
 
     function mainBtnClicked(){
@@ -375,27 +380,6 @@ document.addEventListener("DOMContentLoaded", function() {
         backBtn.hide();
         $('.catalogue').show();
         mainBtn.text = "Перейти в корзину";
-    }
-
-    function updateCart(product, quantity) {
-        if (cart[product.id]) {
-            cart[product.id].quantity += quantity;
-        } else if(quantity > 0) {
-            cart[product.id] = {
-                product: product,
-                quantity: quantity,
-            };
-        }
-    }
-
-    function removeFromCart(productId) {
-        if (cart[productId]) {
-            delete cart[productId];
-        }
-    }
-
-    function getCartContents(cart) {
-        return Object.values(cart);
     }
 
     function calculateTotal() {
