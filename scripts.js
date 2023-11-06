@@ -12,9 +12,8 @@ class Product {
                 price,
                 description,
                 sizes,
-                selectedSize,
-                colors,
-                selectedColor) {
+                colors)
+    {
         this.id = id;
         this.name = name;
         this.category = category;
@@ -24,30 +23,79 @@ class Product {
         this.price = price;
         this.description = description;
         this.sizes = sizes;
+        this.colors = colors;
+    }
+}
+
+class OrderItem{
+       constructor(orderItemId,
+                   product,
+                   selectedSize,
+                   selectedColor) {
+        this.id = orderItemId;
+        this.product = product;
         this.selectedSize = selectedSize;
-        this.color = selectedColor;
+        this.selectedColor = selectedColor;
+    }
+    setColor(color){
+           this.selectedColor = color;
+    }
+
+    setSize(size){
+           this.selectedSize = size;
+    }
+}
+
+class Cart{
+    orderItems = [];
+
+    push(product){
+        const orderItem = new OrderItem(this.orderItems.length, product, null, null)
+        this.orderItems.push(orderItem);
+    }
+
+    updateColor(orderItemId, color){
+        const orderItem = this.orderItems.find(orderItem => orderItem.id === orderItemId);
+        if(orderItem != null){
+            orderItem.setColor(color);
+        }
+    }
+
+    updateSize(orderItemId, size){
+        const orderItem = this.orderItems.find(orderItem => orderItem.id === orderItemId);
+        if(orderItem != null){
+            orderItem.setSize(size);
+        }
+    }
+
+    remove(orderItem){
+        this.orderItems.splice(orderItem.id, 1);
+    }
+
+    clean(){
+        this.orderItems = [];
     }
 }
 
 const text = 'Эти кроссовки от Nike обеспечивают отличную поддержку стопы и амортизацию благодаря современным технологиям, используемым в их производстве. Они идеально подходят для прогулок, бега и занятий спортом, предоставляя комфорт и уверенность в каждом шаге. Белый цвет кроссовок делает их универсальными и легко сочетаемыми с различной одеждой.';
 const sizes = ["S", "M", "L"];
 const colors = ["Белый", "Чёрный"];
-
+const cart = new Cart();
 const products = [
-    new Product(1, "Кроссовки Nike Белые", "обувь", "женское", "весна", "sneakers/1.jpg", 7990, text, sizes, null, colors, null),
-    new Product(2, "Кроссовки New Balance Белые", "обувь", "женское", "весна", "sneakers/2.jpg", 12490, text,  sizes, null, colors, null),
-    new Product(3, "Кроссовки Nike Sony", "обувь", "мужское", "весна", "sneakers/3.jpg", 15990, text,  sizes, null, colors, null),
-    new Product(4, "Кроссовки Чёрные", "обувь", "мужское", "весна", "sneakers/4.jpg", 12390, text,  sizes, null, colors, null),
-    new Product(5, "Кроссовки New Balance", "обувь", "мужское", "весна", "sneakers/5.jpg", 7490, "Описание товара 5", sizes, null, colors, null),
-    new Product(6, "Кроссовки New Balance", "обувь", "мужское", "весна", "sneakers/6.jpg", 5490, "Описание товара 6", sizes, null, colors, null),
-    new Product(7, "Штаны Чёрные Мужские", "верхняя_одежда", "мужское", "весна", "pants/1.jpg", 7990, "Описание товара 7", sizes, null, colors, null),
-    new Product(8, "Кроссовки Nike Белые", "верхняя_одежда", "женское", "весна", "tshirt/1.jpg", 5490, "Описание товара 8", sizes, null, colors, null),
-    new Product(9, "Кроссовки New Balance Белые", "верхняя_одежда", "женское", "весна", "tshirt/2.jpg", 7990, "Описание товара 9", sizes, null, colors, null),
-    new Product(10, "Кроссовки Nike Sony", "верхняя_одежда", "мужское", "весна", "tshirt/3.jpg", 7990, "Описание товара 10", sizes, null, colors, null),
-    new Product(11, "Пуховик зимний", "верхняя_одежда", "мужское", "весна", "tshirt/4.jpg", 5490, "Описание товара 11", sizes, null, colors, null),
-    new Product(12, "Футболка Inspire Чёрная", "верхняя_одежда", "мужское", "весна", "tshirt/5.jpg", 5490, "Описание товара 12", sizes, null, colors, null),
-    new Product(13, "Футболка Brooklyn Белая", "верхняя_одежда", "мужское", "весна", "tshirt/6.jpg", 12390, "Описание товара 13", sizes, null, colors, null),
-    new Product(14, "Футболки хайповые", "верхняя_одежда", "мужское", "весна", "tshirt/7.jpg", 7990, "Описание товара 14", sizes, null, colors, null)
+    new Product(1, "Кроссовки Nike Белые", "обувь", "женское", "весна", "sneakers/1.jpg", 7990, text, sizes, colors),
+    new Product(2, "Кроссовки New Balance Белые", "обувь", "женское", "весна", "sneakers/2.jpg", 12490, text,  sizes, colors),
+    new Product(3, "Кроссовки Nike Sony", "обувь", "мужское", "весна", "sneakers/3.jpg", 15990, text,  sizes, colors),
+    new Product(4, "Кроссовки Чёрные", "обувь", "мужское", "весна", "sneakers/4.jpg", 12390, text,  sizes, colors),
+    new Product(5, "Кроссовки New Balance", "обувь", "мужское", "весна", "sneakers/5.jpg", 7490, "Описание товара 5", sizes, colors),
+    new Product(6, "Кроссовки New Balance", "обувь", "мужское", "весна", "sneakers/6.jpg", 5490, "Описание товара 6", sizes, colors),
+    new Product(7, "Штаны Чёрные Мужские", "верхняя_одежда", "мужское", "весна", "pants/1.jpg", 7990, "Описание товара 7", sizes, colors),
+    new Product(8, "Кроссовки Nike Белые", "верхняя_одежда", "женское", "весна", "tshirt/1.jpg", 5490, "Описание товара 8", sizes, colors),
+    new Product(9, "Кроссовки New Balance Белые", "верхняя_одежда", "женское", "весна", "tshirt/2.jpg", 7990, "Описание товара 9", sizes, colors),
+    new Product(10, "Кроссовки Nike Sony", "верхняя_одежда", "мужское", "весна", "tshirt/3.jpg", 7990, "Описание товара 10", sizes, colors),
+    new Product(11, "Пуховик зимний", "верхняя_одежда", "мужское", "весна", "tshirt/4.jpg", 5490, "Описание товара 11", sizes, colors),
+    new Product(12, "Футболка Inspire Чёрная", "верхняя_одежда", "мужское", "весна", "tshirt/5.jpg", 5490, "Описание товара 12", sizes, colors),
+    new Product(13, "Футболка Brooklyn Белая", "верхняя_одежда", "мужское", "весна", "tshirt/6.jpg", 12390, "Описание товара 13", sizes, colors),
+    new Product(14, "Футболки хайповые", "верхняя_одежда", "мужское", "весна", "tshirt/7.jpg", 7990, "Описание товара 14", sizes, colors)
 ];
 
 webApp.setHeaderColor('#000000');
@@ -81,8 +129,6 @@ document.addEventListener("DOMContentLoaded", function() {
     body.classList.add("dark-theme");
   }
 });
-
-let cart = {};
 
     // Функция для отображения товаров на странице
     function displayProducts(categoryFilter = "", genderFilter = "", seasonFilter = "") {
@@ -141,7 +187,6 @@ let cart = {};
 
     function updateSizesDropDown(productCard, product) {
         var dropdown = productCard.querySelector("#sizes");
-
         var availableSizes = product.sizes;
 
         for (var i = 0; i < availableSizes.length; i++) {
@@ -153,6 +198,25 @@ let cart = {};
 
          dropdown.addEventListener("change", function () {
              var selectedSize = dropdown.value;
+             product.selectedSize = selectedSize;
+             cart.updateSize()
+         });
+    }
+
+      function updateColorsDropDown(productCard, product) {
+        var dropdown = productCard.querySelector("#colors");
+
+        var availableColors = product.colors;
+
+        for (var i = 0; i < availableColors.length; i++) {
+            var option = document.createElement("option");
+            option.value = availableColors[i];
+            option.text = availableColors[i];
+            dropdown.appendChild(option);
+        }
+
+         dropdown.addEventListener("change", function () {
+             var selectedColor = dropdown.value;
              product.selectedSize = selectedSize;
          });
     }
