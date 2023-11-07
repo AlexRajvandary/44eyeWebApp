@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const cartList = document.getElementById("cartList");
     cartList.innerHTML = ""; // Очищаем список перед добавлением новых товаров
 
-    for (const orderItem in cart) {
+    for (const orderItem in cart.orderItems) {
         const orderCard = document.createElement("div");
         orderCard.className = "cart-item";
         orderCard.innerHTML = `
