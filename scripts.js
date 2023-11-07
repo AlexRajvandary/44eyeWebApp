@@ -137,7 +137,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-    // Функция для отображения товаров на странице
     function displayProducts(categoryFilter = "", genderFilter = "", seasonFilter = "") {
       const productList = document.getElementById("productList");
       productList.innerHTML = "";
@@ -365,7 +364,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function createOrderItem(productId, selectedSize, selectedColor){
         const currentOrderId = cart.getNextOrderId();
-        cart.push(currentOrderId, products.find(product => product.id === productId), selectedSize, selectedColor);
+        const product = products.find(product => product.id === productId);
+        cart.push(currentOrderId, product, selectedSize, selectedColor);
         return currentOrderId;
     }
 
