@@ -49,29 +49,31 @@ class OrderItem{
 class Cart{
     orderItems = [];
 
-    currentItem;
+    currentItems = [];
 
     setCurrentItem(productId, itemId){
-        this.currentItem = this.orderItems[productId][itemId];
+        this.currentItems[productId] = this.orderItems[productId][itemId];
     }
 
     updateColor(product, color){
-         if(this.currentItem != null){
-            this.currentItem.setSize(color);
+        var currentItem = this.currentItems[product.id];
+        if(currentItem != null){
+            currentItem.setColor(color);
         }else{
              var orderItemId = this.getNextOrderId(product.id);
-             this.currentItem = new OrderItem(orderItemId, product, null, color);
-             this.orderItems[product.id].push(this.currentItem);
+             this.currentItems[product.id] = new OrderItem(orderItemId, product, null, color);
+             this.orderItems[product.id].push(this.currentItems[product.id]);
         }
     }
 
     updateSize(product, size){
-        if(this.currentItem != null){
-            this.currentItem.setSize(size);
+        var currentItem = this.currentItems[product.id];
+        if(currentItem != null){
+            currentItem.setSize(size);
         }else{
              var orderItemId = this.getNextOrderId(product.id);
-             this.currentItem = new OrderItem(orderItemId, product, size, null);
-             this.orderItems[product.id].push(this.currentItem);
+             this.currentItems[product.id] = new OrderItem(orderItemId, product, size, null);
+             this.orderItems[product.id].push(this.currentItems[product.id]);
         }
     }
 
