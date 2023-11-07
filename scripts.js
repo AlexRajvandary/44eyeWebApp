@@ -49,9 +49,12 @@ class OrderItem{
 class Cart{
     orderItems = [];
 
+    currentItem = 0;
+
     push(orderItemId, product, size, color){
         const orderItem = new OrderItem(orderItemId, product, size, color)
         this.orderItems.push(orderItem);
+        this.currentItem = orderItem;
     }
 
     updateColor(orderItemId, color){
@@ -174,6 +177,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 <select id="colors" name="colors" class="comboBox">
                     <option value="" disabled selected>Цвет</option>  
                 </select>
+                
+                <select id="order-items" class="comboBox">
+                    <option value="" disabled selected>0</option>
+                </select>
               </div>
               <div class="product-action">
                 <button class="add-to-cart-button bubbly-button" onclick="addOrderItem(this)">Добавить в корзину</button>
@@ -181,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function() {
               </div>
             </div>
           `;
-          updateSizesDropDown(productCard, product);
+          updateDropDowns(productCard, product);
           productRow.appendChild(productCard);
         }
       });
@@ -189,39 +196,34 @@ document.addEventListener("DOMContentLoaded", function() {
       productList.appendChild(productRow);
     }
 
-    function updateSizesDropDown(productCard, product) {
-        var dropdown = productCard.querySelector("#sizes");
+    function updateDropDowns(productCard, product) {
+        var sizesDropdown = productCard.querySelector("#sizes");
+        var colorsDropdown = productCard.querySelector("#colors");
         var availableSizes = product.sizes;
-
-        for (var i = 0; i < availableSizes.length; i++) {
-            var option = document.createElement("option");
-            option.value = availableSizes[i];
-            option.text = availableSizes[i];
-            dropdown.appendChild(option);
-        }
-
-         dropdown.addEventListener("change", function () {
-             var selectedSize = dropdown.value;
-             product.selectedSize = selectedSize;
-             cart.updateSize()
-         });
-    }
-
-      function updateColorsDropDown(productCard, product) {
-        var dropdown = productCard.querySelector("#colors");
-
         var availableColors = product.colors;
 
-        for (var i = 0; i < availableColors.length; i++) {
-            var option = document.createElement("option");
-            option.value = availableColors[i];
-            option.text = availableColors[i];
-            dropdown.appendChild(option);
+        for (var i = 0; i < availableSizes.length; i++) {
+            var sizeOption = document.createElement("option");
+            sizeOption.value = availableSizes[i];
+            sizeOption.text = availableSizes[i];
+            sizesDropdown.appendChild(sizeOption);
         }
 
-         dropdown.addEventListener("change", function () {
-             var selectedColor = dropdown.value;
-             product.selectedSize = selectedSize;
+        for (var j = 0; j < availableColors.length; j++) {
+            var colorOption = document.createElement("option");
+            colorOption.value = availableColors[i];
+            colorOption.text = availableColors[i];
+            colorsDropdown.appendChild(colorOption);
+        }
+
+         sizesDropdown.addEventListener("change", function () {
+             var selectedSize = sizesDropdown.value;
+             cart.updateSize(cart.currentItem, selectedSize)
+         });
+
+         colorsDropdown.addEventListener("change", function () {
+             var selectedColor = colorsDropdown.value;
+             cart.updateSize(cart.currentItem, selectedColor)
          });
     }
 
@@ -338,6 +340,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function addOrderItem(button) {
         let productCard = button.closest(".product-card");
+
         let selectedSize = productCard.selectedSize;
         let selectedColor = productCard.selectedColor;
 
@@ -349,7 +352,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         }
 
-        let orderItemId = createOrderItem(productCard, selectedSize, selectedColor);
+        let orderItemId = createOrderItem(productCard.dataset.id, selectedSize, selectedColor);
 
         const quantityIndicator = button.nextElementSibling;
         quantityIndicator.style.display = 'block';
