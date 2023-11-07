@@ -211,8 +211,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         for (var j = 0; j < availableColors.length; j++) {
             var colorOption = document.createElement("option");
-            colorOption.value = availableColors[i];
-            colorOption.text = availableColors[i];
+            colorOption.value = availableColors[j];
+            colorOption.text = availableColors[j];
             colorsDropdown.appendChild(colorOption);
         }
 
