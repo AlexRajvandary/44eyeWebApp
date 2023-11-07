@@ -80,7 +80,8 @@ class Cart{
     }
 
     getNextOrderId(productId){
-        return this.orderItems[productId].length;
+        const items = this.orderItems[productId];
+        return items.length;
     }
 
     clean(){
