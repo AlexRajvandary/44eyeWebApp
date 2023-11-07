@@ -49,25 +49,29 @@ class OrderItem{
 class Cart{
     orderItems = [];
 
-    currentItem = 0;
+    currentItem;
 
-    push(orderItemId, product, size, color){
-        const orderItem = new OrderItem(orderItemId, product, size, color)
-        this.orderItems.push(orderItem);
-        this.currentItem = orderItem;
+    setCurrentItem(productId, itemId){
+        this.currentItem = this.orderItems[productId][itemId];
     }
 
-    updateColor(orderItemId, color){
-        const orderItem = this.orderItems.find(orderItem => orderItem.id === orderItemId);
-        if(orderItem != null){
-            orderItem.setColor(color);
+    updateColor(product, color){
+         if(this.currentItem != null){
+            this.currentItem.setSize(color);
+        }else{
+             var orderItemId = this.getNextOrderId(product.id);
+             this.currentItem = new OrderItem(orderItemId, product, null, color);
+             this.orderItems[product.id][orderItemId] = this.currentItem;
         }
     }
 
-    updateSize(orderItemId, size){
-        const orderItem = this.orderItems.find(orderItem => orderItem.id === orderItemId);
-        if(orderItem != null){
-            orderItem.setSize(size);
+    updateSize(product, size){
+        if(this.currentItem != null){
+            this.currentItem.setSize(size);
+        }else{
+             var orderItemId = this.getNextOrderId(product.id);
+             this.currentItem = new OrderItem(orderItemId, product, null, color);
+             this.orderItems[product.id][orderItemId] = this.currentItem;
         }
     }
 
@@ -75,8 +79,8 @@ class Cart{
         this.orderItems.splice(orderItem.id, 1);
     }
 
-    getNextOrderId(){
-        return this.orderItems.length;
+    getNextOrderId(productId){
+        return this.orderItems[productId].length;
     }
 
     clean(){
@@ -177,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     <option value="" disabled selected>Цвет</option>  
                 </select>
                 
-                <select id="order-items" class="comboBox">
+                <select id="order-items" name="order-items" class="comboBox">
                     <option value="" disabled selected>0</option>
                 </select>
               </div>
@@ -198,6 +202,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function updateDropDowns(productCard, product) {
         var sizesDropdown = productCard.querySelector("#sizes");
         var colorsDropdown = productCard.querySelector("#colors");
+        var orderItemsDropdown = productCard.querySelector("#order-items");
         var availableSizes = product.sizes;
         var availableColors = product.colors;
 
@@ -215,14 +220,19 @@ document.addEventListener("DOMContentLoaded", function() {
             colorsDropdown.appendChild(colorOption);
         }
 
+         orderItemsDropdown.addEventListener("change", function () {
+             var orderItemId = orderItemsDropdown.value;
+             cart.setCurrentItem(product.id, orderItemId);
+         });
+
          sizesDropdown.addEventListener("change", function () {
              var selectedSize = sizesDropdown.value;
-             cart.updateSize(cart.currentItem, selectedSize)
+             cart.updateSize(product, selectedSize)
          });
 
          colorsDropdown.addEventListener("change", function () {
              var selectedColor = colorsDropdown.value;
-             cart.updateSize(cart.currentItem, selectedColor)
+             cart.updateColor(product, selectedColor)
          });
     }
 
@@ -339,9 +349,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function addOrderItem(button) {
         let productCard = button.closest(".product-card");
+        let orderItemsDropdown = productCard.querySelector("#order-items");
 
-        let selectedSize = productCard.selectedSize;
-        let selectedColor = productCard.selectedColor;
+         for (var j = 0; j < cart.orderItems.length; j++) {
+            var orderItemOption = document.createElement("option");
+            orderItemOption.value = j
+            orderItemOption.text = j;
+            orderItemsDropdown.appendChild(orderItemOption);
+        }
 
         if(selectedSize === null){
 
@@ -351,8 +366,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         }
 
-        let orderItemId = createOrderItem(productCard.dataset.id, selectedSize, selectedColor);
-
         const quantityIndicator = button.nextElementSibling;
         quantityIndicator.style.display = 'block';
 
@@ -360,13 +373,6 @@ document.addEventListener("DOMContentLoaded", function() {
         quantity += 1;
         quantityIndicator.textContent = quantity;
         mainBtn.show();
-    }
-
-    function createOrderItem(productId, selectedSize, selectedColor){
-        const currentOrderId = cart.getNextOrderId();
-        const product = products.find(product => product.id === productId);
-        cart.push(currentOrderId, product, selectedSize, selectedColor);
-        return currentOrderId;
     }
 
     function mainBtnClicked(){
