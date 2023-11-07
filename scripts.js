@@ -61,7 +61,7 @@ class Cart{
         }else{
              var orderItemId = this.getNextOrderId(product.id);
              this.currentItem = new OrderItem(orderItemId, product, null, color);
-             this.orderItems[product.id][orderItemId] = this.currentItem;
+             this.orderItems[product.id].push(this.currentItem);
         }
     }
 
@@ -70,8 +70,8 @@ class Cart{
             this.currentItem.setSize(size);
         }else{
              var orderItemId = this.getNextOrderId(product.id);
-             this.currentItem = new OrderItem(orderItemId, product, null, color);
-             this.orderItems[product.id][orderItemId] = this.currentItem;
+             this.currentItem = new OrderItem(orderItemId, product, size, null);
+             this.orderItems[product.id].push(this.currentItem);
         }
     }
 
