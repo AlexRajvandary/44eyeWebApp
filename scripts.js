@@ -83,7 +83,7 @@ class Cart{
 
     getNextOrderId(productId){
         const items = this.orderItems[productId];
-        return items.length;
+        return items === undefined ? 0 : items.length;
     }
 
     clean(){
