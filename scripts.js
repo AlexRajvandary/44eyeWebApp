@@ -79,7 +79,7 @@ class Cart{
     }
 
     updateSize(product, size){
-        var currentItem = this.currentItems[product.id];
+        var currentItem = this.currentItems[product.id].value;
         if(currentItem != null){
             currentItem.setSize(size);
         }else{
