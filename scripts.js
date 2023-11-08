@@ -204,7 +204,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 </select>
                 
                 <select id="order-items" name="order-items" class="comboBox">
-                    <option value="" disabled selected>0</option>
+                    <option value="" disabled selected>В корзине</option>
+                    <option value="1">1</option>
                 </select>
               </div>
               <div class="product-action">
@@ -399,17 +400,10 @@ document.addEventListener("DOMContentLoaded", function() {
             removeHighlight(colorsDropdown);
         }
 
-        let i, L = orderItemsDropdown.options.length;
-        for(i = L; i >= 0; i--) {
-            orderItemsDropdown.remove(i);
-        }
-
-        for (var j = 0; j < cart.orderItems.length; j++) {
-            var orderItemOption = document.createElement("option");
-            orderItemOption.value = j;
-            orderItemOption.text = j;
-            orderItemsDropdown.appendChild(orderItemOption);
-        }
+        var orderItemOption = document.createElement("option");
+        orderItemOption.value = cart.orderItems.length;
+        orderItemOption.text = cart.orderItems.length;
+        orderItemsDropdown.appendChild(orderItemOption);
 
         cart.currentItems[productCard.dataset.id].value = null;
         sizesDropdown.options.selectedIndex = 0;
