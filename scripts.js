@@ -388,11 +388,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if(sizesDropdown.options.selectedIndex === 0){
             highlightDropDown(sizesDropdown);
+        }else{
+            removeHighlight(sizesDropdown);
         }
 
         if(colorsDropdown.options.selectedIndex === 0){
             highlightDropDown(colorsDropdown);
             return;
+        }else{
+            removeHighlight(colorsDropdown);
         }
 
         let i, L = orderItemsDropdown.options.length;
