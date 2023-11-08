@@ -373,7 +373,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let productCard = button.closest(".product-card");
         let orderItemsDropdown = productCard.querySelector("#order-items");
 
-        let i, L = orderItemsDropdown.options.length - 1;
+        let i, L = orderItemsDropdown.options.length;
         for(i = L; i >= 0; i--) {
             orderItemsDropdown.remove(i);
         }
