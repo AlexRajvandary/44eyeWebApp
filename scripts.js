@@ -401,8 +401,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         var orderItemOption = document.createElement("option");
-        orderItemOption.value = cart.orderItems.length;
-        orderItemOption.text = cart.orderItems.length;
+        orderItemOption.value = cart.orderItems.length + 1;
+        orderItemOption.text = cart.orderItems.length + 1;
         orderItemsDropdown.appendChild(orderItemOption);
 
         cart.currentItems[productCard.dataset.id].value = null;
