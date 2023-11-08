@@ -63,7 +63,7 @@ class Cart{
     }
 
     updateColor(product, color){
-        var currentItem = this.currentItems[product.id];
+        var currentItem = this.currentItems[product.id].value;
         if(currentItem != null){
             currentItem.setColor(color);
         }else{
