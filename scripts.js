@@ -59,7 +59,7 @@ class Cart{
     }
 
     setCurrentItem(productId, itemId){
-        this.currentItems[productId] = this.orderItems[productId][itemId];
+        this.currentItems[productId].value = this.orderItems[productId][itemId];
     }
 
     updateColor(product, color){
@@ -68,12 +68,12 @@ class Cart{
             currentItem.setColor(color);
         }else{
              var orderItemId = this.getNextOrderId(product.id);
-             this.currentItems[product.id] = new OrderItem(orderItemId, product, null, color);
+             this.currentItems[product.id].value = new OrderItem(orderItemId, product, null, color);
 
              if(this.orderItems.hasOwnProperty(product.id)){
-                 this.orderItems[product.id].push(this.currentItems[product.id]);
+                 this.orderItems[product.id].push(this.currentItems[product.id].value);
              }else{
-                 this.orderItems.push({ key: product.id, value: [this.currentItems[product.id]]});
+                 this.orderItems.push({ key: product.id, value: [this.currentItems[product.id].value]});
              }
         }
     }
@@ -84,12 +84,12 @@ class Cart{
             currentItem.setSize(size);
         }else{
              var orderItemId = this.getNextOrderId(product.id);
-             this.currentItems[product.id] = new OrderItem(orderItemId, product, size, null);
+             this.currentItems[product.id].value = new OrderItem(orderItemId, product, size, null);
 
              if(this.orderItems.hasOwnProperty(product.id)){
-                 this.orderItems[product.id].push(this.currentItems[product.id]);
+                 this.orderItems[product.id].push(this.currentItems[product.id].value);
              }else{
-                 this.orderItems.push({ key: product.id, value: [this.currentItems[product.id]]});
+                 this.orderItems.push({ key: product.id, value: [this.currentItems[product.id].value]});
              }
         }
     }
@@ -245,6 +245,9 @@ document.addEventListener("DOMContentLoaded", function() {
          orderItemsDropdown.addEventListener("change", function () {
              var orderItemId = orderItemsDropdown.value;
              cart.setCurrentItem(product.id, orderItemId);
+
+             sizesDropdown.value = cart.currentItems[product.id].value.selectedSize;
+             colorsDropdown.value = cart.currentItems[product.id].value.selectedColor;
          });
 
          sizesDropdown.addEventListener("change", function () {
