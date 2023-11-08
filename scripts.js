@@ -380,13 +380,13 @@ document.addEventListener("DOMContentLoaded", function() {
             orderItemsDropdown.appendChild(orderItemOption);
         }
 
-        if(selectedSize === null){
+        /*if(selectedSize === null){
 
         }else if(selectedColor === null){
 
         }else if(selectedColor === null && selectedSize === null){
 
-        }
+        }*/
 
         const quantityIndicator = button.nextElementSibling;
         quantityIndicator.style.display = 'block';
