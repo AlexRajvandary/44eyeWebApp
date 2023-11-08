@@ -51,6 +51,13 @@ class Cart{
 
     currentItems = [];
 
+    constructor() {
+        products.forEach(product =>
+        {
+            this.currentItems.push({key: product.id, value: null});
+        });
+    }
+
     setCurrentItem(productId, itemId){
         this.currentItems[productId] = this.orderItems[productId][itemId];
     }
@@ -62,7 +69,12 @@ class Cart{
         }else{
              var orderItemId = this.getNextOrderId(product.id);
              this.currentItems[product.id] = new OrderItem(orderItemId, product, null, color);
-             this.orderItems[product.id].push(this.currentItems[product.id]);
+
+             if(this.orderItems.hasOwnProperty(product.id)){
+                 this.orderItems[product.id].push(this.currentItems[product.id]);
+             }else{
+                 this.orderItems.push({ key: product.id, value: [this.currentItems[product.id]]});
+             }
         }
     }
 
@@ -73,12 +85,17 @@ class Cart{
         }else{
              var orderItemId = this.getNextOrderId(product.id);
              this.currentItems[product.id] = new OrderItem(orderItemId, product, size, null);
-             this.orderItems[product.id].push(this.currentItems[product.id]);
+
+             if(this.orderItems.hasOwnProperty(product.id)){
+                 this.orderItems[product.id].push(this.currentItems[product.id]);
+             }else{
+                 this.orderItems.push({ key: product.id, value: [this.currentItems[product.id]]});
+             }
         }
     }
 
-    remove(orderItem){
-        this.orderItems.splice(orderItem.id, 1);
+    remove(productId, orderItem){
+        this.orderItems[productId].splice(orderItem.id, 1);
     }
 
     getNextOrderId(productId){
