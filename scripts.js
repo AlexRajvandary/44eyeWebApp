@@ -388,6 +388,8 @@ document.addEventListener("DOMContentLoaded", function() {
             orderItemsDropdown.appendChild(orderItemOption);
         }
 
+        orderItemsDropdown.value = j;
+
         /*if(selectedSize === null){
 
         }else if(selectedColor === null){
