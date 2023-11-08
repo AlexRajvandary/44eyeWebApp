@@ -51,7 +51,7 @@ class Cart{
 
     currentItems = [];
 
-    constructor() {
+    constructor(products) {
         products.forEach(product =>
         {
             this.currentItems.push({key: product.id, value: null});
@@ -111,7 +111,7 @@ class Cart{
 const text = 'Эти кроссовки от Nike обеспечивают отличную поддержку стопы и амортизацию благодаря современным технологиям, используемым в их производстве. Они идеально подходят для прогулок, бега и занятий спортом, предоставляя комфорт и уверенность в каждом шаге. Белый цвет кроссовок делает их универсальными и легко сочетаемыми с различной одеждой.';
 const sizes = ["S", "M", "L"];
 const colors = ["Белый", "Чёрный"];
-const cart = new Cart();
+
 const products = [
     new Product(1, "Кроссовки Nike Белые", "обувь", "женское", "весна", "sneakers/1.jpg", 7990, text, sizes, colors),
     new Product(2, "Кроссовки New Balance Белые", "обувь", "женское", "весна", "sneakers/2.jpg", 12490, text,  sizes, colors),
@@ -128,6 +128,8 @@ const products = [
     new Product(13, "Футболка Brooklyn Белая", "верхняя_одежда", "мужское", "весна", "tshirt/6.jpg", 12390, "Описание товара 13", sizes, colors),
     new Product(14, "Футболки хайповые", "верхняя_одежда", "мужское", "весна", "tshirt/7.jpg", 7990, "Описание товара 14", sizes, colors)
 ];
+
+const cart = new Cart(products);
 
 webApp.setHeaderColor('#000000');
 mainBtn.text_color = '#FFFFFF';
