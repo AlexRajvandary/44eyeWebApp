@@ -372,9 +372,28 @@ document.addEventListener("DOMContentLoaded", function() {
         buttonsContainer.style.transform = `translateX(${deltaX}px)`;
     });
 
+    function highlightDropDown(dropDown){
+        dropDown.classList.add('comboBox-highlighted');
+    }
+
+    function removeHighlight(dropDown){
+        dropDown.classList.remove('comboBox-highlighted');
+    }
+
     function addOrderItem(button) {
         let productCard = button.closest(".product-card");
         let orderItemsDropdown = productCard.querySelector("#order-items");
+        let sizesDropdown = productCard.querySelector("#sizes");
+        let colorsDropdown = productCard.querySelector("#colors");
+
+        if(sizesDropdown.options.selectedIndex === 0){
+            highlightDropDown(sizesDropdown);
+        }
+
+        if(colorsDropdown.options.selectedIndex === 0){
+            highlightDropDown(colorsDropdown);
+            return;
+        }
 
         let i, L = orderItemsDropdown.options.length;
         for(i = L; i >= 0; i--) {
@@ -383,20 +402,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
         for (var j = 0; j < cart.orderItems.length; j++) {
             var orderItemOption = document.createElement("option");
-            orderItemOption.value = j
+            orderItemOption.value = j;
             orderItemOption.text = j;
             orderItemsDropdown.appendChild(orderItemOption);
         }
 
-        orderItemsDropdown.value = j;
-
-        /*if(selectedSize === null){
-
-        }else if(selectedColor === null){
-
-        }else if(selectedColor === null && selectedSize === null){
-
-        }*/
+        cart.currentItems[productCard.dataset.id].value = null;
+        sizesDropdown.options.selectedIndex = 0;
+        colorsDropdown.options.selectedIndex = 0;
 
         const quantityIndicator = button.nextElementSibling;
         quantityIndicator.style.display = 'block';
@@ -428,6 +441,10 @@ document.addEventListener("DOMContentLoaded", function() {
             total += cart[productId].product.price * cart[productId].quantity;
         }
         return total;
+    }
+
+    function resetDropDowns(){
+
     }
 
     // Показать все товары при загрузке страницы

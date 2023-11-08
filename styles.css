@@ -237,6 +237,10 @@ body.native-theme .add-to-cart-button {
     margin-right: 10px;
 }
 
+.comboBox-highlighted {
+  border: 2px solid #ff0000; /* Красная граница при подсветке */
+}
+
 .comboBox:focus,
 .comboBox:active {
     background-color: transparent; /* Новый цвет фона после выбора опции */
