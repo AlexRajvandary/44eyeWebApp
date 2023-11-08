@@ -54,12 +54,12 @@ class Cart{
     constructor(products) {
         products.forEach(product =>
         {
-            this.currentItems.push({key: product.id, value: null});
+            this.currentItems.push({key: product.id - 1, value: null});
         });
     }
 
     setCurrentItem(productId, itemId){
-        this.currentItems[productId].value = this.orderItems[productId][itemId];
+        this.currentItems[productId].value = this.orderItems[productId].value[itemId];
     }
 
     updateColor(product, color){
