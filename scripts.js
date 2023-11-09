@@ -156,7 +156,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  // Проверяем, какая тема была выбрана ранее, и применяем ее
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
     body.classList.add("dark-theme");
@@ -176,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function() {
           (!seasonFilter || product.season === seasonFilter)
         ) {
           const productCard = document.createElement("div");
-          productCard.className = "col-md-12 product-card"; // Один товар на ряд
+          productCard.className = "col-md-12 product-card";
           productCard.innerHTML = `
             <div class="product-card" 
                  id="productCard"
@@ -264,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
    function displayCartProducts(cart) {
     const cartList = document.getElementById("cartList");
-    cartList.innerHTML = ""; // Очищаем список перед добавлением новых товаров
+    cartList.innerHTML = "";
 
     for (const orderItem in cart.orderItems) {
         const orderCard = document.createElement("div");
@@ -289,11 +288,10 @@ document.addEventListener("DOMContentLoaded", function() {
                </div>
           </div>
         `;
-        cartList.appendChild(orderCard); // Добавляем созданный элемент в список
+        cartList.appendChild(orderCard);
     }
 }
 
-    // Обработка изменений фильтров
     document.getElementById("showAll").addEventListener("click", () => {
       displayProducts();
     });
@@ -310,7 +308,6 @@ document.addEventListener("DOMContentLoaded", function() {
       displayProducts("аксессуары");
     });
 
-    // Показать/скрыть фильтры
     const filterMenu = document.getElementById("filterMenu");
     const showFilters = document.getElementById("showFilters");
 
@@ -322,16 +319,13 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
 
-    // Получаем элементы
     const buttonCarousel = document.getElementById("buttonCarousel");
     const buttonsContainer = buttonCarousel.querySelector(".carousel-inner");
 
-    // Устанавливаем начальные значения
     let isDragging = false;
     let startPosition = 0;
     let deltaX = 0;
 
-    // Обработчики событий для мыши
     buttonsContainer.addEventListener("mousedown", (e) => {
         isDragging = true;
         ctartPosition = e.clientX - deltaX;
@@ -356,7 +350,6 @@ document.addEventListener("DOMContentLoaded", function() {
         buttonsContainer.style.cursor = "grab";
     });
 
-    // Обработчики событий для сенсорных устройств (мобильных устройств)
     buttonsContainer.addEventListener("touchstart", (e) => {
         isDragging = true;
         startPosition = e.touches[0].clientX - deltaX;

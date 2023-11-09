@@ -31,21 +31,20 @@ body.native-theme .add-to-cart-button {
 }
 
 body.native-theme {
-    color: var(--tg-theme-text-color);
-    background: var(--tg-theme-bg-color) !important;
+    color: black;
+    background: white !important;
 }
 
 body.native-theme .card-text,
 body.native-theme .carousel-button,
 body.native-theme .add-to-cart-button {
-    border-color: white; /* Инвертированный цвет границы кнопок на темной теме */
-    color: white; /* Инвертированный цвет текста на кнопках и тексте на темной теме */
+    border-color: black; /* Инвертированный цвет границы кнопок на темной теме */
+    color: black; /* Инвертированный цвет текста на кнопках и тексте на темной теме */
 }
 
 body.native-theme .add-to-cart-button {
     background: transparent;
 }
-
 
 .product-card {
     display: block;
@@ -218,6 +217,11 @@ body.native-theme .add-to-cart-button {
   display: flex;
   align-items: center; /* Выравниваем выпадающий список по центру по вертикали */
   flex-grow: 1; /* Занимает доступное пространство внутри .product-card */
+}
+
+.order-data .comboBox {
+  flex: 1; /* Растягиваем <select> на всю доступную ширину */
+  margin-right: 5px; /* Добавляем отступ между <select> элементами */
 }
 
 .comboBox{
