@@ -59,7 +59,7 @@ class Cart{
     }
 
     setCurrentItem(productId, itemId){
-        this.currentItems[productId].value = this.orderItems[productId].value[itemId];
+        this.currentItems[productId].value = this.orderItems[productId][itemId];
     }
 
     updateColor(product, color){
