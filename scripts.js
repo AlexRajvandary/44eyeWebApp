@@ -420,6 +420,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     orderItemsDropDown.innerHTML = '';
 
+    const defaultOption = document.createElement('option');
+    defaultOption.value = '';
+    defaultOption.disabled = true;
+    defaultOption.selected = true;
+    defaultOption.text = 'В корзине';
+    orderItemsDropDown.add(defaultOption);
+
     orderItems.forEach((order, index) => {
         const option = document.createElement('option');
         option.value = index;
