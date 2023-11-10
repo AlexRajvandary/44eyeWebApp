@@ -402,7 +402,8 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        updateOrderItemDropDown(orderItemsDropdown, cart.orderItems[productCard.dataset.id - 1]);
+        let id = productCard.dataset.id - 1;
+        updateOrderItemDropDown(orderItemsDropdown, cart.orderItems[id]);
 
         resetOrderItemOption(productCard);
 
