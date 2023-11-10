@@ -94,6 +94,10 @@ class Cart{
         }
     }
 
+    putCurrentItemToOrder(productId){
+        let t = this.currentItems[productId];
+    }
+
     remove(productId, orderItem){
         this.orderItems[productId].splice(orderItem.id, 1);
     }
@@ -204,7 +208,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 
                 <select id="order-items" name="order-items" class="comboBox">
                     <option value="" disabled selected>В корзине</option>
-                    <option value="1">1</option>
                 </select>
               </div>
               <div class="product-action">
@@ -380,27 +383,28 @@ document.addEventListener("DOMContentLoaded", function() {
         let sizesDropdown = productCard.querySelector("#sizes");
         let colorsDropdown = productCard.querySelector("#colors");
 
-        if(sizesDropdown.options.selectedIndex === 0){
+        let sizesUnselected = sizesDropdown.options.selectedIndex === 0;
+        let colorsUnselected = colorsDropdown.options.selectedIndex === 0;
+
+        if(sizesUnselected){
             highlightDropDown(sizesDropdown);
         }else{
             removeHighlight(sizesDropdown);
         }
 
-        if(colorsDropdown.options.selectedIndex === 0){
+        if(colorsUnselected){
             highlightDropDown(colorsDropdown);
-            return;
         }else{
             removeHighlight(colorsDropdown);
         }
 
-        var orderItemOption = document.createElement("option");
-        orderItemOption.value = orderItemsDropdown.options.length + 1;
-        orderItemOption.text = orderItemsDropdown.options.length + 1;
-        orderItemsDropdown.appendChild(orderItemOption);
+        if(sizesUnselected && colorsUnselected){
+            return;
+        }
 
-        cart.currentItems[productCard.dataset.id].value = null;
-        sizesDropdown.options.selectedIndex = 0;
-        colorsDropdown.options.selectedIndex = 0;
+        updateOrderItemDropDown(orderItemsDropdown, cart.orderItems[productCard.dataset.id]);
+
+        resetOrderItemOption(productCard);
 
         const quantityIndicator = button.nextElementSibling;
         quantityIndicator.style.display = 'block';
@@ -409,6 +413,25 @@ document.addEventListener("DOMContentLoaded", function() {
         quantity += 1;
         quantityIndicator.textContent = quantity;
         mainBtn.show();
+    }
+
+    function updateOrderItemDropDown(orderItemsDropDown, orderItems) {
+
+    orderItemsDropDown.innerHTML = '';
+
+    orderItems.forEach((order, index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        option.text = `${order.product.selectedColor} ${order.product.selectedSize}`;
+
+        orderItemsDropDown.add(option);
+    });
+}
+
+    function resetOrderItemOption(productCard){
+        cart.currentItems[productCard.dataset.id].value = null;
+        productCard.querySelector("#sizes").options.selectedIndex = 0;
+        productCard.querySelector("#colors").options.selectedIndex = 0;
     }
 
     function mainBtnClicked(){
