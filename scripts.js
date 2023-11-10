@@ -243,6 +243,9 @@ document.addEventListener("DOMContentLoaded", function() {
              var orderItemId = parseInt(orderItemsDropdown.value);
              cart.setCurrentItem(product.id, orderItemId);
 
+             const selectedOption = this.options[this.selectedIndex];
+             selectedOption.text = selectedOption.value;
+
              sizesDropdown.value = cart.currentItems[product.id].value.selectedSize;
              colorsDropdown.value = cart.currentItems[product.id].value.selectedColor;
          });
@@ -425,8 +428,7 @@ document.addEventListener("DOMContentLoaded", function() {
     orderItems.forEach((order, index) => {
         const option = document.createElement('option');
         option.value = index;
-        option.text = `${order.selectedColor} ${order.selectedSize}`;
-
+        option.text = `index. ${order.selectedColor} ${order.selectedSize}`;
         orderItemsDropDown.add(option);
     });
 }
