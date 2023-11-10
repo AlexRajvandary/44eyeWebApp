@@ -402,7 +402,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        updateOrderItemDropDown(orderItemsDropdown, cart.orderItems[productCard.dataset.id]);
+        updateOrderItemDropDown(orderItemsDropdown, cart.orderItems[productCard.dataset.id - 1]);
 
         resetOrderItemOption(productCard);
 
