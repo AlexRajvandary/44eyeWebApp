@@ -82,15 +82,15 @@ class Cart{
         }
     }
 
-    putCurrentItemToOrder(productId){
-        let currentOrder = this.currentItems[productId].value;
+  putCurrentItemToOrder(productId) {
+    let currentOrder = this.currentItems[productId].value;
 
-        if(this.orderItems.hasOwnProperty(productId)){
-                 this.orderItems[productId].value.push(currentOrder);
-             }else{
-                 this.orderItems.push({ key: productId, value: [currentOrder]});
-             }
+    if (this.orderItems.hasOwnProperty(productId)) {
+        this.orderItems[productId].push(currentOrder);
+    } else {
+        this.orderItems[productId] = [currentOrder];
     }
+}
 
     remove(productId, orderItem){
         this.orderItems[productId].splice(orderItem.id, 1);
