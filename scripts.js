@@ -424,8 +424,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     orderItems.forEach((order, index) => {
         const option = document.createElement('option');
-        option.value = index;
-        option.text = `${index}. ${order.selectedColor} ${order.selectedSize}`;
+        option.value = index + 1;
+        option.text = `${index + 1}. ${order.selectedColor} ${order.selectedSize}`;
         orderItemsDropDown.add(option);
     });
 }
