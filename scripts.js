@@ -262,34 +262,36 @@ document.addEventListener("DOMContentLoaded", function() {
     const cartList = document.getElementById("cartList");
     cartList.innerHTML = "";
 
-    for(const productCard in cart.orderItems){
-        for (const orderItem in productCard) {
-            const orderCard = document.createElement("div");
-            orderCard.className = "cart-item";
-            orderCard.innerHTML = `
-                <div class="cart-block">
-                        <div class="row-cart">
-                                <div class="element-cart" style="width: 50%;">
-                                    <picture>
-                                        <img src="${orderItem.product.image}" 
-                                             alt="${orderItem.product.name}" 
-                                             class="cart-item-img">
-                                        <canvas width="32" height="32"></canvas>
-                                    </picture>
-                                </div>
-                                <div class="element-cart" style="width: 50%;">
-                                    <h5 class="cart-item-title" style="white-space: normal; position: relative; top: -20px;">${orderItem.product.name}</h5>
-                                    <h7>$Цена{orderItem.product.price}₽</h7>
-                                    <h7>Цвет: ${orderItem.selectedColor}₽</h7>
-                                    <h7>Размер: ${orderItem.selectedSize}₽</h7>
-                                </div>
-                        </div>
-                </div>
-            `;
+   for (const productId in cart.orderItems) {
 
-            cartList.appendChild(orderCard);
-        }
+        const orderCard = document.createElement("div");
+        orderCard.className = "cart-item";
+        const product = cart.orderItems[productId][0].product;
+
+        orderCard.innerHTML = `
+            <div class="cart-block">
+                <div class="row-cart">
+                    <div class="element-cart" style="width: 50%;">
+                        <picture>
+                            <img src="${product.image}" alt="${product.name}" class="cart-item-img">
+                            <canvas width="32" height="32"></canvas>
+                        </picture>
+                    </div>
+                    <div class="element-cart" style="width: 50%;">
+                        <h5 class="cart-item-title" style="white-space: normal; position: relative; top: -20px;">${product.name}</h5>
+                        
+                    </div>
+                </div>
+            </div>
+        `;
+
+        cartList.appendChild(orderCard);
+
+    for (const orderItem in cart.orderItems[productId]) {
+
     }
+}
+
 }
 
     document.getElementById("showAll").addEventListener("click", () => {
