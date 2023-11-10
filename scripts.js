@@ -241,7 +241,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
          orderItemsDropdown.addEventListener("change", function () {
              var orderItemId = parseInt(orderItemsDropdown.value);
-             cart.setCurrentItem(product.id, orderItemId);
+             cart.setCurrentItem(product.id, orderItemId - 1);
 
              sizesDropdown.value = cart.currentItems[product.id].value.selectedSize;
              colorsDropdown.value = cart.currentItems[product.id].value.selectedColor;
