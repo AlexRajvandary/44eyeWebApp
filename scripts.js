@@ -399,7 +399,7 @@ document.addEventListener("DOMContentLoaded", function() {
         cart.putCurrentItemToOrder(productCard.dataset.id);
 
         let id = productCard.dataset.id - 1;
-        updateOrderItemDropDown(orderItemsDropdown, cart.orderItems[id].value);
+        updateOrderItemDropDown(orderItemsDropdown, cart.orderItems[id]);
 
         resetOrderItemOption(productCard);
 
