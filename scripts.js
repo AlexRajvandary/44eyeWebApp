@@ -69,12 +69,6 @@ class Cart{
         }else{
              var orderItemId = this.getNextOrderId(product.id);
              this.currentItems[product.id].value = new OrderItem(orderItemId, product, null, color);
-
-             if(this.orderItems.hasOwnProperty(product.id)){
-                 this.orderItems[product.id].push(this.currentItems[product.id].value);
-             }else{
-                 this.orderItems.push({ key: product.id, value: [this.currentItems[product.id].value]});
-             }
         }
     }
 
@@ -85,17 +79,17 @@ class Cart{
         }else{
              var orderItemId = this.getNextOrderId(product.id);
              this.currentItems[product.id].value = new OrderItem(orderItemId, product, size, null);
-
-             if(this.orderItems.hasOwnProperty(product.id)){
-                 this.orderItems[product.id].push(this.currentItems[product.id].value);
-             }else{
-                 this.orderItems.push({ key: product.id, value: [this.currentItems[product.id].value]});
-             }
         }
     }
 
     putCurrentItemToOrder(productId){
-        let t = this.currentItems[productId];
+        let currentOrder = this.currentItems[productId].value;
+
+        if(this.orderItems.hasOwnProperty(productId)){
+                 this.orderItems[productId].push(currentOrder);
+             }else{
+                 this.orderItems.push({ key: productId, value: [currentOrder]});
+             }
     }
 
     remove(productId, orderItem){
@@ -401,6 +395,8 @@ document.addEventListener("DOMContentLoaded", function() {
         if(sizesUnselected && colorsUnselected){
             return;
         }
+
+        cart.putCurrentItemToOrder(productCard.dataset.id);
 
         let id = productCard.dataset.id - 1;
         updateOrderItemDropDown(orderItemsDropdown, cart.orderItems[id].value);
