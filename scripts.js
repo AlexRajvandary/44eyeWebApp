@@ -86,7 +86,7 @@ class Cart{
         let currentOrder = this.currentItems[productId].value;
 
         if(this.orderItems.hasOwnProperty(productId)){
-                 this.orderItems[productId].push(currentOrder);
+                 this.orderItems[productId].value.push(currentOrder);
              }else{
                  this.orderItems.push({ key: productId, value: [currentOrder]});
              }
