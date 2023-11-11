@@ -206,7 +206,6 @@ document.addEventListener("DOMContentLoaded", function() {
               </div>
               <div class="product-action">
                 <button class="add-to-cart-button bubbly-button" onclick="addOrderItem(this)">Добавить в корзину</button>
-                <div class="quantity-indicator">0</div> <!-- Элемент для отображения количества -->
               </div>
             </div>
           `;
@@ -419,12 +418,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         resetOrderItemOption(productCard);
 
-        const quantityIndicator = button.nextElementSibling;
-        quantityIndicator.style.display = 'block';
-
-        let quantity = parseInt(quantityIndicator.textContent);
-        quantity += 1;
-        quantityIndicator.textContent = quantity;
         mainBtn.show();
     }
 
