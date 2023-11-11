@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 </select>
                 
                 <select id="order-items" name="order-items" class="comboBox">
-                    <option value="" disabled selected>В корзине</option>
+                    <option value="" disabled selected>0</option>
                 </select>
               </div>
               <div class="product-action">
