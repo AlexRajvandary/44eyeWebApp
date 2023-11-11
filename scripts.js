@@ -306,8 +306,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 }
 
-
-
     document.getElementById("showAll").addEventListener("click", () => {
       displayProducts();
     });
@@ -438,7 +436,7 @@ document.addEventListener("DOMContentLoaded", function() {
     defaultOption.value = '';
     defaultOption.disabled = true;
     defaultOption.selected = true;
-    defaultOption.text = 'В корзине';
+    defaultOption.text = orderItems.length;
     orderItemsDropDown.add(defaultOption);
 
     orderItems.forEach((order, index) => {
