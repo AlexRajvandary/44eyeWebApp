@@ -297,9 +297,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Добавьте информацию о заказе в элемент заказа
             orderItemElement.innerHTML = `
-                <p>Цвет: ${orderItem.selectedColor}</p>
-                <p>Размер: ${orderItem.selectedSize}</p>
-                <p>Цена: ${orderItem.product.price}₽</p>
+                <p>Цвет: ${orderItem.selectedColor} Размер: ${orderItem.selectedSize}</p>
             `;
 
             // Добавьте элемент заказа в контейнер заказов
