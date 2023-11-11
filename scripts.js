@@ -206,7 +206,8 @@ document.addEventListener("DOMContentLoaded", function() {
               </div>
               <div class="product-action">
                 <button class="add-to-cart-button bubbly-button" id="add-to-cart-button" onclick="addOrderItem(this)">Добавить в корзину</button>
-                <button class="update-order-item-button bubbly-button" id="update-order-item-button" onclick="updateOrderItem(this)" style="display: none">Сохранить изменения</button>
+                <button class="add-to-cart-button bubbly-button" id="update-order-item-button" onclick="updateOrderItem(this)" style="display: none">Сохранить изменения</button>
+                <button class="add-to-cart-button bubbly-button" id="delete-order-item-button" onclick="deleteOrderItem(this)" style="display: none">Удалить</button>
               </div>
             </div>
           `;
@@ -225,6 +226,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         var addToCartButton = productCard.querySelector("#add-to-cart-button");
         var updateOrderItemButton = productCard.querySelector("#update-order-item-button");
+        var deleteOrderItemButton = productCard.querySelector("#delete-order-item-button");
 
         var availableSizes = product.sizes;
         var availableColors = product.colors;
@@ -251,6 +253,7 @@ document.addEventListener("DOMContentLoaded", function() {
              colorsDropdown.value = cart.currentItems[product.id].value.selectedColor;
              addToCartButton.style.display = "none";
              updateOrderItemButton.style.display = "block";
+             deleteOrderItemButton.style.display = "block";
          });
 
          sizesDropdown.addEventListener("change", function () {
@@ -263,7 +266,6 @@ document.addEventListener("DOMContentLoaded", function() {
              cart.updateColor(product, selectedColor)
          });
     }
-
 
    function displayCartProducts(cart) {
     const cartList = document.getElementById("cartList");
@@ -433,13 +435,31 @@ document.addEventListener("DOMContentLoaded", function() {
         let orderItemsDropdown = productCard.querySelector("#order-items");
         let sizesDropdown = productCard.querySelector("#sizes");
         let colorsDropdown = productCard.querySelector("#colors");
-        let updateOrderItemButton = productCard.querySelector(".update-order-item-button");
+        let addToCartButton = productCard.querySelector("#add-to-cart-button");
+        let deleteOrderItemButton = productCard.querySelector("#delete-order-item-button");
 
         updateOrderItemDropDown(orderItemsDropdown, cart.orderItems[productCard.dataset.id]);
         resetOrderItemOption(productCard);
 
         button.style.display = "none";
-        updateOrderItemButton.style.display = "block";
+        deleteOrderItemButton.style.display = "none";
+        addToCartButton.style.display = "block";
+    }
+
+    function deleteOrderItem(button){
+        let productCard = button.closest(".product-card");
+        let orderItemsDropdown = productCard.querySelector("#order-items");
+        let sizesDropdown = productCard.querySelector("#sizes");
+        let colorsDropdown = productCard.querySelector("#colors");
+        let addToCartButton = productCard.querySelector("#add-to-cart-button");
+        let updateOrderItemButton = productCard.querySelector("#update-order-item-button");
+
+        updateOrderItemDropDown(orderItemsDropdown, cart.orderItems[productCard.dataset.id]);
+        resetOrderItemOption(productCard);
+
+        button.style.display = "none";
+        updateOrderItemButton.style.display = "none";
+        addToCartButton.style.display = "block";
     }
 
     function updateOrderItemDropDown(orderItemsDropDown, orderItems) {
