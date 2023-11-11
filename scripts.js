@@ -205,7 +205,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 </select>
               </div>
               <div class="product-action">
-                <button class="add-to-cart-button bubbly-button" onclick="addOrderItem(this)">Добавить в корзину</button>
+                <button class="add-to-cart-button bubbly-button" id="add-to-cart-button" onclick="addOrderItem(this)">Добавить в корзину</button>
+                <button class="update-order-item-button bubbly-button" id="update-order-item-button" onclick="updateOrderItem(this)" style="display: none">Сохранить изменения</button>
               </div>
             </div>
           `;
@@ -221,6 +222,10 @@ document.addEventListener("DOMContentLoaded", function() {
         var sizesDropdown = productCard.querySelector("#sizes");
         var colorsDropdown = productCard.querySelector("#colors");
         var orderItemsDropdown = productCard.querySelector("#order-items");
+
+        var addToCartButton = productCard.querySelector("#add-to-cart-button");
+        var updateOrderItemButton = productCard.querySelector("#update-order-item-button");
+
         var availableSizes = product.sizes;
         var availableColors = product.colors;
 
@@ -244,6 +249,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
              sizesDropdown.value = cart.currentItems[product.id].value.selectedSize;
              colorsDropdown.value = cart.currentItems[product.id].value.selectedColor;
+             addToCartButton.display = "none";
+             updateOrderItemButton.display = "block";
          });
 
          sizesDropdown.addEventListener("change", function () {
@@ -419,6 +426,20 @@ document.addEventListener("DOMContentLoaded", function() {
         resetOrderItemOption(productCard);
 
         mainBtn.show();
+    }
+
+    function updateOrderItem(button){
+        let productCard = button.closest(".product-card");
+        let orderItemsDropdown = productCard.querySelector("#order-items");
+        let sizesDropdown = productCard.querySelector("#sizes");
+        let colorsDropdown = productCard.querySelector("#colors");
+        let updateOrderItemButton = productCard.querySelector(".update-order-item-button");
+
+        updateOrderItemDropDown(orderItemsDropdown, cart.orderItems[productCard.dataset.id]);
+        resetOrderItemOption(productCard);
+
+        button.display = "none";
+        updateOrderItemButton.display = "block";
     }
 
     function updateOrderItemDropDown(orderItemsDropDown, orderItems) {
