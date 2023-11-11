@@ -249,8 +249,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
              sizesDropdown.value = cart.currentItems[product.id].value.selectedSize;
              colorsDropdown.value = cart.currentItems[product.id].value.selectedColor;
-             addToCartButton.display = "none";
-             updateOrderItemButton.display = "block";
+             addToCartButton.style.display = "none";
+             updateOrderItemButton.style.display = "block";
          });
 
          sizesDropdown.addEventListener("change", function () {
@@ -438,8 +438,8 @@ document.addEventListener("DOMContentLoaded", function() {
         updateOrderItemDropDown(orderItemsDropdown, cart.orderItems[productCard.dataset.id]);
         resetOrderItemOption(productCard);
 
-        button.display = "none";
-        updateOrderItemButton.display = "block";
+        button.style.display = "none";
+        updateOrderItemButton.style.display = "block";
     }
 
     function updateOrderItemDropDown(orderItemsDropDown, orderItems) {
