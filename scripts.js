@@ -259,51 +259,55 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 
-    function displayCartProducts(cart) {
-        const cartList = document.getElementById("cartList");
-        cartList.innerHTML = "";
+   function displayCartProducts(cart) {
+    const cartList = document.getElementById("cartList");
+    cartList.innerHTML = "";
 
-        for (const productId in cart.orderItems) {
-            const orderCard = document.createElement("div");
-            orderCard.className = "cart-item";
-            const product = cart.orderItems[productId][0].product;
+    for (const productId in cart.orderItems) {
+        const orderCard = document.createElement("div");
+        orderCard.className = "cart-item";
+        const product = cart.orderItems[productId][0].product;
 
-            orderCard.innerHTML = `
-                <div class="cart-block">
-                    <div class="row-cart">
-                        <div class="element-cart" style="width: 50%;">
-                            <picture>
-                                <img src="${product.image}" alt="${product.name}" class="cart-item-img">
-                                <canvas width="32" height="32"></canvas>
-                            </picture>
-                        </div>
-                        <div class="element-cart" style="width: 50%;">
-                            <h5 class="cart-item-title" style="white-space: normal; position: relative; top: -20px;">${product.name}</h5>
-                            <div id="order-item">
+        orderCard.innerHTML = `
+            <div class="cart-block">
+                <div class="row-cart">
+                    <div class="element-cart" style="width: 50%;">
+                        <picture>
+                            <img src="${product.image}" alt="${product.name}" class="cart-item-img">
+                            <canvas width="32" height="32"></canvas>
+                        </picture>
+                    </div>
+                    <div class="element-cart" style="width: 50%;">
+                        <h5 class="cart-item-title" style="white-space: normal; position: relative; top: -20px;">${product.name}</h5>
+                        <div id="order-item-${productId}"> <!-- уникальный идентификатор для каждого продукта -->
+                        
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
         `;
 
         cartList.appendChild(orderCard);
 
-        const orderItemContainer = document.getElementById(`order-item`);
+        const orderItemContainer = document.getElementById(`order-item-${productId}`);
 
         for (const orderItem of cart.orderItems[productId]) {
             const orderItemElement = document.createElement("div");
             orderItemElement.className = "order-item";
 
+            // Добавьте информацию о заказе в элемент заказа
             orderItemElement.innerHTML = `
                 <p>Цвет: ${orderItem.selectedColor}</p>
                 <p>Размер: ${orderItem.selectedSize}</p>
                 <p>Цена: ${orderItem.product.price}₽</p>
             `;
 
+            // Добавьте элемент заказа в контейнер заказов
             orderItemContainer.appendChild(orderItemElement);
         }
     }
 }
+
 
 
     document.getElementById("showAll").addEventListener("click", () => {
