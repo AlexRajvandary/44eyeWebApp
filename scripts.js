@@ -454,6 +454,8 @@ document.addEventListener("DOMContentLoaded", function() {
         let addToCartButton = productCard.querySelector("#add-to-cart-button");
         let updateOrderItemButton = productCard.querySelector("#update-order-item-button");
 
+        cart.remove(productCard.dataset.id, cart.currentItems[productCard.dataset.id]);
+
         updateOrderItemDropDown(orderItemsDropdown, cart.orderItems[productCard.dataset.id]);
         resetOrderItemOption(productCard);
 
