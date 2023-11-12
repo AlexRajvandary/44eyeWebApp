@@ -49,7 +49,7 @@ body.native-theme .add-to-cart-button {
 .product-card {
     display: block;
     text-align: center;
-    margin: 10px auto; /* Центрирование товаров по горизонтали и между рядами */
+    margin: 5px auto; /* Центрирование товаров по горизонтали и между рядами */
     width: 90%; /* Ширина товара */
 }
 
