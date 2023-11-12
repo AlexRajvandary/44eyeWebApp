@@ -280,8 +280,8 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="cart-block">
                 <div class="row-cart">
                     <div class="element-cart" style="width: 50%;">
-                        <picture>
-                            <img src="${product.image}" alt="${product.name}" class="cart-item-img">
+                       <picture>
+                            <img src="${product.image}" alt="${product.name}" class="cart-item-img" style="width: 50%; height: 50%;">
                             <canvas width="32" height="32"></canvas>
                         </picture>
                     </div>
