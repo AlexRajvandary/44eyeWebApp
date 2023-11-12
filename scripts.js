@@ -287,7 +287,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     </div>
                     <div class="element-cart" style="width: 50%;">
                         <h5 class="cart-item-title" style="white-space: normal; position: relative; top: -20px;">${product.name}</h5>
-                        <div id="order-item-${productId}"> <!-- уникальный идентификатор для каждого продукта -->
+                        <div id="order-product-info">
+                            <h5>Количество: 5</h5>
+                            <h5>Стоимость: 15000</h5>
+                        </div>
+                        <div id="order-item-${productId}" style="display: none"> <!-- уникальный идентификатор для каждого продукта -->
                         
                         </div>
                     </div>
@@ -303,12 +307,10 @@ document.addEventListener("DOMContentLoaded", function() {
             const orderItemElement = document.createElement("div");
             orderItemElement.className = "order-item";
 
-            // Добавьте информацию о заказе в элемент заказа
             orderItemElement.innerHTML = `
                 <p>Цвет: ${orderItem.selectedColor} Размер: ${orderItem.selectedSize}</p>
             `;
 
-            // Добавьте элемент заказа в контейнер заказов
             orderItemContainer.appendChild(orderItemElement);
         }
     }
@@ -433,8 +435,6 @@ document.addEventListener("DOMContentLoaded", function() {
     function updateOrderItem(button){
         let productCard = button.closest(".product-card");
         let orderItemsDropdown = productCard.querySelector("#order-items");
-        let sizesDropdown = productCard.querySelector("#sizes");
-        let colorsDropdown = productCard.querySelector("#colors");
         let addToCartButton = productCard.querySelector("#add-to-cart-button");
         let deleteOrderItemButton = productCard.querySelector("#delete-order-item-button");
 
@@ -449,8 +449,6 @@ document.addEventListener("DOMContentLoaded", function() {
     function deleteOrderItem(button){
         let productCard = button.closest(".product-card");
         let orderItemsDropdown = productCard.querySelector("#order-items");
-        let sizesDropdown = productCard.querySelector("#sizes");
-        let colorsDropdown = productCard.querySelector("#colors");
         let addToCartButton = productCard.querySelector("#add-to-cart-button");
         let updateOrderItemButton = productCard.querySelector("#update-order-item-button");
 
