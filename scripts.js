@@ -288,7 +288,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     <div class="element-cart" style="width: 50%;">
                         <h5 class="cart-item-title" style="white-space: normal; position: relative; top: -20px;">${product.name}</h5>
                         <div id="order-product-info">
-                            <h5>Количество: 5</h5>
+                            <h7>Количество: 5</h7>
                             <h7>Стоимость: 15000</h7>
                         </div>
                         <div id="order-item-${productId}" style="display: none"> <!-- уникальный идентификатор для каждого продукта -->
