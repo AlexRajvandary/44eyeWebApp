@@ -343,8 +343,8 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
 
-    const buttonCarousel = document.getElementById("buttonCarousel");
-    const buttonsContainer = buttonCarousel.querySelector(".carousel-inner");
+    const categories = document.getElementById("categories");
+    const buttonsContainer = categories.querySelector(".carousel-inner");
 
     let isDragging = false;
     let startPosition = 0;
