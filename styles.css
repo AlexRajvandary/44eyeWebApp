@@ -5,6 +5,7 @@ body {
 
 .card-text,
 .carousel-button,
+.search-input,
 .add-to-cart-button {
     font-size: 12px;
     display: inline-block;
@@ -14,6 +15,10 @@ body {
     flex: 1;
 }
 
+.search-input{
+    background: transparent;
+}
+
 body.dark-theme {
     color: white ; /* Инвертированный цвет текста на темной теме */
     background-color: black !important; /* Инвертированный цвет фона на темной теме */
@@ -21,6 +26,7 @@ body.dark-theme {
 
 body.dark-theme .card-text,
 body.dark-theme .carousel-button,
+body.dark-theme .search-input,
 body.dark-theme .add-to-cart-button {
     border-color: white; /* Инвертированный цвет границы кнопок на темной теме */
     color: white; /* Инвертированный цвет текста на кнопках и тексте на темной теме */
@@ -46,11 +52,21 @@ body.native-theme .add-to-cart-button {
     background: transparent;
 }
 
+.col {
+    display: flex;
+    justify-content: space-between;
+}
+
+.icons-row{
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
 .product-card {
     display: block;
     text-align: center;
-    margin: 5px auto; /* Центрирование товаров по горизонтали и между рядами */
-    width: 90%; /* Ширина товара */
+    margin: 5px auto;
+    width: 90%;
 }
 
 /*body {
@@ -249,4 +265,9 @@ body.native-theme .add-to-cart-button {
 .comboBox:active {
     background-color: transparent; /* Новый цвет фона после выбора опции */
     color: #333; /* Новый цвет текста после выбора опции */
+}
+
+.search-row{
+    margin: 2px;
+    margin-bottom: 15px;
 }

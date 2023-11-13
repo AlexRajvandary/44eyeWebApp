@@ -14,29 +14,33 @@
 
   <section class="catalogue">
     <div class="container">
-    <div class="row ">
-        <h1 class="catalog-title">Каталог</h1>
-        <div class="theme-toggle-container">
-          <i class="fa fa-moon-o theme-toggle" aria-hidden="true" id="theme-toggle"></i>
-        </div>
-    </div>
+      <div class="row icons-row">
+        <div class="col">
 
-      <!-- Горизонтальная карусель с кнопками -->
-      <div class="row buttons-carousel">
-        <div class="col-md-12">
-            <div id="buttonCarousel" class="carousel slide" data-ride="false">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <div class="d-flex justify-content-between">
-                    <i class="fa fa-home carousel-button" aria-hidden="true" id="showAll"></i>
-                    <button class="btn carousel-button bubbly-button" id="showClothing">Одежда</button>
-                    <button class="btn carousel-button bubbly-button" id="showShoes">Обувь</button>
-                    <button class="btn carousel-button bubbly-button" id="showAccessories">Аксессуары</button>
-                    <i class="fa fa-filter carousel-button" aria-hidden="true" id="showFilters"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
+        </div>
+        <div class="col">
+
+        </div>
+        <div class="col ps-4 pe-4 d-flex align-items-center" style="margin-right: 10px">
+            <i class="fa fa-home" aria-hidden="true" id="showAll"></i>
+            <i class="fa fa-filter" aria-hidden="true" id="showFilters"></i>
+            <i class="fa fa-moon-o theme-toggle" aria-hidden="true" id="theme-toggle"></i>
+        </div>
+      </div>
+
+      <div class="row search-row">
+        <input type="text" class="carousel-button bubbly-button" placeholder="Поиск">
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <button class="btn carousel-button bubbly-button" id="showClothing">Одежда</button>
+        </div>
+        <div class="col">
+          <button class="btn carousel-button bubbly-button" id="showShoes">Обувь</button>
+        </div>
+        <div class="col">
+          <button class="btn carousel-button bubbly-button" id="showAccessories">Аксессуары</button>
         </div>
       </div>
 
