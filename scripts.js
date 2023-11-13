@@ -343,52 +343,9 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
 
-    const categories = document.getElementById("categories");
-    const buttonsContainer = categories.querySelector(".carousel-inner");
-
     let isDragging = false;
     let startPosition = 0;
     let deltaX = 0;
-
-    buttonsContainer.addEventListener("mousedown", (e) => {
-        isDragging = true;
-        ctartPosition = e.clientX - deltaX;
-        buttonsContainer.style.cursor = "grabbing";
-    });
-
-    buttonsContainer.addEventListener("mouseup", () => {
-        isDragging = false;
-        buttonsContainer.style.cursor = "grab";
-    });
-
-    buttonsContainer.addEventListener("mousemove", (e) => {
-        if (!isDragging) return;
-        const x = e.clientX;
-        deltaX = x - startPosition;
-        buttonsContainer.style.transform = `translateX(${deltaX}px)`;
-    });
-
-    buttonsContainer.addEventListener("mouseleave", () => {
-        if (!isDragging) return;
-        isDragging = false;
-        buttonsContainer.style.cursor = "grab";
-    });
-
-    buttonsContainer.addEventListener("touchstart", (e) => {
-        isDragging = true;
-        startPosition = e.touches[0].clientX - deltaX;
-    });
-
-    buttonsContainer.addEventListener("touchend", () => {
-        isDragging = false;
-    });
-
-    buttonsContainer.addEventListener("touchmove", (e) => {
-        if (!isDragging) return;
-        const x = e.touches[0].clientX;
-        deltaX = x - startPosition;
-        buttonsContainer.style.transform = `translateX(${deltaX}px)`;
-    });
 
     function highlightDropDown(dropDown){
         dropDown.classList.add('comboBox-highlighted');
@@ -514,5 +471,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
     }
 
-    // Показать все товары при загрузке страницы
     displayProducts();
