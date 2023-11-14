@@ -425,7 +425,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function mainBtnClicked(){
         $('.catalogue').hide();
         mainBtn.text = "Оформить заказ";
-        /*displayCartProducts(cart);*/
+        displayCartProducts(cart);
         $('.order_view').show();
         backBtn.show();
     }
