@@ -315,9 +315,10 @@ body.native-theme .add-to-cart-button {
 }
 
 .cart-item img {
-    width: 100%; /* Фото займет 100% ширины блока */
-    height: auto; /* Автоматическое вычисление высоты, сохраняя пропорции */
-    object-fit: cover; /* Вписать содержимое, сохраняя пропорции */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; /* Позиционирование изображения по центру */
     margin-right: 10px;
 }
 
