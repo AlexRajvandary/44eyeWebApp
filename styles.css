@@ -303,7 +303,7 @@ body.native-theme .add-to-cart-button {
             border: 1px solid #ccc;
             border-radius: 10px;
             overflow: hidden;
-            margin: 20px;
+            margin: auto;
         }
 
 .cart-item {
