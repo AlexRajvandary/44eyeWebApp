@@ -300,7 +300,7 @@ body.native-theme .add-to-cart-button {
 
 .cart-container {
     width: 80%; /* Ширина в 80% от ширины родительского контейнера (body) */
-    max-width: 400px; /* Максимальная ширина контейнера */
+    max-width: 200px; /* Максимальная ширина контейнера */
     border: 1px solid #ccc;
     border-radius: 10px;
     overflow: hidden;
