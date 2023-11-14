@@ -299,31 +299,32 @@ body.native-theme .add-to-cart-button {
 }
 
 .cart-container {
-            width: 300px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: auto;
-        }
+    width: 80%; /* Ширина в 80% от ширины родительского контейнера (body) */
+    max-width: 400px; /* Максимальная ширина контейнера, чтобы не становился слишком широким на больших экранах */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+}
 
 .cart-item {
-            display: flex;
-            border-bottom: 1px solid #ccc;
-            padding: 10px;
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    height: 150px;
 }
 
 .cart-item img {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            margin-right: 10px;
+    width: 100%; /* Фото займет 100% ширины блока */
+    height: auto; /* Автоматическое вычисление высоты, сохраняя пропорции */
+    object-fit: cover; /* Вписать содержимое, сохраняя пропорции */
+    margin-right: 10px;
 }
 
 .item-details {
-            flex-grow: 1;
+    flex-grow: 1;
 }
 
 .item-price {
-            text-align: right;
-            width: 60px;
+    text-align: right;
+    width: 60px;
 }
