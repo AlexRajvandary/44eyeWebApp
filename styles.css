@@ -170,7 +170,7 @@ body.native-theme .add-to-cart-button {
 }
 
 .order_view{
-    display: none;
+
 }
 
 .row-cart {
@@ -287,15 +287,9 @@ body.native-theme .add-to-cart-button {
   padding: 0;
   margin: 0;
 }
-.cafe-order-edit {
-  font-size: 15px;
-  line-height: 18px;
-  font-weight: 500;
-  color: var(--accent-color);
-}
 
 .order-items{
-
+    display: none;
 }
 
 .cart-container {
@@ -308,37 +302,30 @@ body.native-theme .add-to-cart-button {
 }
 
 .cart-item {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr; /* Две колонки, первая автоматическая ширина, вторая занимает все доступное пространство */
     border-bottom: 1px solid #ccc;
     padding: 10px;
-    height: 200px;
     position: relative;
 }
 
 .cart-item img {
-    width: 100%;
-    height: 100%;
-    max-width: 200px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
-    object-position: center; /* Позиционирование изображения по центру */
     margin-right: 10px;
 }
 
 .item-details {
-    flex-grow: 1;
-}
-
-.item-price {
-    text-align: right;
-    width: 60px;
-}
-
-.item-info {
     display: flex;
-    flex-direction: column; /* Определяем направление столбцов для размера и цвета */
-    margin-top: auto;
+    flex-direction: column;
+}
+
+.item-title {
+    margin-bottom: 10px;
 }
 
 .item-info div {
-    margin-bottom: 5px; /* Добавлено для отступа между размером и цветом */
+    margin-bottom: 5px;
+    text-align: left;
 }

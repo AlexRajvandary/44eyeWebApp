@@ -268,51 +268,29 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
    function displayCartProducts(cart) {
-    const cartList = document.getElementById("cartList");
+    const cartList = document.getElementById("cart-container");
     cartList.innerHTML = "";
 
     for (const productId in cart.orderItems) {
         const orderCard = document.createElement("div");
         orderCard.className = "cart-item";
         const product = cart.orderItems[productId][0].product;
-
+        const orderItem = cart.orderItems[productId][0];
         orderCard.innerHTML = `
-            <div class="cart-block">
-                <div class="row-cart">
-                    <div class="element-cart" style="width: 50%;">
-                       <picture>
-                            <img src="${product.image}" alt="${product.name}" class="cart-item-img" style="width: 50%; height: 50%;">
-                            <canvas width="32" height="32"></canvas>
-                        </picture>
+             <div class="cart-item">
+              <img src="${product.image}" alt="${product.name}">
+                    <div class="item-details">
+                    <div class="item-title"><strong>${product.name}</strong></div>
+                    <div class="item-info">
+                        <div>Цвет: ${orderItem.selectedColor}</div>
+                        <div>Размер: ${orderItem.selectedSize}</div>
+                        <div class="item-price">$${product.price}</div>
                     </div>
-                    <div class="element-cart" style="width: 50%;">
-                        <h5 class="cart-item-title" style="white-space: normal; position: relative; top: -20px;">${product.name}</h5>
-                        <div id="order-product-info">
-                            <h7>Количество: 5</h7>
-                            <h7>Стоимость: 15000</h7>
-                        </div>
-                        <div id="order-item-${productId}" style="display: none"> <!-- уникальный идентификатор для каждого продукта -->
-                        
-                        </div>
                     </div>
-                </div>
-            </div>
+              </div>
         `;
 
         cartList.appendChild(orderCard);
-
-        const orderItemContainer = document.getElementById(`order-item-${productId}`);
-
-        for (const orderItem of cart.orderItems[productId]) {
-            const orderItemElement = document.createElement("div");
-            orderItemElement.className = "order-item";
-
-            orderItemElement.innerHTML = `
-                <p>Цвет: ${orderItem.selectedColor} Размер: ${orderItem.selectedSize}</p>
-            `;
-
-            orderItemContainer.appendChild(orderItemElement);
-        }
     }
 }
 
