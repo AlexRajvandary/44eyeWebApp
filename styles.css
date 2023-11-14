@@ -300,10 +300,11 @@ body.native-theme .add-to-cart-button {
 
 .cart-container {
     width: 80%; /* Ширина в 80% от ширины родительского контейнера (body) */
-    max-width: 400px; /* Максимальная ширина контейнера, чтобы не становился слишком широким на больших экранах */
+    max-width: 400px; /* Максимальная ширина контейнера */
     border: 1px solid #ccc;
     border-radius: 10px;
     overflow: hidden;
+    margin: auto; /* Добавлено для центрирования по горизонтали */
 }
 
 .cart-item {
