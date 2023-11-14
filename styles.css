@@ -343,7 +343,6 @@ body.order-mode .cafe-order-overview {
   color: var(--accent-color);
 }
 .cafe-order-item {
-  display: none;
   padding: 5px 20px 5px 14px;
 }
 .cafe-order-item.selected {
