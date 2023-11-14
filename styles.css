@@ -331,3 +331,12 @@ body.native-theme .add-to-cart-button {
     text-align: right;
     width: 60px;
 }
+
+.item-info {
+    display: flex;
+    flex-direction: column; /* Определяем направление столбцов для размера и цвета */
+}
+
+.item-info div {
+    margin-bottom: 5px; /* Добавлено для отступа между размером и цветом */
+}
