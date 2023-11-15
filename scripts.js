@@ -280,20 +280,23 @@ function displayCartProducts(cart) {
     const cartContentId = `cartContent_${productId}`;
 
     orderCard.innerHTML = `
-        <div class="cart-item">
-          <img src="${product.image}" alt="${product.name}">
-          <div class="item-details">
-            <div class="item-title"><strong>${product.name}</strong></div>
-            <div class="item-info">
-              <div class="item-price">${orderItem.value}$</div>
+        <div class="expandable-container">
+            <div class="cart-item">
+                <img src="${product.image}" alt="${product.name}">
+                <div class="item-details">
+                    <div class="item-title"><strong>${product.name}</strong></div>
+                    <div class="item-info">
+                        <div class="item-price">${orderItem.value}$</div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <div class="expand-button" onclick="toggleCart(this, '${productId}', ${cartContentId})">Expand</div>
-        <div class="cart-content" id="${cartContentId}">
+            <div class="expand-button" onclick="toggleCart(this, '${productId}', ${cartContentId})">Expand</div>
+            <div class="cart-content" id="${cartContentId}">
           
+            </div>
         </div>
+        
     `;
 
     cartList.appendChild(orderCard);
@@ -302,6 +305,7 @@ function displayCartProducts(cart) {
 
 function toggleCart(expandButton, productId, productContainer) {
    productContainer.style.display = productContainer.style.display === 'none' ? 'block' : 'none';
+   const container = expandButton.querySelector('.expandable-container');
 
    if (productContainer.style.display === 'block') {
         productContainer.innerHTML = '';
@@ -316,7 +320,7 @@ function toggleCart(expandButton, productId, productContainer) {
         productContainer.appendChild(sizeColorList);
    }
 
-   productContainer.classList.toggle('expanded', productContainer.style.display === 'block');
+   container.classList.toggle('expanded', productContainer.style.display === 'block');
 }
 
     document.getElementById("showAll").addEventListener("click", () => {

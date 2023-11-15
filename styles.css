@@ -363,6 +363,6 @@ body.native-theme .add-to-cart-button {
   padding: 10px;
 }
 
-.cart-container.expanded {
+.expandable-container.expanded {
   height: auto; /* Установка высоты "auto" при раскрытии блока */
 }
