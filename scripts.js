@@ -316,7 +316,7 @@ function toggleCart(orderCard, productId, productContainer) {
         productContainer.appendChild(sizeColorList);
    }
 
-   orderCard.classList.toggle('expanded', productContainer.style.display === 'block');
+   /*orderCard.classList.toggle('expanded', productContainer.style.display === 'block');*/
 }
 
     document.getElementById("showAll").addEventListener("click", () => {
