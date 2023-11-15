@@ -280,8 +280,7 @@ function displayCartProducts(cart) {
     const cartContentId = `cartContent_${productId}`;
 
     orderCard.innerHTML = `
-        <div class="expandable-container">
-            <div class="cart-item">
+            <div class="item">
                 <img src="${product.image}" alt="${product.name}">
                 <div class="item-details">
                     <div class="item-title"><strong>${product.name}</strong></div>
@@ -291,21 +290,18 @@ function displayCartProducts(cart) {
                 </div>
             </div>
 
-            <div class="expand-button" onclick="toggleCart(this, '${productId}', ${cartContentId})">Expand</div>
+            <div class="expand-button" onclick="toggleCart('${orderCard}', '${productId}', ${cartContentId})">Expand</div>
             <div class="cart-content" id="${cartContentId}">
           
-            </div>
-        </div>
-        
+            </div> 
     `;
 
     cartList.appendChild(orderCard);
   }
 }
 
-function toggleCart(expandButton, productId, productContainer) {
+function toggleCart(orderCard, productId, productContainer) {
    productContainer.style.display = productContainer.style.display === 'none' ? 'block' : 'none';
-   const container = expandButton.querySelector('.expandable-container');
 
    if (productContainer.style.display === 'block') {
         productContainer.innerHTML = '';
@@ -320,7 +316,7 @@ function toggleCart(expandButton, productId, productContainer) {
         productContainer.appendChild(sizeColorList);
    }
 
-   container.classList.toggle('expanded', productContainer.style.display === 'block');
+   orderCard.classList.toggle('expanded', productContainer.style.display === 'block');
 }
 
     document.getElementById("showAll").addEventListener("click", () => {
