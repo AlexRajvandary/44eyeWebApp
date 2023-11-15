@@ -290,7 +290,7 @@ function displayCartProducts(cart) {
           </div>
         </div>
 
-        <div class="expand-button" onclick="toggleCart(this, '${productId}')">Expand</div>
+        <div class="expand-button" onclick="toggleCart(this, '${productId}', ${cartContentId})">Expand</div>
         <div class="cart-content" id="${cartContentId}">
           
         </div>
@@ -300,9 +300,9 @@ function displayCartProducts(cart) {
   }
 }
 
-function toggleCart(expandButton, productId) {
+function toggleCart(expandButton, productId, cartContentId) {
    const cartContainer = expandButton.closest('.cart-container');
-   const cartContent = cartContainer.querySelector('.cart-content');
+   const cartContent = cartContainer.querySelector(cartContentId);
 
    cartContent.style.display = cartContent.style.display === 'none' ? 'block' : 'none';
     if (cartContent.style.display === 'block') {
