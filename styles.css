@@ -309,6 +309,14 @@ body.native-theme .add-to-cart-button {
     position: relative;
 }
 
+.item{
+   display: grid;
+    grid-template-columns: auto 1fr; /* Две колонки, первая автоматическая ширина, вторая занимает все доступное пространство */
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    position: relative;
+}
+
 .cart-item img {
     width: 100px;
     height: 100px;
