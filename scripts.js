@@ -266,32 +266,57 @@ document.addEventListener("DOMContentLoaded", function() {
              cart.updateColor(product, selectedColor)
          });
     }
+function displayCartProducts(cart) {
+  const cartList = document.getElementById("cart-container");
+  cartList.innerHTML = "";
 
-   function displayCartProducts(cart) {
-    const cartList = document.getElementById("cart-container");
-    cartList.innerHTML = "";
+  for (const productId in cart.orderItems) {
+    const orderCard = document.createElement("div");
+    orderCard.className = "cart-item";
+    const product = cart.orderItems[productId][0].product;
+    const orderItem = cart.orderItems[productId][0];
 
-    for (const productId in cart.orderItems) {
-        const orderCard = document.createElement("div");
-        orderCard.className = "cart-item";
-        const product = cart.orderItems[productId][0].product;
-        const orderItem = cart.orderItems[productId][0];
-        orderCard.innerHTML = `
-             <div class="cart-item">
-              <img src="${product.image}" alt="${product.name}">
-                    <div class="item-details">
-                    <div class="item-title"><strong>${product.name}</strong></div>
-                    <div class="item-info">
-                        <div>Цвет: ${orderItem.selectedColor}</div>
-                        <div>Размер: ${orderItem.selectedSize}</div>
-                        <div class="item-price">$${product.price}</div>
-                    </div>
-                    </div>
-              </div>
-        `;
+    // Create unique IDs for each cartContent
+    const cartContentId = `cartContent_${productId}`;
 
-        cartList.appendChild(orderCard);
-    }
+    orderCard.innerHTML = `
+      <div class="cart-container">
+        <div class="cart-item">
+          <img src="${product.image}" alt="${product.name}">
+          <div class="item-details">
+            <div class="item-title"><strong>${product.name}</strong></div>
+            <div class="item-info">
+              <div class="item-price">${orderItem.value}$</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="expand-button" onclick="toggleCart(this, '${productId}')">Expand</div>
+        <div class="cart-content" id="${cartContentId}">
+          <!-- Content will be dynamically added here -->
+        </div>
+      </div>
+    `;
+
+    cartList.appendChild(orderCard);
+  }
+}
+
+function toggleCart(expandButton, productId) {
+   const cartContainer = expandButton.closest('.cart-container');
+   const cartContent = cartContainer.querySelector('.cart-content');
+
+   cartContent.innerHTML = '';
+   const orderItems = cart.orderItems[productId];
+   const sizeColorList = document.createElement('ul');
+   orderItems.forEach(orderItem => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `Size: ${orderItem.selectedSize}, Color: ${orderItem.selectedColor}`;
+        sizeColorList.appendChild(listItem);
+  });
+
+   cartContent.appendChild(sizeColorList);
+   cartContent.style.display = cartContent.style.display === 'none' ? 'block' : 'none';
 }
 
     document.getElementById("showAll").addEventListener("click", () => {
