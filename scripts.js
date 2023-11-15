@@ -292,8 +292,7 @@ function displayCartProducts(cart) {
 
         <div class="expand-button" onclick="toggleCart(this, '${productId}')">Expand</div>
         <div class="cart-content" id="${cartContentId}">
-          <!-- Content will be dynamically added here -->
-          Checking
+          
         </div>
     `;
 
