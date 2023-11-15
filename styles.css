@@ -359,7 +359,7 @@ body.native-theme .add-to-cart-button {
       z-index: 2;
     }
 
-.cart-container {
+.cart-item {
   overflow: hidden; /* Скрытие части содержимого, выходящего за пределы блока */
   transition: height 0.3s ease; /* Анимация изменения высоты блока */
 }
