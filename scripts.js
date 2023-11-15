@@ -300,13 +300,11 @@ function displayCartProducts(cart) {
   }
 }
 
-function toggleCart(expandButton, productId, cartContentId) {
-   /*const cartContainer = expandButton.closest('.cart-container');
-   const cartContent = cartContainer.querySelector(cartContentId);*/
+function toggleCart(expandButton, productId, productContainer) {
+   productContainer.style.display = productContainer.style.display === 'none' ? 'block' : 'none';
 
-   cartContentId.style.display = cartContentId.style.display === 'none' ? 'block' : 'none';
-    if (cartContentId.style.display === 'block') {
-        cartContentId.innerHTML = '';
+   if (productContainer.style.display === 'block') {
+        productContainer.innerHTML = '';
         const orderItems = cart.orderItems[productId];
         const sizeColorList = document.createElement('ul');
         orderItems.forEach(orderItem => {
@@ -315,8 +313,10 @@ function toggleCart(expandButton, productId, cartContentId) {
             sizeColorList.appendChild(listItem);
         });
 
-        cartContentId.appendChild(sizeColorList);
-    }
+        productContainer.appendChild(sizeColorList);
+   }
+
+   productContainer.classList.toggle('expanded', productContainer.style.display === 'block');
 }
 
     document.getElementById("showAll").addEventListener("click", () => {

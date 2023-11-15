@@ -350,3 +350,19 @@ body.native-theme .add-to-cart-button {
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       z-index: 2;
     }
+
+.cart-container {
+  overflow: hidden; /* Скрытие части содержимого, выходящего за пределы блока */
+  transition: height 0.3s ease; /* Анимация изменения высоты блока */
+}
+
+.cart-content {
+  background-color: #fff;
+  color: #000;
+  display: none;
+  padding: 10px;
+}
+
+.cart-container.expanded {
+  height: auto; /* Установка высоты "auto" при раскрытии блока */
+}
