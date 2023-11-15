@@ -301,12 +301,12 @@ function displayCartProducts(cart) {
 }
 
 function toggleCart(expandButton, productId, cartContentId) {
-   const cartContainer = expandButton.closest('.cart-container');
-   const cartContent = cartContainer.querySelector(cartContentId);
+   /*const cartContainer = expandButton.closest('.cart-container');
+   const cartContent = cartContainer.querySelector(cartContentId);*/
 
-   cartContent.style.display = cartContent.style.display === 'none' ? 'block' : 'none';
-    if (cartContent.style.display === 'block') {
-        cartContent.innerHTML = '';
+   cartContentId.style.display = cartContentId.style.display === 'none' ? 'block' : 'none';
+    if (cartContentId.style.display === 'block') {
+        cartContentId.innerHTML = '';
         const orderItems = cart.orderItems[productId];
         const sizeColorList = document.createElement('ul');
         orderItems.forEach(orderItem => {
@@ -315,7 +315,7 @@ function toggleCart(expandButton, productId, cartContentId) {
             sizeColorList.appendChild(listItem);
         });
 
-        cartContent.appendChild(sizeColorList);
+        cartContentId.appendChild(sizeColorList);
     }
 }
 
