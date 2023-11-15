@@ -280,7 +280,6 @@ function displayCartProducts(cart) {
     const cartContentId = `cartContent_${productId}`;
 
     orderCard.innerHTML = `
-      <div class="cart-container">
         <div class="cart-item">
           <img src="${product.image}" alt="${product.name}">
           <div class="item-details">
@@ -296,7 +295,6 @@ function displayCartProducts(cart) {
           <!-- Content will be dynamically added here -->
           Checking
         </div>
-      </div>
     `;
 
     cartList.appendChild(orderCard);
