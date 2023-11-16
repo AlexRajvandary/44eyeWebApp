@@ -190,10 +190,6 @@ body.native-theme .add-to-cart-button {
     border-radius:10px;
 }
 
-.cart-item-img {
-    border-radius: 10px;
-}
-
 .cart-item-title{
     white-space: normal;
     position: relative;
@@ -325,6 +321,7 @@ body.native-theme .add-to-cart-button {
     height: 100px;
     object-fit: cover;
     margin-right: 10px;
+    border-radius: 10px;
 }
 
 .item-details {
