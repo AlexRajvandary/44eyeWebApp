@@ -286,7 +286,7 @@ function displayCartProducts(cart) {
         <div class="item-info item5">
             <div class="item-price ">100$</div>
         </div>
-        <div class="expand-button" onclick="toggleCart('${orderCard}', '${productId}', ${cartContentId})">Expand</div>
+        <div class="expand-button" onclick="toggleCart('${orderCard}', '${productId}', ${cartContentId}, this)">Показать</div>
       </div>
       <div class="item4" id='${cartContentId}'>
         
@@ -297,7 +297,7 @@ function displayCartProducts(cart) {
   }
 }
 
-function toggleCart(orderCard, productId, productContainer) {
+function toggleCart(orderCard, productId, productContainer, btn) {
    productContainer.style.display = productContainer.style.display === 'none' ? 'block' : 'none';
 
    if (productContainer.style.display === 'block') {
@@ -313,7 +313,7 @@ function toggleCart(orderCard, productId, productContainer) {
         productContainer.appendChild(sizeColorList);
    }
 
-   /*orderCard.classList.toggle('expanded', productContainer.style.display === 'block');*/
+   btn.textContent = productContainer.style.display === 'none' ? 'Показать' : 'Скрыть';
 }
 
     document.getElementById("showAll").addEventListener("click", () => {
