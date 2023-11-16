@@ -368,7 +368,12 @@ body.native-theme .add-to-cart-button {
       padding: 10px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       z-index: 2;
-        font-size: 20px;
+        font-size: 15px;
+    }
+
+    .cart-content li{
+        text-align: right;
+        font-size: 15px;
     }
 
 .cart-item {
