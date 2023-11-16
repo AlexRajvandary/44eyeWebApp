@@ -331,7 +331,7 @@ function toggleCart(orderCard, productId, productContainer, btn) {
             const colorSelect = createSelect(orderItem.product.colors, orderItem.selectedColor, listItem);
 
             const deleteButton = document.createElement('button');
-                deleteButton.textContent = 'Удалить';
+                deleteButton.textContent = 'X';
                 deleteButton.classList.add("cart-item-delete-button");
                 deleteButton.addEventListener('click', function() {
                 cart.remove(productId, orderItem);
