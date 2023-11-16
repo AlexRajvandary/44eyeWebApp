@@ -299,7 +299,7 @@ function displayCartProducts(cart) {
 
 function createSelect(options, selectedValue, parentElement) {
   const select = document.createElement('select');
-  select.classList.add("comboBox-cartItem");
+  select.classList.add("comboBox");
   options.forEach(option => {
     const optionElement = document.createElement('option');
     optionElement.value = option;
