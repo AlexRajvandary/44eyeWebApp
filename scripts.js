@@ -297,6 +297,24 @@ function displayCartProducts(cart) {
   }
 }
 
+function createSelect(options, selectedValue, parentElement) {
+  const select = parentElement.createElement('select');
+
+  options.forEach(option => {
+    const optionElement = select.createElement('option');
+    optionElement.value = option;
+    optionElement.text = option;
+
+    if (option === selectedValue) {
+      optionElement.selected = true;
+    }
+
+    select.add(optionElement);
+  });
+
+  return select;
+}
+
 function toggleCart(orderCard, productId, productContainer, btn) {
    productContainer.style.display = productContainer.style.display === 'none' ? 'block' : 'none';
 
@@ -306,7 +324,22 @@ function toggleCart(orderCard, productId, productContainer, btn) {
         const sizeColorList = document.createElement('ul');
         orderItems.forEach(orderItem => {
             const listItem = document.createElement('li');
-            listItem.textContent = `${orderItem.selectedSize}, ${orderItem.selectedColor}`;
+            const sizeSelect = createSelect(orderItem.product.sizes, orderItem.selectedSize, listItem);
+            const colorSelect = createSelect(orderItem.product.colors, orderItem.selectedColor, listItem);
+
+            sizeSelect.addEventListener('change', function () {
+                orderItem.size = this.value;
+                cart.updateSize(orderItem.product, orderItem.size);
+            });
+
+            colorSelect.addEventListener('change', function () {
+                orderItem.color = this.value;
+                cart.updateSize(orderItem.product, orderItem.color);
+            });
+
+            listItem.innerHTML = '';
+            listItem.appendChild(sizeSelect);
+            listItem.appendChild(colorSelect);
             sizeColorList.appendChild(listItem);
         });
 
