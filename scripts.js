@@ -333,7 +333,7 @@ function toggleCart(orderCard, productId, productContainer, btn) {
             const deleteButton = document.createElement('button');
                 deleteButton.classList.add("fa");
                 deleteButton.classList.add("fa-trash-o");
-                deleteButton.classList.add("fa-2x");
+                deleteButton.classList.add("fa-lg");
                 deleteButton.classList.add("cart-item-delete-button");
                 deleteButton.ariaHidden = 'true';
                 deleteButton.addEventListener('click', function() {
