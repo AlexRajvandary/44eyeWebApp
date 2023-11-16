@@ -280,11 +280,11 @@ function displayCartProducts(cart) {
     const cartContentId = `cartContent_${productId}`;
 
     orderCard.innerHTML = `
-      <img class="item1" src="sneakers/1.jpg" alt="Кроссовки">
+      <img class="item1" src="${orderItem.product.image}" alt="${orderItem.product.name}">
       <div class="item-details item2">
-        <div class="item-title"><strong>Кроссовки</strong></div>
+        <div class="item-title"><strong>${orderItem.product.name}</strong></div>
         <div class="item-info item5">
-            <div class="item-price ">100$</div>
+            <div class="item-price ">${orderItem.product.price}</div>
         </div>
         <div class="expand-button" onclick="toggleCart('${orderCard}', '${productId}', ${cartContentId}, this)">Показать</div>
       </div>
@@ -306,7 +306,7 @@ function toggleCart(orderCard, productId, productContainer, btn) {
         const sizeColorList = document.createElement('ul');
         orderItems.forEach(orderItem => {
             const listItem = document.createElement('li');
-            listItem.textContent = `Size: ${orderItem.selectedSize}, Color: ${orderItem.selectedColor}`;
+            listItem.textContent = `${orderItem.selectedSize}, ${orderItem.selectedColor}`;
             sizeColorList.appendChild(listItem);
         });
 
