@@ -354,8 +354,10 @@ body.native-theme .add-to-cart-button {
       bottom: 10px;
       right: 10px;
       cursor: pointer;
-        margin: 15px;
+        margin-top: 20px;
         color: #31b545;
+        font-stretch: condensed;
+        font-size: 15px;
     }
 
     .cart-content {
@@ -366,6 +368,7 @@ body.native-theme .add-to-cart-button {
       padding: 10px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       z-index: 2;
+        font-size: 20px;
     }
 
 .cart-item {
@@ -376,7 +379,6 @@ body.native-theme .add-to-cart-button {
 .cart-content {
 
   color: #000;
-
   padding: 10px;
 }
 
