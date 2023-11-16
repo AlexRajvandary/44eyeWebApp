@@ -301,18 +301,24 @@ body.native-theme .add-to-cart-button {
     margin: auto; /* Добавлено для центрирования по горизонтали */
 }
 
+.item1 { grid-area: img; }
+.item2 { grid-area: right; }
+.item3 { grid-area: expandBtn; }
+.item4 { grid-area: orders; }
+.item5 { grid-area: price; }
+
 .cart-item {
     display: grid;
-    grid-template-columns: auto 1fr;/* Две колонки, первая автоматическая ширина, вторая занимает все доступное пространство */
-    grid-template-rows: auto 1fr;
-    border-bottom: 1px solid #ccc;
-    padding: 10px;
-    position: relative;
-}
 
-.item{
-   display: grid;
-    grid-template-columns: auto 1fr; /* Две колонки, первая автоматическая ширина, вторая занимает все доступное пространство */
+  grid-template-areas:
+    'img img right .'
+    'img img right .'
+    'img img . .'
+    'img img . .'
+    'img img price expandBtn'
+    '. orders orders .';
+    '. orders orders .';
+  gap: 10px;
     border-bottom: 1px solid #ccc;
     padding: 10px;
     position: relative;
@@ -366,9 +372,9 @@ body.native-theme .add-to-cart-button {
 }
 
 .cart-content {
-  background-color: #fff;
+
   color: #000;
-  display: none;
+
   padding: 10px;
 }
 

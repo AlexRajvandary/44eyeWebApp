@@ -1,10 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="animations.css">
+  <link rel="stylesheet" type="text/css" href="cafestyles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .item1 { grid-area: img; }
+        .item2 { grid-area: right; }
+        .item3 { grid-area: expandBtn; }
+        .item4 { grid-area: orders; }
+        .item5 { grid-area: price; }
+        .item4 {
+  display: none; /* Изначально скрыт */
+}
+.cart-item {
+    display: grid;
+
+  grid-template-areas:
+    'img img right .'
+    'img img right .'
+    'img img . .'
+    'img img . .'
+    'img img price expandBtn'
+    '. orders orders .';
+    '. orders orders .';
+  gap: 10px;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    position: relative;
+}
+    </style>
+  <title>Корзина</title>
 </head>
 <body>
+  <section class="order_view" >
+      <div>
+          <div class="cafe-order-header-wrap">
+            <h2 class="cafe-order-header">Ваш заказ</h2>
+          </div>
+         <div class="cart-container" id="cart-container">
+            <div class="cart-item">
+                <img class="item1" src="sneakers/1.jpg" alt="Кроссовки">
+                    <div class="item-details item2">
+                        <div class="item-title"><strong>Кроссовки</strong></div>
+                        <div class="item-info item5">
+                            <div class="item-price ">100$</div>
+                        </div>
+                        <div class="expand-button item3" onclick="toggleCart('item4')">Expand</div>
+                    </div>
+            <div class="cart-content item4" id="item4">
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                </ul>
+            </div>
+            </div>
+             <div class="cart-item">
+                <img class="item1" src="sneakers/1.jpg" alt="Кроссовки">
+                    <div class="item-details item2">
+                        <div class="item-title"><strong>Кроссовки</strong></div>
+                        <div class="item-info item5">
+                            <div class="item-price ">100$</div>
+                        </div>
+                        <div class="expand-button item3" onclick="toggleCart('i')">Expand</div>
+                    </div>
+            <div class="item4" id="i">
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                </ul>
+            </div>
+            </div>
+             <div class="cart-item">
+                <img class="item1" src="sneakers/1.jpg" alt="Кроссовки">
+                    <div class="item-details item2">
+                        <div class="item-title"><strong>Кроссовки</strong></div>
+                        <div class="item-info item5">
+                            <div class="item-price ">100$</div>
+                        </div>
+                        <div class="expand-button item3" onclick="toggleCart('t')">Expand</div>
+                    </div>
+            <div class="item4" id="t">
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                </ul>
+            </div>
 
+      </div>
+         </div>
+      </div>
+  </section>
+    <script>
+        function toggleCart(itemId) {
+        const item = document.getElementById(itemId);
+
+        // Toggle display
+        item.style.display = item.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </body>
 </html>

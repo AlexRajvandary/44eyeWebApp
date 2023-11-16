@@ -280,20 +280,17 @@ function displayCartProducts(cart) {
     const cartContentId = `cartContent_${productId}`;
 
     orderCard.innerHTML = `
-            <div class="item">
-                <img src="${product.image}" alt="${product.name}">
-                <div class="item-details">
-                    <div class="item-title"><strong>${product.name}</strong></div>
-                    <div class="item-info">
-                        <div class="item-price">${orderItem.value}$</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="expand-button" onclick="toggleCart('${orderCard}', '${productId}', ${cartContentId})">Expand</div>
-            <div class="cart-content" id="${cartContentId}">
-          
-            </div> 
+      <img class="item1" src="sneakers/1.jpg" alt="Кроссовки">
+      <div class="item-details item2">
+        <div class="item-title"><strong>Кроссовки</strong></div>
+        <div class="item-info item5">
+            <div class="item-price ">100$</div>
+        </div>
+        <div class="expand-button" onclick="toggleCart('${orderCard}', '${productId}', ${cartContentId})">Expand</div>
+      </div>
+      <div class="item4" id='${cartContentId}'>
+        
+      </div>
     `;
 
     cartList.appendChild(orderCard);
