@@ -245,6 +245,8 @@ document.addEventListener("DOMContentLoaded", function() {
             colorsDropdown.appendChild(colorOption);
         }
 
+        updateOrderItemDropDown(orderItemsDropdown, cart.orderItems[productCard.dataset.id]);
+
          orderItemsDropdown.addEventListener("change", function () {
              var orderItemId = parseInt(orderItemsDropdown.value);
              cart.setCurrentItem(product.id, orderItemId - 1);
@@ -322,6 +324,13 @@ function toggleCart(orderCard, productId, productContainer, btn) {
    productContainer.style.display = productContainer.style.display === 'none' ? 'block' : 'none';
 
    if (productContainer.style.display === 'block') {
+       updateItemCart(productContainer, productId);
+   }
+
+   btn.textContent = productContainer.style.display === 'none' ? 'Показать' : 'Скрыть';
+}
+
+    function updateItemCart(productContainer, productId){
         productContainer.innerHTML = '';
         const orderItems = cart.orderItems[productId];
         const sizeColorList = document.createElement('ul');
@@ -337,8 +346,9 @@ function toggleCart(orderCard, productId, productContainer, btn) {
                 deleteButton.classList.add("cart-item-delete-button");
                 deleteButton.ariaHidden = 'true';
                 deleteButton.addEventListener('click', function() {
-                cart.remove(productId, orderItem);
-            });
+                    updateItemCart(productContainer, productId);
+                    cart.remove(productId, orderItem);
+                });
 
             sizeSelect.addEventListener('change', function () {
                 orderItem.selectedSize = this.value;
@@ -356,10 +366,7 @@ function toggleCart(orderCard, productId, productContainer, btn) {
         });
 
         productContainer.appendChild(sizeColorList);
-   }
-
-   btn.textContent = productContainer.style.display === 'none' ? 'Показать' : 'Скрыть';
-}
+    }
 
     document.getElementById("showAll").addEventListener("click", () => {
       displayProducts();
@@ -500,6 +507,7 @@ function toggleCart(orderCard, productId, productContainer, btn) {
      function backBtnClicked(){
         $('.order_view').hide();
         backBtn.hide();
+        displayProducts();
         $('.catalogue').show();
         mainBtn.text = "Перейти в корзину";
     }
