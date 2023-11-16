@@ -245,6 +245,23 @@ body.native-theme .add-to-cart-button {
     margin-right: 10px;
 }
 
+.comboBox-cartItem{
+    color: white;
+    display: inline-block;
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 12px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: 1px solid white;
+        border-radius: 20px;
+        padding: 6px 12px;
+
+    text-align: center;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
 .comboBox-highlighted {
   border: 2px solid #ff0000; /* Красная граница при подсветке */
 }
