@@ -298,10 +298,10 @@ function displayCartProducts(cart) {
 }
 
 function createSelect(options, selectedValue, parentElement) {
-  const select = parentElement.createElement('select');
+  const select = document.createElement('select');
 
   options.forEach(option => {
-    const optionElement = select.createElement('option');
+    const optionElement = document.createElement('option');
     optionElement.value = option;
     optionElement.text = option;
 
@@ -312,8 +312,11 @@ function createSelect(options, selectedValue, parentElement) {
     select.add(optionElement);
   });
 
+  parentElement.appendChild(select);
+
   return select;
 }
+
 
 function toggleCart(orderCard, productId, productContainer, btn) {
    productContainer.style.display = productContainer.style.display === 'none' ? 'block' : 'none';
