@@ -473,6 +473,9 @@ function toggleCart(orderCard, productId, productContainer, btn) {
 
     function updateOrderItemDropDown(orderItemsDropDown, orderItems) {
 
+        if(orderItems === null || orderItems === undefined){
+            return;
+        }
     orderItemsDropDown.innerHTML = '';
 
     const defaultOption = document.createElement('option');
