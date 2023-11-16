@@ -341,13 +341,11 @@ function toggleCart(orderCard, productId, productContainer, btn) {
             });
 
             sizeSelect.addEventListener('change', function () {
-                orderItem.size = this.value;
-                cart.updateSize(orderItem.product, orderItem.size);
+                orderItem.selectedSize = this.value;
             });
 
             colorSelect.addEventListener('change', function () {
-                orderItem.color = this.value;
-                cart.updateSize(orderItem.product, orderItem.color);
+                orderItem.selectedColor = this.value;
             });
 
             listItem.innerHTML = '';
