@@ -263,7 +263,6 @@ body.native-theme .add-to-cart-button {
 }
 
 .cart-item-delete-button{
-    font-size: 20px;
     display: inline-block;
     flex: 1;
     background: transparent;
