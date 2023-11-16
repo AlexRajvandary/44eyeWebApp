@@ -330,6 +330,13 @@ function toggleCart(orderCard, productId, productContainer, btn) {
             const sizeSelect = createSelect(orderItem.product.sizes, orderItem.selectedSize, listItem);
             const colorSelect = createSelect(orderItem.product.colors, orderItem.selectedColor, listItem);
 
+            const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Удалить';
+                deleteButton.classList.add("cart-item-delete-button");
+                deleteButton.addEventListener('click', function() {
+                cart.remove(productId, orderItem);
+            });
+
             sizeSelect.addEventListener('change', function () {
                 orderItem.size = this.value;
                 cart.updateSize(orderItem.product, orderItem.size);
@@ -343,6 +350,7 @@ function toggleCart(orderCard, productId, productContainer, btn) {
             listItem.innerHTML = '';
             listItem.appendChild(sizeSelect);
             listItem.appendChild(colorSelect);
+            listItem.appendChild(deleteButton);
             sizeColorList.appendChild(listItem);
         });
 
