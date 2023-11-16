@@ -374,7 +374,7 @@ body.native-theme .add-to-cart-button {
 
     .expand-button {
       position: absolute;
-      bottom: 10px;
+      bottom: 15px;
       right: 10px;
       cursor: pointer;
         color: #31b545;
