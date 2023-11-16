@@ -321,7 +321,7 @@ body.native-theme .add-to-cart-button {
     height: 100px;
     object-fit: cover;
     margin-right: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .item-details {
