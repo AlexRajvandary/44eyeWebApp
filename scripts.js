@@ -331,7 +331,8 @@ function toggleCart(orderCard, productId, productContainer, btn) {
             const colorSelect = createSelect(orderItem.product.colors, orderItem.selectedColor, listItem);
 
             const deleteButton = document.createElement('button');
-                deleteButton.classList.add("fa fa-trash-o");
+                deleteButton.classList.add("fa");
+                deleteButton.classList.add("fa-trash-o");
                 deleteButton.ariaHidden = 'true';
                 deleteButton.addEventListener('click', function() {
                 cart.remove(productId, orderItem);
