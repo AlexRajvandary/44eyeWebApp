@@ -117,19 +117,7 @@ const images = ["sneakers/1.jpg","sneakers/2.jpg","sneakers/3.jpg","sneakers/4.j
 
 const products = [
     new Product(1, "Кроссовки Nike Белые", "Nike", "обувь", "кроссовки","женское", "весна", images, 7990, text, sizes, colors),
-    new Product(2, "Кроссовки Nike Белые", "Nike","обувь","кроссовки", "женское", "зима", images, 8990, text, sizes, colors),
-    new Product(3, "Кроссовки Nike Белые", "Nike","обувь","кроссовки", "женское", "лето", images, 6990, text, sizes, colors),
-    new Product(4, "Кроссовки Nike Белые", "Nike","обувь", "кроссовки","женское", "осень", images, 15990, text, sizes, colors),
-    new Product(5, "Кроссовки Nike Белые", "Nike","обувь", "кроссовки", "женское", "весна", images, 15990, text, sizes, colors),
-    new Product(6, "Кроссовки Nike Белые", "Nike","обувь", "кроссовки", "женское", "весна", images, 7990, text, sizes, colors),
-    new Product(7, "Штаны","Nike", "одежда",  "Штаны", "женское", "весна", images, 7990, text, sizes, colors),
-    new Product(8, "Футболка", "Nike", "одежда", "Футболки",  "женское", "весна", images, 7990, text, sizes, colors),
-    new Product(9, "Футболка", "Nike", "одежда", "Футболки",  "женское", "весна", images, 7990, text, sizes, colors),
-    new Product(10, "Футболка", "Nike", "одежда", "Футболки",  "женское", "весна", images, 7990, text, sizes, colors),
-    new Product(11, "Футболка", "Nike", "одежда", "Футболки",  "женское", "весна", images, 7990, text, sizes, colors),
-    new Product(12, "Футболка", "Nike", "одежда", "Футболки",  "женское", "весна", images, 7990, text, sizes, colors),
-    new Product(13, "Футболка", "Nike", "одежда", "Футболки",  "женское", "весна", images, 7990, text, sizes, colors),
-    new Product(14, "Футболка", "Nike", "одежда", "Футболки",  "женское", "весна", images, 7990, text, sizes, colors)
+
 ];
 
 const cart = new Cart(products);
