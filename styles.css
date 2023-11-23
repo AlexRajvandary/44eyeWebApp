@@ -1,7 +1,10 @@
 body {
     color: black; /* Цвет текста по умолчанию */
     background-color: white; /* Фон по умолчанию */
+
 }
+
+
 
 .comboBox,
 .card-price,
@@ -415,8 +418,10 @@ body.dark-theme .comboBox{
 }
 
 .card-info{
+    position: relative;
     width: 300px;
-    margin: 5px;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
 .slider-container {
