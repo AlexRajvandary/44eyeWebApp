@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <i class="prev-button" aria-label="Посмотреть предыдущий слайд">&lt;</i>
                         <i class="next-button" aria-label="Посмотреть следующий слайд">&gt;</i>
                     </div>
-              <div class="card-info">
+              <div class="card-info" style="display: none">
                 <div class="">
                 <h5 class="card-title">${product.name}</h5>
                 <p class="card-description-text ">${product.description}</p>
