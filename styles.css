@@ -3,13 +3,10 @@ body {
     background-color: white; /* Фон по умолчанию */
 }
 
-#productList {
-    overflow-y: hidden;
-}
-
-#productList .row {
+.products-container {
     overflow-y: auto;
-    max-height: 100vh;
+    overflow-x:hidden;
+    scrollbar-width: thin;
 }
 
 .comboBox,
