@@ -1,10 +1,16 @@
 body {
     color: black; /* Цвет текста по умолчанию */
     background-color: white; /* Фон по умолчанию */
-
 }
 
+#productList {
+    overflow-y: hidden;
+}
 
+#productList .row {
+    overflow-y: auto;
+    max-height: 100vh;
+}
 
 .comboBox,
 .card-price,
@@ -422,6 +428,11 @@ body.dark-theme .comboBox{
     width: 300px;
     margin: 0 auto;
     overflow: hidden;
+}
+
+.auto_scroll_container {
+    height: 100%;
+    overflow-y: scroll;
 }
 
 .slider-container {
