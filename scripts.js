@@ -199,10 +199,11 @@ document.addEventListener("DOMContentLoaded", function() {
                         <i class="prev-button" aria-label="Посмотреть предыдущий слайд">&lt;</i>
                         <i class="next-button" aria-label="Посмотреть следующий слайд">&gt;</i>
                     </div>
-              <div class="card-body">
+              <div class="card-info">
+                <div class="">
                 <h5 class="card-title">${product.name}</h5>
                 <p class="card-description-text ">${product.description}</p>
-                <p class="card-text">${product.price}₽</p>
+                <p class="card-price">${product.price}₽</p>
               </div>
               <div class="order-data">
                 <select id="sizes" name="sizes" class="comboBox">
@@ -222,6 +223,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 <button class="add-to-cart-button bubbly-button" id="update-order-item-button" onclick="updateOrderItem(this)" style="display: none">Сохранить</button>
                 <button class="add-to-cart-button bubbly-button" id="delete-order-item-button" onclick="deleteOrderItem(this)" style="display: none">Удалить</button>
               </div>
+              </div>
+              
             </div>
           `;
           initSlider(productCard);

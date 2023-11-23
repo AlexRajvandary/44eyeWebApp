@@ -1,10 +1,3 @@
-body {
-  font-size: 16px;
-  font-family: "Helvetica", "Arial", sans-serif;
-  text-align: center;
-  background-color: #f8faff;
-}
-
 .bubbly-button {
   font-family: "Helvetica", "Arial", sans-serif;
   display: inline-block;
@@ -14,11 +7,6 @@ body {
   -webkit-appearance: none;
   appearance: none;
   background-color: transparent;
-  color: #fff;
-
-  border: 1px solid black;
-    border-radius: 20px;
-    padding: 6px 12px;
 
   cursor: pointer;
   position: relative;

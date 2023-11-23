@@ -3,17 +3,29 @@ body {
     background-color: white; /* Фон по умолчанию */
 }
 
-.card-text,
+.comboBox,
+.card-price,
 .carousel-button,
 .search-input,
 .add-to-cart-button {
     font-size: 12px;
     display: inline-block;
     border: 1px solid black;
+    color: black;
     border-radius: 20px;
     padding: 6px 12px;
     flex: 1;
     background: transparent;
+}
+
+.comboBox{
+    border: 1px solid black;
+        border-radius: 20px;
+        padding: 6px 12px;
+}
+
+.card-price{
+    margin-bottom: 16px;
 }
 
 .search-input{
@@ -25,7 +37,8 @@ body.dark-theme {
     background-color: black !important; /* Инвертированный цвет фона на темной теме */
 }
 
-body.dark-theme .card-text,
+body.dark-theme .comboBox,
+body.dark-theme .card-price,
 body.dark-theme .carousel-button,
 body.dark-theme .search-input,
 body.dark-theme .add-to-cart-button {
@@ -33,24 +46,10 @@ body.dark-theme .add-to-cart-button {
     color: white; /* Инвертированный цвет текста на кнопках и тексте на темной теме */
 }
 
-body.native-theme .add-to-cart-button {
-    background: transparent;
-}
-
-body.native-theme {
-    color: black;
-    background: white !important;
-}
-
-body.native-theme .card-text,
-body.native-theme .carousel-button,
-body.native-theme .add-to-cart-button {
-    border-color: black; /* Инвертированный цвет границы кнопок на темной теме */
-    color: black; /* Инвертированный цвет текста на кнопках и тексте на темной теме */
-}
-
-body.native-theme .add-to-cart-button {
-    background: transparent;
+body.dark-theme .comboBox{
+    border: 1px solid white;
+        border-radius: 20px;
+        padding: 6px 12px;
 }
 
 .col {
@@ -66,7 +65,7 @@ body.native-theme .add-to-cart-button {
 .product-card {
     display: block;
     text-align: center;
-
+    margin: 5px auto;
     width: 90%;
 }
 
@@ -229,17 +228,12 @@ body.native-theme .add-to-cart-button {
 }
 
 .comboBox{
-    color: white;
     display: inline-block;
     font-family: "Helvetica", "Arial", sans-serif;
     font-size: 1em;
     -webkit-appearance: none;
     appearance: none;
     background-color: transparent;
-    border: 1px solid white;
-        border-radius: 20px;
-        padding: 6px 12px;
-
     text-align: center;
     margin-bottom: 20px;
     margin-right: 10px;
@@ -358,8 +352,8 @@ body.native-theme .add-to-cart-button {
     flex-direction: column;
 }
 
-.item-title {
-    margin-bottom: 10px;
+.card-title {
+    margin: 10px;
 }
 
 .item-info div {
@@ -418,6 +412,11 @@ body.native-theme .add-to-cart-button {
     max-width: 100%; /* Сделает логотип адаптивным по ширине родительского контейнера */
     height: auto; /* Сохранит соотношение сторон и предотвратит искажение изображения */
     width: 50px;
+}
+
+.card-info{
+    width: 300px;
+    margin: 5px;
 }
 
 .slider-container {
