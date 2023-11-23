@@ -346,8 +346,8 @@ body.native-theme .add-to-cart-button {
 }
 
 .cart-item img {
-    width: 100px;
-    height: 100px;
+    width: 50%;
+    height: 50%;
     object-fit: cover;
     margin-right: 10px;
     border-radius: 5px;
@@ -418,4 +418,43 @@ body.native-theme .add-to-cart-button {
     max-width: 100%; /* Сделает логотип адаптивным по ширине родительского контейнера */
     height: auto; /* Сохранит соотношение сторон и предотвратит искажение изображения */
     width: 50px;
+}
+
+.slider-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  font-size: 24px;
+  color: rgba(206, 205, 205, 0.77);
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
 }

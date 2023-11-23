@@ -5,10 +5,12 @@ let webApp = window.Telegram.WebApp;
 class Product {
     constructor(id,
                 name,
+                brand,
                 category,
+                subCategory,
                 gender,
                 season,
-                image,
+                images,
                 price,
                 description,
                 sizes,
@@ -16,10 +18,12 @@ class Product {
     {
         this.id = id;
         this.name = name;
+        this.brand = brand;
         this.category = category;
+        this.subCategory = subCategory;
         this.gender = gender;
         this.season = season;
-        this.image = image;
+        this.images = images;
         this.price = price;
         this.description = description;
         this.sizes = sizes;
@@ -109,22 +113,23 @@ class Cart{
 const text = 'Эти кроссовки от Nike обеспечивают отличную поддержку стопы и амортизацию благодаря современным технологиям, используемым в их производстве. Они идеально подходят для прогулок, бега и занятий спортом, предоставляя комфорт и уверенность в каждом шаге. Белый цвет кроссовок делает их универсальными и легко сочетаемыми с различной одеждой.';
 const sizes = ["S", "M", "L"];
 const colors = ["Белый", "Чёрный"];
+const images = ["sneakers/1.jpg","sneakers/2.jpg","sneakers/3.jpg","sneakers/4.jpg","sneakers/5.jpg","sneakers/6.jpg","sneakers/7.jpg"];
 
 const products = [
-    new Product(1, "Кроссовки Nike Белые", "обувь", "женское", "весна", "sneakers/1.jpg", 7990, text, sizes, colors),
-    new Product(2, "Кроссовки New Balance Белые", "обувь", "женское", "весна", "sneakers/2.jpg", 12490, text,  sizes, colors),
-    new Product(3, "Кроссовки Nike Sony", "обувь", "мужское", "весна", "sneakers/3.jpg", 15990, text,  sizes, colors),
-    new Product(4, "Кроссовки Чёрные", "обувь", "мужское", "весна", "sneakers/4.jpg", 12390, text,  sizes, colors),
-    new Product(5, "Кроссовки New Balance", "обувь", "мужское", "весна", "sneakers/5.jpg", 7490, "Описание товара 5", sizes, colors),
-    new Product(6, "Кроссовки New Balance", "обувь", "мужское", "весна", "sneakers/6.jpg", 5490, "Описание товара 6", sizes, colors),
-    new Product(7, "Штаны Чёрные Мужские", "верхняя_одежда", "мужское", "весна", "pants/1.jpg", 7990, "Описание товара 7", sizes, colors),
-    new Product(8, "Кроссовки Nike Белые", "верхняя_одежда", "женское", "весна", "tshirt/1.jpg", 5490, "Описание товара 8", sizes, colors),
-    new Product(9, "Кроссовки New Balance Белые", "верхняя_одежда", "женское", "весна", "tshirt/2.jpg", 7990, "Описание товара 9", sizes, colors),
-    new Product(10, "Кроссовки Nike Sony", "верхняя_одежда", "мужское", "весна", "tshirt/3.jpg", 7990, "Описание товара 10", sizes, colors),
-    new Product(11, "Пуховик зимний", "верхняя_одежда", "мужское", "весна", "tshirt/4.jpg", 5490, "Описание товара 11", sizes, colors),
-    new Product(12, "Футболка Inspire Чёрная", "верхняя_одежда", "мужское", "весна", "tshirt/5.jpg", 5490, "Описание товара 12", sizes, colors),
-    new Product(13, "Футболка Brooklyn Белая", "верхняя_одежда", "мужское", "весна", "tshirt/6.jpg", 12390, "Описание товара 13", sizes, colors),
-    new Product(14, "Футболки хайповые", "верхняя_одежда", "мужское", "весна", "tshirt/7.jpg", 7990, "Описание товара 14", sizes, colors)
+    new Product(1, "Кроссовки Nike Белые", "Nike", "обувь", "кроссовки","женское", "весна", images, 7990, text, sizes, colors),
+    new Product(2, "Кроссовки Nike Белые", "Nike","обувь","кроссовки", "женское", "зима", images, 8990, text, sizes, colors),
+    new Product(3, "Кроссовки Nike Белые", "Nike","обувь","кроссовки", "женское", "лето", images, 6990, text, sizes, colors),
+    new Product(4, "Кроссовки Nike Белые", "Nike","обувь", "кроссовки","женское", "осень", images, 15990, text, sizes, colors),
+    new Product(5, "Кроссовки Nike Белые", "Nike","обувь", "кроссовки", "женское", "весна", images, 15990, text, sizes, colors),
+    new Product(6, "Кроссовки Nike Белые", "Nike","обувь", "кроссовки", "женское", "весна", images, 7990, text, sizes, colors),
+    new Product(7, "Штаны","Nike", "одежда",  "Штаны", "женское", "весна", images, 7990, text, sizes, colors),
+    new Product(8, "Футболка", "Nike", "одежда", "Футболки",  "женское", "весна", images, 7990, text, sizes, colors),
+    new Product(9, "Футболка", "Nike", "одежда", "Футболки",  "женское", "весна", images, 7990, text, sizes, colors),
+    new Product(10, "Футболка", "Nike", "одежда", "Футболки",  "женское", "весна", images, 7990, text, sizes, colors),
+    new Product(11, "Футболка", "Nike", "одежда", "Футболки",  "женское", "весна", images, 7990, text, sizes, colors),
+    new Product(12, "Футболка", "Nike", "одежда", "Футболки",  "женское", "весна", images, 7990, text, sizes, colors),
+    new Product(13, "Футболка", "Nike", "одежда", "Футболки",  "женское", "весна", images, 7990, text, sizes, colors),
+    new Product(14, "Футболка", "Nike", "одежда", "Футболки",  "женское", "весна", images, 7990, text, sizes, colors)
 ];
 
 const cart = new Cart(products);
@@ -185,7 +190,15 @@ document.addEventListener("DOMContentLoaded", function() {
                  data-season="${product.season}"
                  data-category="${product.category}"
                  data-category="${product.gender}">
-              <img src="${product.image}" class="card-img-top" alt="${product.name}">
+              <div class="slider-container">
+                        <div class="slider">
+                            ${product.images.map(image => `
+                                <img src="${image}" class="card-img-top" alt="${product.name}">
+                            `).join('')}
+                        </div>
+                        <i class="prev-button" aria-label="Посмотреть предыдущий слайд">&lt;</i>
+                        <i class="next-button" aria-label="Посмотреть следующий слайд">&gt;</i>
+                    </div>
               <div class="card-body">
                 <h5 class="card-title">${product.name}</h5>
                 <p class="card-description-text ">${product.description}</p>
@@ -211,12 +224,43 @@ document.addEventListener("DOMContentLoaded", function() {
               </div>
             </div>
           `;
+          initSlider(productCard);
           updateDropDowns(productCard, product);
           productRow.appendChild(productCard);
         }
       });
 
       productList.appendChild(productRow);
+    }
+
+    function initSlider(productCard){
+        const slider = productCard.querySelector('.slider');
+        const prevButton = productCard.querySelector('.prev-button');
+        const nextButton = productCard.querySelector('.next-button');
+        const slides = Array.from(slider.querySelectorAll('img'));
+        const slideCount = slides.length;
+        let slideIndex = 0;
+
+        prevButton.addEventListener('click', ()=>{
+            slideIndex = (slideIndex - 1 + slideCount) % slideCount;
+            updateSlider(slides, slideIndex);
+        });
+        nextButton.addEventListener('click', ()=>{
+           slideIndex = (slideIndex + 1) % slideCount;
+            updateSlider(slides, slideIndex);
+        });
+
+        updateSlider(slides, slideIndex);
+    }
+
+    function updateSlider(slides, slideIndex) {
+        slides.forEach((slide, index) => {
+            if (index === slideIndex) {
+            slide.style.display = 'block';
+            } else {
+            slide.style.display = 'none';
+            }
+        });
     }
 
     function updateDropDowns(productCard, product) {
@@ -373,7 +417,7 @@ function toggleCart(orderCard, productId, productContainer, btn) {
     });
 
     document.getElementById("showClothing").addEventListener("click", () => {
-      displayProducts("верхняя_одежда");
+      displayProducts("одежда");
     });
 
     document.getElementById("showShoes").addEventListener("click", () => {
