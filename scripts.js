@@ -198,6 +198,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                 </div>
                             `).join('')}
                         </div>
+                        <div class="swiper-pagination"></div>
               </div>
               <div class="card-info">
                 <div class="">

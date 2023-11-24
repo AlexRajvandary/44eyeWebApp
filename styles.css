@@ -506,3 +506,9 @@ body.dark-theme .comboBox{
     width: 300px;
     height: 300px;
 }
+
+.swiper-slide img {
+    width: 100%; /* Ширина изображения в слайде */
+    height: 100%; /* Высота изображения в слайде */
+    object-fit: cover; /* Заполнение контейнера */
+}
