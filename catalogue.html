@@ -15,22 +15,18 @@
     <div>
         <div class="fixed-header">
             <div class="row icons-row">
-        <div class="col">
-          <img src="logoM4U.png" alt="Logo" class="logo">
-        </div>
+            <div class="col">
+                <img src="logoM4U.png" alt="Logo" class="logo">
+            </div>
         <div class="col">
 
         </div>
-        <div class="col ps-4 pe-4 d-flex align-items-center theme-toggle-container" style="margin-right: 10px">
-            <i class="fa fa-home" aria-hidden="true" id="showAll"></i>
+        <div class="col theme-toggle-container" style="margin-right: 10px">
+            <i class="fa fa-arrow-up" aria-hidden="true" id="scrollToTopBtn" style="visibility: hidden" onclick="scrollToTop()"></i>
             <i class="fa fa-filter" aria-hidden="true" id="showFilters"></i>
             <i class="fa fa-moon-o theme-toggle" aria-hidden="true" id="theme-toggle"></i>
         </div>
       </div>
-
-            <div class="row search-row">
-            <input type="text" class="carousel-button-search bubbly-button" placeholder="Поиск">
-            </div>
 
               <div class="filter-menu" id="filterMenu">
                   <div class="row">
@@ -72,6 +68,10 @@
                   </div>
 
     </div>
+        </div>
+
+        <div class="row search-row">
+            <input type="text" class="carousel-button-search bubbly-button" placeholder="Поиск">
         </div>
 
       <div class="products-container">

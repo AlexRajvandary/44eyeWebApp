@@ -7,7 +7,7 @@ body {
     overflow-y: auto;
     overflow-x:hidden;
     scrollbar-width: thin;
-    padding-top: 130px;
+    padding-top: 10px;
 }
 
 .icons-row{
@@ -79,8 +79,7 @@ body.dark-theme .comboBox{
 }
 
 .icons-row{
-    margin-bottom: 15px;
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 .product-card {
@@ -187,6 +186,8 @@ body.dark-theme .comboBox{
 .theme-toggle-container{
     display: flex;
     font-size: 18px;
+    align-items: center;
+    gap: 10px;
 }
 
 .order_view{
@@ -302,6 +303,11 @@ body.dark-theme .comboBox{
 .search-row{
     margin: 2px;
     margin-bottom: 15px;
+    padding-top: 60px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 12px;
+    background: black;
 }
 
 .cafe-block {

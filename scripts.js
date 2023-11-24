@@ -564,8 +564,19 @@ function toggleCart(orderCard, productId, productContainer, btn) {
         return total;
     }
 
-    function resetDropDowns(){
-
+    function scrollToTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     }
+
+    window.onscroll = function() {
+        var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollToTopBtn.style.visibility = "visible";
+        } else {
+            scrollToTopBtn.style.visibility = "hidden";
+        }
+    };
 
     displayProducts();
