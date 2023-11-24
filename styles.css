@@ -59,6 +59,7 @@ body.dark-theme {
     background-color: #101010 !important; /* Инвертированный цвет фона на темной теме */
 }
 
+.comboBox-filter-menu,
 body.dark-theme .comboBox,
 body.dark-theme .card-price,
 body.dark-theme .carousel-button,
@@ -249,6 +250,7 @@ body.dark-theme .comboBox{
   margin-right: 5px; /* Добавляем отступ между <select> элементами */
 }
 
+.comboBox-filter-menu,
 .comboBox{
     display: inline-block;
     font-family: "Helvetica", "Arial", sans-serif;
