@@ -1,6 +1,6 @@
 body {
     color: black; /* Цвет текста по умолчанию */
-    background-color: white; /* Фон по умолчанию */
+    background-color: #F4F4F5ff; /* Фон по умолчанию */
 }
 
 .products-container {
@@ -56,7 +56,7 @@ body {
 
 body.dark-theme {
     color: white ; /* Инвертированный цвет текста на темной теме */
-    background-color: black !important; /* Инвертированный цвет фона на темной теме */
+    background-color: #101010 !important; /* Инвертированный цвет фона на темной теме */
 }
 
 body.dark-theme .comboBox,
