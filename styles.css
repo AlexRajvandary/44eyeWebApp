@@ -7,6 +7,22 @@ body {
     overflow-y: auto;
     overflow-x:hidden;
     scrollbar-width: thin;
+    padding-top: 130px;
+}
+
+.icons-row{
+    color: white;
+}
+
+.carousel-button-search{
+    font-size: 12px;
+    display: inline-block;
+    border: 1px solid white;
+    color: white;
+    border-radius: 20px;
+    padding: 6px 12px;
+    flex: 1;
+    background: transparent;
 }
 
 .comboBox,
@@ -46,7 +62,6 @@ body.dark-theme {
 body.dark-theme .comboBox,
 body.dark-theme .card-price,
 body.dark-theme .carousel-button,
-body.dark-theme .search-input,
 body.dark-theme .add-to-cart-button {
     border-color: white; /* Инвертированный цвет границы кнопок на темной теме */
     color: white; /* Инвертированный цвет текста на кнопках и тексте на темной теме */
@@ -469,4 +484,14 @@ body.dark-theme .comboBox{
 
 .next-button {
   right: 10px;
+}
+
+.fixed-header{
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    background: black;
+    padding-left: 20px;
+    padding-right: 20px;
 }

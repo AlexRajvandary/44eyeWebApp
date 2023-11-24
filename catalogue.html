@@ -12,8 +12,9 @@
 <body>
 
   <section class="catalogue">
-    <div class="container">
-      <div class="row icons-row">
+    <div>
+        <div class="fixed-header">
+            <div class="row icons-row">
         <div class="col">
           <img src="logoM4U.png" alt="Logo" class="logo">
         </div>
@@ -27,50 +28,51 @@
         </div>
       </div>
 
-      <div class="row search-row">
-        <input type="text" class="carousel-button bubbly-button" placeholder="Поиск">
-      </div>
+            <div class="row search-row">
+            <input type="text" class="carousel-button-search bubbly-button" placeholder="Поиск">
+            </div>
 
-      <div class="row" id="categories">
-        <div class="col">
-          <button class="btn carousel-button bubbly-button" id="showClothing">Одежда</button>
-        </div>
-        <div class="col">
-          <button class="btn carousel-button bubbly-button" id="showShoes">Обувь</button>
-        </div>
-        <div class="col">
-          <button class="btn carousel-button bubbly-button" id="showAccessories">Аксессуары</button>
-        </div>
-      </div>
+              <div class="filter-menu" id="filterMenu">
+                  <div class="row">
+                      <div class="col">
+                          <select class="comboBox" id="categoryFilter">
+                              <option value="">Категория</option>
+                              <option value="одежда">Одежда</option>
+                              <option value="обувь">Обувь</option>
+                              <option value="аксессуары">Аксессуары</option>
+                          </select>
+                      </div>
+                      <div class="col">
+                          <select class="comboBox" id="brandFilter">
+                              <option value="">Бренд</option>
+                              <option value="adidas">Adidas</option>
+                              <option value="nike">Nike</option>
+                              <option value="uniqlo">Uniqlo</option>
+                              <option value="tommyHilfiger">Tommy Hilfiger</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col">
+                          <select class="comboBox" id="genderFilter">
+                              <option value="">Пол</option>
+                              <option value="мужское">Мужское</option>
+                              <option value="женское">Женское</option>
+                          </select>
+                      </div>
+                      <div class="col">
+                          <select class="comboBox" id="seasonFilter">
+                              <option value="">Сезон</option>
+                              <option value="зима">Зима</option>
+                              <option value="осень">Осень</option>
+                              <option value="лето">Лето</option>
+                              <option value="весна">Весна</option>
+                          </select>
+                      </div>
+                  </div>
 
-    <!-- Фильтры (выпадающее меню) -->
-    <div class="filter-menu" id="filterMenu">
-      <div>
-        <select class="comboBox" id="categoryFilter">
-          <option value="">Категория</option>
-          <option value="верхняя_одежда">Верхняя одежда</option>
-          <option value="обувь">Обувь</option>
-          <option value="аксессуары">Аксессуары</option>
-        </select>
-      </div>
-      <div>
-        <select class="comboBox" id="genderFilter">
-          <option value="">Пол</option>
-          <option value="мужское">Мужское</option>
-          <option value="женское">Женское</option>
-        </select>
-      </div>
-      <div>
-        <select class="comboBox" id="seasonFilter">
-          <option value="">Сезон</option>
-          <option value="зима">Зима</option>
-          <option value="осень">Осень</option>
-          <option value="лето">Лето</option>
-          <option value="весна">Весна</option>
-        </select>
-      </div>
     </div>
-
+        </div>
 
       <div class="products-container">
         <div class="row mt-2" id="productList">

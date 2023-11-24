@@ -415,21 +415,19 @@ function toggleCart(orderCard, productId, productContainer, btn) {
         productContainer.appendChild(sizeColorList);
     }
 
-    document.getElementById("showAll").addEventListener("click", () => {
-      displayProducts();
-    });
+    var categorySelect = document.getElementById("categoryFilter");
+    var brandSelect = document.getElementById("brandFilter");
+    var seasonSelect = document.getElementById("seasonFilter");
+    var genderSelect = document.getElementById("genderFilter");
 
-    document.getElementById("showClothing").addEventListener("click", () => {
-      displayProducts("одежда");
-    });
+    function onFilterChanged(){
+        displayProducts(categorySelect.value, genderSelect.value, seasonSelect.value);
+    }
 
-    document.getElementById("showShoes").addEventListener("click", () => {
-      displayProducts("обувь");
-    });
-
-    document.getElementById("showAccessories").addEventListener("click", () => {
-      displayProducts("аксессуары");
-    });
+    categorySelect.addEventListener("change", () => {onFilterChanged()});
+    brandSelect.addEventListener("change", () => {onFilterChanged()});
+    seasonSelect.addEventListener("change", () => {onFilterChanged()});
+    genderSelect.addEventListener("change", () => {onFilterChanged()});
 
     const filterMenu = document.getElementById("filterMenu");
     const showFilters = document.getElementById("showFilters");
@@ -441,10 +439,6 @@ function toggleCart(orderCard, productId, productContainer, btn) {
         filterMenu.style.display = "block";
       }
     });
-
-    let isDragging = false;
-    let startPosition = 0;
-    let deltaX = 0;
 
     function highlightDropDown(dropDown){
         dropDown.classList.add('comboBox-highlighted');
