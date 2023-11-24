@@ -185,20 +185,20 @@ document.addEventListener("DOMContentLoaded", function() {
                  data-id="${product.id}"
                  data-price="${product.price}"
                  data-name="${product.name}"
-                 data-image="${product.image}"
+                 data-image="${product.images}"
                  data-description="${product.description}"
                  data-season="${product.season}"
                  data-category="${product.category}"
                  data-category="${product.gender}">
-              <div class="slider-container">
-                        <div class="slider">
+              <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
                             ${product.images.map(image => `
-                                <img src="${image}" class="card-img-top" alt="${product.name}">
+                                <div class="swiper-slide"> 
+                                    <img src="${image}" class="card-img-top" alt="${product.name}">
+                                </div>
                             `).join('')}
                         </div>
-                        <i class="prev-button" aria-label="Посмотреть предыдущий слайд">&lt;</i>
-                        <i class="next-button" aria-label="Посмотреть следующий слайд">&gt;</i>
-                    </div>
+              </div>
               <div class="card-info">
                 <div class="">
                 <h5 class="card-title">${product.name}</h5>
@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function() {
               
             </div>
           `;
-          initSlider(productCard);
+
           updateDropDowns(productCard, product);
           productRow.appendChild(productCard);
         }
@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function() {
       productList.appendChild(productRow);
     }
 
-    function initSlider(productCard){
+    function initSliderObsolute(productCard){
         const slider = productCard.querySelector('.slider');
         const prevButton = productCard.querySelector('.prev-button');
         const nextButton = productCard.querySelector('.next-button');
@@ -254,6 +254,20 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         updateSlider(slides, slideIndex);
+    }
+
+    function initSwiper(productCard){
+        const swiper = new Swiper('.mySwiper', {
+
+            direction: 'horizontal',
+            loop: true,
+
+            // If we need pagination
+            pagination: {
+                el: ".swiper-pagination",
+                dynamicBullets: true,
+            },
+        });
     }
 
     function updateSlider(slides, slideIndex) {

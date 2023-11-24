@@ -7,6 +7,7 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
   <link rel="stylesheet" type="text/css" href="animations.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <title>Каталог товаров</title>
 </head>
 <body>
@@ -97,7 +98,24 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <script src="scripts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="scripts.js" type="module"></script>
   <script src="animations.js"></script>
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          // Ваш код с инициализацией Swiper
+          var swiper = new Swiper(".mySwiper", {
+              spaceBetween: 30,
+              effect: "cube",
+              pagination: {
+                  el: ".swiper-pagination",
+                  clickable: true,
+              },
+              // Другие настройки Swiper, если необходимо
+          });
+
+          // Другие действия и настройки, если необходимо
+      });
+  </script>
 </body>
 </html>
