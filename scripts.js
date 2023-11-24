@@ -257,20 +257,6 @@ document.addEventListener("DOMContentLoaded", function() {
         updateSlider(slides, slideIndex);
     }
 
-    function initSwiper(productCard){
-        const swiper = new Swiper('.mySwiper', {
-
-            direction: 'horizontal',
-            loop: true,
-
-            // If we need pagination
-            pagination: {
-                el: ".swiper-pagination",
-                dynamicBullets: true,
-            },
-        });
-    }
-
     function updateSlider(slides, slideIndex) {
         slides.forEach((slide, index) => {
             if (index === slideIndex) {
@@ -330,6 +316,7 @@ document.addEventListener("DOMContentLoaded", function() {
              cart.updateColor(product, selectedColor)
          });
     }
+
 function displayCartProducts(cart) {
   const cartList = document.getElementById("cart-container");
   cartList.innerHTML = "";
@@ -380,7 +367,6 @@ function createSelect(options, selectedValue, parentElement) {
 
   return select;
 }
-
 
 function toggleCart(orderCard, productId, productContainer, btn) {
    productContainer.style.display = productContainer.style.display === 'none' ? 'block' : 'none';
@@ -532,6 +518,7 @@ function toggleCart(orderCard, productId, productContainer, btn) {
         if(orderItems === null || orderItems === undefined){
             return;
         }
+
     orderItemsDropDown.innerHTML = '';
 
     const defaultOption = document.createElement('option');
@@ -579,17 +566,43 @@ function toggleCart(orderCard, productId, productContainer, btn) {
         return total;
     }
 
-    function scrollToTop() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
+    var scrollBtn = document.getElementById("scrollToTopBtn");
+
+    scrollBtn.addEventListener('click', function () {
+        scrollToTop(1000); // 1000 миллисекунд = 1 секунда
+    });
+
+    function scrollToTop(duration) {
+        var start = window.scrollY,
+        startTime = performance.now();
+
+        function animateScroll() {
+            var now = performance.now(),
+                progress = (now - startTime) / duration;
+
+            window.scrollTo(0, easeInOutCubic(progress, start, -start, 1));
+
+            if (progress < 1) {
+                requestAnimationFrame(animateScroll);
+            }
+        }
+
+        function easeInOutCubic(t, b, c, d) {
+            t /= d / 2;
+            if (t < 1) return c / 2 * t * t * t + b;
+            t -= 2;
+            return c / 2 * (t * t * t + 2) + b;
+        }
+
+        requestAnimationFrame(animateScroll);
     }
 
     window.onscroll = function() {
         var scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            scrollToTopBtn.style.visibility = "visible";
-        } else {
+         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+             scrollToTopBtn.style.visibility = "visible";
+         } else {
             scrollToTopBtn.style.visibility = "hidden";
         }
     };
