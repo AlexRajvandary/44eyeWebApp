@@ -514,3 +514,55 @@ body.dark-theme .comboBox{
     height: 100%; /* Высота изображения в слайде */
     object-fit: cover; /* Заполнение контейнера */
 }
+
+.stories_wrapper {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 10px 0;;
+    padding: 16px;;
+    position: relative;
+    z-index: 5;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 16px;
+    background: #262626;
+}
+
+
+
+.stories_wrapper::-webkit-scrollbar {
+    display: none
+}
+
+.story-item {
+
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    padding: 4px;
+    outline: none;
+    text-align: unset;
+    border: solid 1px black;
+    border-radius: 20px;
+    scroll-snap-align: start;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: transform .15s linear;
+    overflow: hidden;
+}
+
+
+
+.story-item img {
+    max-width: 100%;
+    height: auto;
+}
