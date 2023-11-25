@@ -68,6 +68,7 @@ body.dark-theme .add-to-cart-button {
     color: white; /* Инвертированный цвет текста на кнопках и тексте на темной теме */
 }
 
+.comboBox-filter-menu,
 body.dark-theme .comboBox{
     border: 1px solid white;
         border-radius: 20px;
@@ -524,30 +525,29 @@ body.dark-theme .comboBox{
     overflow-x: auto;
     overflow-y: hidden;
     margin: 10px 0;;
-    padding: 16px;;
+    padding: 10px;;
     position: relative;
     z-index: 5;
     scroll-snap-type: x mandatory;
     scroll-padding-left: 16px;
-    background: #262626;
+    background: #101010;
+    border-radius: 20px;
+    border: white ;
 }
-
-
 
 .stories_wrapper::-webkit-scrollbar {
     display: none
 }
 
 .story-item {
-
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     padding: 4px;
     outline: none;
     text-align: unset;
@@ -560,7 +560,9 @@ body.dark-theme .comboBox{
     overflow: hidden;
 }
 
-
+.story-item:hover{
+    box-shadow: 0 2px 10px rgb(175, 3, 136);
+}
 
 .story-item img {
     max-width: 100%;

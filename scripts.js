@@ -165,7 +165,12 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-    function displayProducts(categoryFilter = "", genderFilter = "", seasonFilter = "") {
+function toggleTableMode() {
+    displayProducts('', '', '', 2);
+}
+
+
+    function displayProducts(categoryFilter = "", genderFilter = "", seasonFilter = "", itemsPerRow = 1) {
       const productList = document.getElementById("productList");
       productList.innerHTML = "";
 
@@ -177,8 +182,10 @@ document.addEventListener("DOMContentLoaded", function() {
           (!genderFilter || product.gender === genderFilter) &&
           (!seasonFilter || product.season === seasonFilter)
         ) {
+            const colClass = `col-md-${12 / itemsPerRow}`;
+
           const productCard = document.createElement("div");
-          productCard.className = "col-md-12 product-card";
+            productCard.className = `product-card ${colClass}`;
           productCard.innerHTML = `
             <div class="product-card" 
                  id="productCard"
@@ -417,7 +424,6 @@ function toggleCart(orderCard, productId, productContainer, btn) {
     }
 
     var categorySelect = document.getElementById("categoryFilter");
-    var brandSelect = document.getElementById("brandFilter");
     var seasonSelect = document.getElementById("seasonFilter");
     var genderSelect = document.getElementById("genderFilter");
 
@@ -426,7 +432,6 @@ function toggleCart(orderCard, productId, productContainer, btn) {
     }
 
     categorySelect.addEventListener("change", () => {onFilterChanged()});
-    brandSelect.addEventListener("change", () => {onFilterChanged()});
     seasonSelect.addEventListener("change", () => {onFilterChanged()});
     genderSelect.addEventListener("change", () => {onFilterChanged()});
 
