@@ -169,7 +169,6 @@ function toggleTableMode() {
     displayProducts('', '', '', 2);
 }
 
-
     function displayProducts(categoryFilter = "", genderFilter = "", seasonFilter = "", itemsPerRow = 1) {
       const productList = document.getElementById("productList");
       productList.innerHTML = "";

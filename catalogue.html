@@ -25,11 +25,13 @@
         <div class="col theme-toggle-container" style="margin-right: 10px">
             <i class="fa fa-arrow-up" aria-hidden="true" id="scrollToTopBtn" style="visibility: hidden" onclick="scrollToTop()"></i>
             <i class="fa fa-filter" aria-hidden="true" id="showFilters"></i>
-            <i class="fa fa-th-large theme-toggle" aria-hidden="true" id="table-mode"></i>
-            <i class="fa fa-moon-o theme-toggle" aria-hidden="true" id="theme-toggle"></i>
+            <i class="fa fa-cog theme-toggle" aria-hidden="true" id="settings" onclick="openNav()"></i>
         </div>
       </div>
-
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                <i class="fa fa-moon-o theme-toggle" aria-hidden="true" id="theme-toggle"></i>
+            </div>
               <div class="filter-menu" id="filterMenu">
                   <div class="row justify-content-center">
                       <div class="col">
@@ -108,12 +110,21 @@
           var swiper = new Swiper(".mySwiper", {
               spaceBetween: 10,
               effect: "coverflow",
+              loop: true,
               pagination: {
                   el: ".swiper-pagination",
                   clickable: true,
               },
           });
       });
+
+      function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+      }
+
+      function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+      }
   </script>
 </body>
 </html>
