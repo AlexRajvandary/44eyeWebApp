@@ -165,17 +165,33 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-function toggleTableMode() {
-    displayProducts('', '', '', 2);
+async function getProducts(){
+    var url = 'http://127.0.0.1:5000/products'
+    try{
+        var response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        var products = await response.json();
+
+        return products;
+    }catch(error){
+        console.error('There was a problem with the fetch operation:', error);
+    }
 }
 
-    function displayProducts(categoryFilter = "", genderFilter = "", seasonFilter = "", itemsPerRow = 1) {
+async function toggleTableMode() {
+    await displayProducts('', '', '', 2);
+}
+
+    async function displayProducts(categoryFilter = "", genderFilter = "", seasonFilter = "", itemsPerRow = 1) {
       const productList = document.getElementById("productList");
       productList.innerHTML = "";
 
       const productRow = document.createElement("div");
       productRow.className = "row";
-      products.forEach(product => {
+      var productsFromApi = await getProducts();
+      productsFromApi.forEach(product => {
         if (
           (!categoryFilter || product.category === categoryFilter) &&
           (!genderFilter || product.gender === genderFilter) &&
@@ -196,16 +212,7 @@ function toggleTableMode() {
                  data-season="${product.season}"
                  data-category="${product.category}"
                  data-category="${product.gender}">
-              <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                            ${product.images.map(image => `
-                                <div class="swiper-slide"> 
-                                    <img src="${image}" class="card-img-top" alt="${product.name}">
-                                </div>
-                            `).join('')}
-                        </div>
-                        <div class="swiper-pagination"></div>
-              </div>
+             
               <div class="card-info">
                 <div class="">
                 <h5 class="card-title">${product.name}</h5>
@@ -282,8 +289,8 @@ function toggleTableMode() {
         var updateOrderItemButton = productCard.querySelector("#update-order-item-button");
         var deleteOrderItemButton = productCard.querySelector("#delete-order-item-button");
 
-        var availableSizes = product.sizes;
-        var availableColors = product.colors;
+        var availableSizes = product.sizes.split(',');
+        var availableColors = product.colors.split(',');
 
         for (var i = 0; i < availableSizes.length; i++) {
             var sizeOption = document.createElement("option");
@@ -426,13 +433,13 @@ function toggleCart(orderCard, productId, productContainer, btn) {
     var seasonSelect = document.getElementById("seasonFilter");
     var genderSelect = document.getElementById("genderFilter");
 
-    function onFilterChanged(){
-        displayProducts(categorySelect.value, genderSelect.value, seasonSelect.value);
+    async function onFilterChanged(){
+        await displayProducts(categorySelect.value, genderSelect.value, seasonSelect.value);
     }
 
-    categorySelect.addEventListener("change", () => {onFilterChanged()});
-    seasonSelect.addEventListener("change", () => {onFilterChanged()});
-    genderSelect.addEventListener("change", () => {onFilterChanged()});
+    categorySelect.addEventListener("change", onFilterChanged);
+    seasonSelect.addEventListener("change", onFilterChanged);
+    genderSelect.addEventListener("change", onFilterChanged);
 
     const filterMenu = document.getElementById("filterMenu");
     const showFilters = document.getElementById("showFilters");
@@ -554,10 +561,10 @@ function toggleCart(orderCard, productId, productContainer, btn) {
         backBtn.show();
     }
 
-     function backBtnClicked(){
+     async function backBtnClicked(){
         $('.order_view').hide();
         backBtn.hide();
-        displayProducts();
+        await displayProducts();
         $('.catalogue').show();
         mainBtn.text = "Перейти в корзину";
     }
