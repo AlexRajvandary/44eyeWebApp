@@ -360,7 +360,7 @@ function displayCartProducts(cart) {
     const cartContentId = `cartContent_${productId}`;
 
     orderCard.innerHTML = `
-      <img class="item1" src="${orderItem.product.image}" alt="${orderItem.product.name}">
+      <img class="item1" src="catalogue/${orderItem.product.id}/${orderItem.product.image}" alt="${orderItem.product.name}">
       <div class="item-details item2">
         <div class="item-title"><strong>${orderItem.product.name}</strong></div>
         <div class="item-info item5">
