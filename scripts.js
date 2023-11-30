@@ -113,7 +113,7 @@ class Cart{
 const text = 'Эти кроссовки от Nike обеспечивают отличную поддержку стопы и амортизацию благодаря современным технологиям, используемым в их производстве. Они идеально подходят для прогулок, бега и занятий спортом, предоставляя комфорт и уверенность в каждом шаге. Белый цвет кроссовок делает их универсальными и легко сочетаемыми с различной одеждой.';
 const sizes = ["S", "M", "L"];
 const colors = ["Белый", "Чёрный"];
-const images = ["sneakers/1.jpg","sneakers/2.jpg","sneakers/3.jpg","sneakers/4.jpg","sneakers/5.jpg","sneakers/6.jpg","sneakers/7.jpg"];
+const images = "sneakers/1.jpg,sneakers/2.jpg,sneakers/3.jpg,sneakers/4.jpg,sneakers/5.jpg,sneakers/6.jpg,sneakers/7.jpg";
 
 const products = [
     new Product(1, "Кроссовки Nike Белые", "Nike", "обувь", "кроссовки","женское", "весна", images, 7990, text, sizes, colors),
@@ -212,7 +212,16 @@ async function toggleTableMode() {
                  data-season="${product.season}"
                  data-category="${product.category}"
                  data-category="${product.gender}">
-             
+             <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            ${product.images.split(',').map(image => `
+                                <div class="swiper-slide"> 
+                                    <img src="${image}" class="card-img-top" alt="${product.name}">
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="swiper-pagination"></div>
+              </div>
               <div class="card-info">
                 <div class="">
                 <h5 class="card-title">${product.name}</h5>
