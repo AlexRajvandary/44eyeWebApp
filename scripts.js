@@ -216,7 +216,7 @@ async function toggleTableMode() {
                         <div class="swiper-wrapper">
                             ${product.images.split(',').map(image => `
                                 <div class="swiper-slide"> 
-                                    <img src="${image}" class="card-img-top" alt="${product.name}">
+                                    <img src="catalogue/${product.vendorCode}/${image}" class="card-img-top" alt="${product.name}">
                                 </div>
                             `).join('')}
                         </div>
