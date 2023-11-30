@@ -257,6 +257,7 @@ async function toggleTableMode() {
       });
 
       productList.appendChild(productRow);
+      initSwiper();
     }
 
     function initSliderObsolute(productCard){
@@ -286,6 +287,18 @@ async function toggleTableMode() {
             } else {
             slide.style.display = 'none';
             }
+        });
+    }
+
+   function initSwiper() {
+        var swiper = new Swiper(".mySwiper", {
+              spaceBetween: 10,
+              effect: "coverflow",
+              loop: true,
+              pagination: {
+                  el: ".swiper-pagination",
+                  clickable: true,
+              },
         });
     }
 
