@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 async function getProducts(){
-    var url = 'http://127.0.0.1:5000/products'
+    var url = 'http://alexraj22.pythonanywhere.com/products'
     try{
         var response = await fetch(url);
         if (!response.ok) {
