@@ -17,18 +17,17 @@ body {
 .carousel-button-search{
     font-size: 12px;
     display: inline-block;
-    border: 1px solid white;
-    color: white;
+
     border-radius: 20px;
     padding: 6px 12px;
     flex: 1;
     background: transparent;
 }
 
+.carousel-button-search,
 .comboBox,
 .card-price,
 .carousel-button,
-.search-input,
 .add-to-cart-button {
     font-size: 12px;
     display: inline-block;
@@ -60,6 +59,7 @@ body.dark-theme {
 }
 
 .comboBox-filter-menu,
+body.dark-theme .carousel-button-search,
 body.dark-theme .comboBox,
 body.dark-theme .card-price,
 body.dark-theme .carousel-button,
@@ -311,13 +311,12 @@ body.dark-theme .comboBox{
 }
 
 .search-row{
-    margin: 2px;
-    margin-bottom: 15px;
+    margin-right: 2px;
+    margin-left: 2px;
+    margin-top: 15px;
     padding-top: 60px;
     padding-right: 20px;
     padding-left: 20px;
-    padding-bottom: 12px;
-    background: black;
 }
 
 .cafe-block {

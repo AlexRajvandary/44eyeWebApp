@@ -111,8 +111,8 @@ class Cart{
 }
 
 const text = 'Эти кроссовки от Nike обеспечивают отличную поддержку стопы и амортизацию благодаря современным технологиям, используемым в их производстве. Они идеально подходят для прогулок, бега и занятий спортом, предоставляя комфорт и уверенность в каждом шаге. Белый цвет кроссовок делает их универсальными и легко сочетаемыми с различной одеждой.';
-const sizes = ["S", "M", "L"];
-const colors = ["Белый", "Чёрный"];
+const sizes = "S,M,L";
+const colors = "Белый,Чёрный";
 const images = "sneakers/1.jpg,sneakers/2.jpg,sneakers/3.jpg,sneakers/4.jpg,sneakers/5.jpg,sneakers/6.jpg,sneakers/7.jpg";
 
 const products = [
@@ -170,7 +170,11 @@ async function getProducts(){
     try{
         var response = await fetch(url);
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
         }
         var products = await response.json();
 
@@ -183,6 +187,25 @@ async function getProducts(){
 async function toggleTableMode() {
     await displayProducts('', '', '', 2);
 }
+
+ function searchProducts(searchText) {
+            var productList = document.getElementById('productList').children[0].children;
+            var count = 0;
+            for (var i = 0; i < productList.length; i++) {
+                var brand = productList[i].children[0].dataset.brand.toLowerCase();
+                var name = productList[i].children[0].dataset.name.toLowerCase();
+                var id = productList[i].children[0].dataset.id.toLowerCase();
+                var gender = productList[i].children[0].dataset.gender.toLowerCase();
+
+                var matchesSearch = brand.includes(searchText) || name.includes(searchText) || id.includes(searchText) || gender.includes(searchText);
+
+                productList[i].style.display = matchesSearch ? 'block' : 'none';
+
+                if(matchesSearch){
+                    count++;
+                }
+            }
+        }
 
     async function displayProducts(categoryFilter = "", genderFilter = "", seasonFilter = "", itemsPerRow = 1) {
       const productList = document.getElementById("productList");
@@ -211,7 +234,8 @@ async function toggleTableMode() {
                  data-description="${product.description}"
                  data-season="${product.season}"
                  data-category="${product.category}"
-                 data-category="${product.gender}">
+                 data-gender="${product.gender}"
+                 data-brand="${product.brand}">
              <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
                             ${product.images.split(',').map(image => `
@@ -258,36 +282,6 @@ async function toggleTableMode() {
 
       productList.appendChild(productRow);
       initSwiper();
-    }
-
-    function initSliderObsolute(productCard){
-        const slider = productCard.querySelector('.slider');
-        const prevButton = productCard.querySelector('.prev-button');
-        const nextButton = productCard.querySelector('.next-button');
-        const slides = Array.from(slider.querySelectorAll('img'));
-        const slideCount = slides.length;
-        let slideIndex = 0;
-
-        prevButton.addEventListener('click', ()=>{
-            slideIndex = (slideIndex - 1 + slideCount) % slideCount;
-            updateSlider(slides, slideIndex);
-        });
-        nextButton.addEventListener('click', ()=>{
-           slideIndex = (slideIndex + 1) % slideCount;
-            updateSlider(slides, slideIndex);
-        });
-
-        updateSlider(slides, slideIndex);
-    }
-
-    function updateSlider(slides, slideIndex) {
-        slides.forEach((slide, index) => {
-            if (index === slideIndex) {
-            slide.style.display = 'block';
-            } else {
-            slide.style.display = 'none';
-            }
-        });
     }
 
    function initSwiper() {
