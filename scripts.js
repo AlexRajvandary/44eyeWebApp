@@ -360,7 +360,16 @@ function displayCartProducts(cart) {
     const cartContentId = `cartContent_${productId}`;
 
     orderCard.innerHTML = `
-      <img class="item1" src="catalogue/${orderItem.product.id}/${orderItem.product.image}" alt="${orderItem.product.name}">
+      <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            ${product.images.split(',').map(image => `
+                                <div class="swiper-slide"> 
+                                    <img src="catalogue/${product.vendorCode}/${image.trim()}" class="card-img-top" alt="${product.name}">
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="swiper-pagination"></div>
+      </div>
       <div class="item-details item2">
         <div class="item-title"><strong>${orderItem.product.name}</strong></div>
         <div class="item-info item5">
@@ -375,6 +384,8 @@ function displayCartProducts(cart) {
 
     cartList.appendChild(orderCard);
   }
+
+  initSwiper();
 }
 
 function createSelect(options, selectedValue, parentElement) {
