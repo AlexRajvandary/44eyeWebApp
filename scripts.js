@@ -133,6 +133,7 @@ const products = [
 ];
 
 const cart = new Cart(products);
+var productsFromApi;
 
 webApp.setHeaderColor('#000000');
 mainBtn.text_color = '#FFFFFF';
@@ -176,16 +177,10 @@ async function getProducts(){
                 throw new Error('Network response was not ok');
             }
         }
-        var products = await response.json();
-
-        return products;
+        productsFromApi = await response.json();
     }catch(error){
         console.error('There was a problem with the fetch operation:', error);
     }
-}
-
-async function toggleTableMode() {
-    await displayProducts('', '', '', 2);
 }
 
  function searchProducts(searchText) {
@@ -207,13 +202,15 @@ async function toggleTableMode() {
             }
         }
 
-    async function displayProducts(categoryFilter = "", genderFilter = "", seasonFilter = "", itemsPerRow = 1) {
+     async function displayProducts(categoryFilter = "", genderFilter = "", seasonFilter = "", load = true, itemsPerRow = 1) {
       const productList = document.getElementById("productList");
       productList.innerHTML = "";
 
       const productRow = document.createElement("div");
       productRow.className = "row";
-      var productsFromApi = await getProducts();
+      if(load){
+          await getProducts();
+      }
       productsFromApi.forEach(product => {
         if (
           (!categoryFilter || product.category === categoryFilter) &&
@@ -600,10 +597,10 @@ function toggleCart(orderCard, productId, productContainer, btn) {
         backBtn.show();
     }
 
-     async function backBtnClicked(){
+    async function backBtnClicked(){
         $('.order_view').hide();
         backBtn.hide();
-        await displayProducts();
+        await displayProducts("","","",false,1);
         $('.catalogue').show();
         mainBtn.text = "Перейти в корзину";
     }
@@ -657,4 +654,5 @@ function toggleCart(orderCard, productId, productContainer, btn) {
         }
     };
 
-    displayProducts();
+
+    displayProducts("","","",true,1);
