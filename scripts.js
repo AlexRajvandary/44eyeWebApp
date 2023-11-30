@@ -296,6 +296,18 @@ async function toggleTableMode() {
         });
     }
 
+     function initSwiper2() {
+        var swiper = new Swiper(".mySwiper2", {
+              spaceBetween: 10,
+              effect: "coverflow",
+              loop: true,
+              pagination: {
+                  el: ".swiper-pagination",
+                  clickable: true,
+              },
+        });
+    }
+
     function updateDropDowns(productCard, product) {
         var sizesDropdown = productCard.querySelector("#sizes");
         var colorsDropdown = productCard.querySelector("#colors");
@@ -360,7 +372,7 @@ function displayCartProducts(cart) {
     const cartContentId = `cartContent_${productId}`;
 
     orderCard.innerHTML = `
-      <div class="swiper mySwiper">
+      <div class="swiper mySwiper2">
                         <div class="swiper-wrapper">
                             ${product.images.split(',').map(image => `
                                 <div class="swiper-slide"> 
@@ -385,7 +397,7 @@ function displayCartProducts(cart) {
     cartList.appendChild(orderCard);
   }
 
-  initSwiper();
+  initSwiper2();
 }
 
 function createSelect(options, selectedValue, parentElement) {
