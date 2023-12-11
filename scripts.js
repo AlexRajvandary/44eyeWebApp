@@ -331,7 +331,7 @@ async function getProducts(){
             colorsDropdown.appendChild(colorOption);
         }
 
-        updateOrderItemDropDown(orderItemsDropdown, cart.orderItems[productCard.dataset.id]);
+        updateOrderItemDropDown(orderItemsDropdown, cart.orderItems[product.id]);
 
          orderItemsDropdown.addEventListener("change", function () {
              var orderItemId = parseInt(orderItemsDropdown.value);
