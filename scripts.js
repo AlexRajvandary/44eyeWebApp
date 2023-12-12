@@ -358,6 +358,7 @@ async function getProducts(){
 function displayCartProducts(cart) {
   const cartList = document.getElementById("cart-container");
   cartList.innerHTML = "";
+  let totalAmount = 0;
 
   for (const productId in cart.orderItems) {
     const orderCard = document.createElement("div");
@@ -366,7 +367,7 @@ function displayCartProducts(cart) {
     const orderItem = cart.orderItems[productId][0];
     const length = cart.orderItems[productId].length;
     const price = length * product.price;
-
+    totalAmount+= price;
     // Create unique IDs for each cartContent
     const cartContentId = `cartContent_${productId}`;
 
@@ -402,7 +403,7 @@ function displayCartProducts(cart) {
     total.innerHTML = `
     
       <div class="item-details item2">
-          <div class="item-title" style="text-align: right; padding: 10px;">Итого {}</div>
+          <div class="item-title" style="text-align: right; padding: 10px;">Итого ${totalAmount}</div>
       </div>
     `;
 
