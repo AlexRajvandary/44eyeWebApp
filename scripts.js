@@ -364,6 +364,8 @@ function displayCartProducts(cart) {
     orderCard.className = "cart-item-2";
     const product = cart.orderItems[productId][0].product;
     const orderItem = cart.orderItems[productId][0];
+    const length = cart.orderItems[productId].length;
+    const price = length * product.price;
 
     // Create unique IDs for each cartContent
     const cartContentId = `cartContent_${productId}`;
@@ -385,7 +387,7 @@ function displayCartProducts(cart) {
                      <div class="item-details">
                         <div class="item-title">${orderItem.product.name}</div>
                         <div class="item-desc">
-                            <div class="text-at-bottom">Количество 3<br>Стоимость 200</div>
+                            <div class="text-at-bottom">Количество ${length}<br>Стоимость ${price}</div>
                         </div>
                     </div>
                  </div>
