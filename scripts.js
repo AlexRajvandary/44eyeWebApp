@@ -388,7 +388,7 @@ function displayCartProducts(cart) {
                      <div class="item-details">
                         <div class="item-title">${orderItem.product.name}</div>
                         <div class="item-desc">
-                            <div class="text-at-bottom">Количество ${length}<br>Стоимость ${price}</div>
+                            <div class="text-at-bottom">Количество ${length}<br>Стоимость ${price}₽</div>
                         </div>
                     </div>
                  </div>
@@ -403,7 +403,7 @@ function displayCartProducts(cart) {
     total.innerHTML = `
     
       <div class="item-details item2">
-          <div class="item-title" style="text-align: right; padding: 10px;">Итого ${totalAmount}</div>
+          <div class="item-title" style="text-align: right; padding: 10px;">Итого ${totalAmount}₽</div>
       </div>
     `;
 
