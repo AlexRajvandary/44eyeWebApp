@@ -380,7 +380,7 @@ function displayCartProducts(cart) {
                         <div class="swiper-pagination"></div>
       </div>
       <div class="item-details item2">
-        <div class="item-title"><strong>${orderItem.product.name}</strong></div>
+        <div class="item-title">${orderItem.product.name}</div>
         <div class="item-info item5">
             <div class="item-price ">${orderItem.product.price}</div>
         </div>

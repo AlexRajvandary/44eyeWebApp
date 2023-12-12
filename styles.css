@@ -219,6 +219,11 @@ body.dark-theme .comboBox{
     top: -10px;
 }
 
+.item-title{
+    font-size: 14px;
+    font-weight: bold;
+}
+
 .quantity-indicator {
   background-color: transparent; /* Цвет круга */
     border: 1px solid white;
@@ -337,6 +342,7 @@ body.dark-theme .comboBox{
   flex-grow: 1;
   padding: 0;
   margin: 0;
+    align-self: center;
 }
 
 .order-items{
