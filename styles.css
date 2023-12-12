@@ -334,11 +334,13 @@ body.dark-theme .comboBox{
   padding: 21px 20px 14px;
   display: flex;
   align-items: center;
+     justify-content: center;
 }
 .cafe-order-header {
   font-size: 17px;
   line-height: 21px;
   text-transform: uppercase;
+    text-align: center;
   flex-grow: 1;
   padding: 0;
   margin: 0;
@@ -372,7 +374,6 @@ body.dark-theme .comboBox{
     'img img right .'
     'img img . .'
     'img img . .'
-    'img img price expandBtn'
     '. orders orders .';
     '. orders orders .';
   gap: 10px;
@@ -381,9 +382,44 @@ body.dark-theme .comboBox{
     position: relative;
 }
 
+.cart-item-2 {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    position: relative;
+}
+
+.left{
+    width: 40%;
+}
+
+.right{
+    width: 60%;
+}
+
+.item-title{
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 15px;
+    text-align: justify;
+}
+
+.item-desc{
+    display: flex;
+  flex-direction: column;
+  height: 90px;
+}
+
+.text-at-bottom {
+  margin-top: auto; /* Отталкиваем текст вниз */
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.cart-item-2 img,
 .cart-item img {
-    width: 50%;
-    height: 50%;
+    width: 40%;
+    height: 40%;
     object-fit: cover;
     margin-right: 10px;
     border-radius: 5px;

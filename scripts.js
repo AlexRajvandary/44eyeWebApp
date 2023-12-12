@@ -361,7 +361,7 @@ function displayCartProducts(cart) {
 
   for (const productId in cart.orderItems) {
     const orderCard = document.createElement("div");
-    orderCard.className = "cart-item";
+    orderCard.className = "cart-item-2";
     const product = cart.orderItems[productId][0].product;
     const orderItem = cart.orderItems[productId][0];
 
@@ -369,8 +369,9 @@ function displayCartProducts(cart) {
     const cartContentId = `cartContent_${productId}`;
 
     orderCard.innerHTML = `
-      <div class="swiper mySwiper2">
-                        <div class="swiper-wrapper">
+                  <div class="left">
+                      <div class="swiper mySwiper2">
+                         <div class="swiper-wrapper">
                             ${product.images.split(',').map(image => `
                                 <div class="swiper-slide"> 
                                     <img src="catalogue/${product.vendorCode}/${image.trim()}" class="card-img-top" alt="${product.name}">
@@ -378,21 +379,32 @@ function displayCartProducts(cart) {
                             `).join('')}
                         </div>
                         <div class="swiper-pagination"></div>
-      </div>
-      <div class="item-details item2">
-        <div class="item-title">${orderItem.product.name}</div>
-        <div class="item-info item5">
-            <div class="item-price ">${orderItem.product.price}</div>
-        </div>
-        <div class="expand-button" onclick="toggleCart('${orderCard}', '${productId}', ${cartContentId}, this)">Показать</div>
-      </div>
-      <div class="item4" id='${cartContentId}'>
-        
-      </div>
+                  </div>
+                 </div>
+                 <div class="right">
+                     <div class="item-details">
+                        <div class="item-title">${orderItem.product.name}</div>
+                        <div class="item-desc">
+                            <div class="text-at-bottom">Количество 3<br>Стоимость 200</div>
+                        </div>
+                    </div>
+                 </div>
     `;
 
     cartList.appendChild(orderCard);
   }
+
+   const total = document.createElement("div");
+
+
+    total.innerHTML = `
+    
+      <div class="item-details item2">
+          <div class="item-title" style="text-align: right; padding: 10px;">Итого {}</div>
+      </div>
+    `;
+
+    cartList.appendChild(total);
 
   initSwiper2();
 }
